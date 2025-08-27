@@ -835,6 +835,41 @@ pre code {
   margin-bottom: var(--space-4);
 }
 
+.post-content ul,
+.post-content ol {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-8);
+}
+
+.post-content li {
+  margin-bottom: var(--space-2);
+  line-height: var(--line-height-relaxed);
+}
+
+.post-content ul li {
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.post-content ol li {
+  list-style-type: decimal;
+  list-style-position: outside;
+}
+
+.post-content ul ul,
+.post-content ol ol {
+  margin: var(--space-2) 0;
+  padding-left: var(--space-6);
+}
+
+.post-content ul ul li {
+  list-style-type: circle;
+}
+
+.post-content ul ul ul li {
+  list-style-type: square;
+}
+
 /* ================================
    TABLES
    ================================ */
