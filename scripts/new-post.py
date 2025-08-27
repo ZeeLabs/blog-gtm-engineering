@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""
+GTM Engineering Blog - New Post Creator
+Simple script to create new blog posts from template with interactive prompts.
+"""
+
+import re
+import sys
+from datetime import datetime
+from pathlib import Path
+
+
+def slugify(text):
+    """Convert text to URL-friendly slug."""
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"[-\s]+", "-", text)
+    return text.strip("-")
+
+
+def estimate_reading_time(content):
+    """Estimate reading time based on word count (average 200 words per minute)."""
+    words = len(content.split())
+    minutes = max(1, round(words / 200))
+    return minutes
+
+
+def create_post_card_html(post_data):
+    """Generate HTML for the blog post card to add to index.html."""
+    return f'''
+            <article class="post-card">
+              <div
+                class="post-card-image"
+                style="
+                  background: linear-gradient(135deg, #{post_data["color1"]} 0%, #{post_data["color2"]} 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 1.2rem;
+                  font-weight: bold;
+                "
+                role="img"
+                aria-label="{post_data["title"]} post thumbnail"
+              >
+                {post_data["card_label"]}
+              </div>
+              <div class="post-card-content">
+                <h3 class="post-card-title">
+                  <a href="posts/{post_data["filename"]}.html"
+                    >{post_data["title"]}</a
+                  >
+                </h3>
+                <p class="post-card-excerpt">
+                  {post_data["excerpt"]}
+                </p>
+                <div class="post-card-meta">
+                  <span class="post-card-date">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <line
+                        x1="16"
+                        y1="2"
+                        x2="16"
+                        y2="6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <line
+                        x1="8"
+                        y1="2"
+                        x2="8"
+                        y2="6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <line
+                        x1="3"
+                        y1="10"
+                        x2="21"
+                        y2="10"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    {post_data["date"]}
+                  </span>
+                  <span class="post-card-author">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <circle
+                        cx="12"
+                        cy="7"
+                        r="4"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                    </svg>
+                    {post_data["author"]}
+                  </span>
+                </div>
+                <div class="post-card-tags">
+                  {" ".join([f'<a href="#" class="post-tag">{tag}</a>' for tag in post_data["tags"]])}
+                </div>
+              </div>
+            </article>'''
+
+
+def get_color_scheme():
+    """Return a random color scheme for the post card."""
+    schemes = [
+        {"color1": "10b981", "color2": "059669", "label": "GTM Strategy"},
+        {"color1": "f59e0b", "color2": "d97706", "label": "RevOps Stack"},
+        {"color1": "8b5cf6", "color2": "7c3aed", "label": "Data Stack"},
+        {"color1": "ef4444", "color2": "dc2626", "label": "Sales Velocity"},
+        {"color1": "06b6d4", "color2": "0891b2", "label": "Analytics"},
+        {"color1": "ec4899", "color2": "db2777", "label": "Growth"},
+        {"color1": "f97316", "color2": "ea580c", "label": "Automation"},
+    ]
+    import random
+
+    scheme = random.choice(schemes)
+    return scheme["color1"], scheme["color2"], scheme["label"]
+
+
+def validate_description_length(description):
+    """Validate meta description is within SEO best practice range (150-160 chars)."""
+    if len(description) < 120:
+        print(f"⚠️  Warning: Description is short ({len(description)} chars). Consider 150-160 for SEO.")
+    elif len(description) > 160:
+        print(f"⚠️  Warning: Description is long ({len(description)} chars). Consider trimming to 160.")
+        return False
+    return True
+
+
+def get_author_info():
+    """Get author information including bio/social URL for E-E-A-T."""
+    author = input("👤 Author name (default: Jorge Macias): ").strip() or "Jorge Macias"
+    
+    if author == "Jorge Macias":
+        author_url = "https://www.linkedin.com/in/jorge-b-macias"
+        print(f"📝 Using default LinkedIn: {author_url}")
+    else:
+        author_url = input(f"🔗 Author bio/LinkedIn URL (for E-E-A-T): ").strip()
+        if not author_url:
+            print("⚠️  Warning: No author URL provided. This helps with E-E-A-T for SEO.")
+    
+    return author, author_url
+
+
+def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time):
+    """Create centralized post metadata to prevent inconsistency issues."""
+    current_date = datetime.now().strftime("%B %d, %Y")
+    current_date_iso = datetime.now().strftime("%Y-%m-%d")
+    filename = slugify(title)
+    
+    # Get and validate description
+    description = input("🔍 Meta description (150-160 chars optimal): ").strip()
+    if not description:
+        description = excerpt[:150] + "..." if len(excerpt) > 150 else excerpt
+    
+    validate_description_length(description)
+    
+    # Generate color scheme
+    color1, color2, card_label = get_color_scheme()
+    
+    return {
+        "title": title,
+        "filename": filename,
+        "author": author,
+        "author_url": author_url,
+        "date": current_date,
+        "date_iso": current_date_iso,
+        "description": description,
+        "keywords": keywords,
+        "excerpt": excerpt,
+        "tags": tags,
+        "category": tags[0] if tags else "Strategy",
+        "reading_time": reading_time,
+        "color1": color1,
+        "color2": color2,
+        "card_label": card_label,
+    }
+
+
+def print_publishing_checklist(post_data):
+    """Print a checklist to prevent inconsistency issues during publishing."""
+    print("\n📋 Pre-Publishing Checklist:")
+    print("=" * 40)
+    print(f"✓ Title: {post_data['title']}")
+    print(f"✓ Description: {post_data['description']} ({len(post_data['description'])} chars)")
+    print(f"✓ Author: {post_data['author']}")
+    if post_data.get('author_url'):
+        print(f"✓ Author URL: {post_data['author_url']}")
+    else:
+        print("⚠️  Author URL: Not provided (affects E-E-A-T)")
+    print(f"✓ Keywords: {post_data['keywords']}")
+    print(f"✓ Category: {post_data['category']}")
+    print(f"✓ Tags: {', '.join(post_data['tags'])}")
+    print(f"✓ Reading time: {post_data['reading_time']} min")
+    print("\n⚡ All meta fields will be auto-populated consistently!")
+
+
+def main():
+    """Main function to create new blog post."""
+    print("🚀 GTM Engineering Blog - New Post Creator")
+    print("=" * 50)
+
+    # Get project root directory
+    project_root = Path(__file__).parent.parent
+    template_path = project_root / ".templates" / "post-template.html"
+    
+    if not template_path.exists():
+        print(f"❌ Post template not found at {template_path}")
+        sys.exit(1)
+
+    # Gather post information
+    try:
+        title = input("\n📝 Post title: ").strip()
+        if not title:
+            print("❌ Title is required!")
+            sys.exit(1)
+        
+        print(f"📄 Filename will be: {slugify(title)}.html")
+
+        author, author_url = get_author_info()
+
+        excerpt = input("📖 Brief excerpt (2-3 sentences): ").strip()
+        if not excerpt:
+            print("❌ Excerpt is required!")
+            sys.exit(1)
+
+        keywords = input("🏷️  Keywords (comma-separated): ").strip()
+        if not keywords:
+            keywords = "GTM engineering, go-to-market, RevOps"
+
+        tags_input = input("🏷️  Tags (comma-separated): ").strip()
+        if not tags_input:
+            tags = ["Strategy"]
+        else:
+            tags = [tag.strip() for tag in tags_input.split(",")]
+
+        reading_time = input("⏱️  Reading time estimate (default: 5 min): ").strip() or "5"
+
+        # Create centralized post metadata
+        post_data = create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time)
+        
+        print(f"🎨 Color scheme: {post_data['card_label']}")
+        print_publishing_checklist(post_data)
+
+    except KeyboardInterrupt:
+        print("\n❌ Cancelled by user.")
+        sys.exit(1)
+
+    # Read template
+    with open(template_path, "r", encoding="utf-8") as f:
+        template_content = f.read()
+
+    # Replace placeholders using centralized data
+    replacements = {
+        "[BLOG POST TITLE]": post_data["title"],
+        "[AUTHOR NAME]": post_data["author"],
+        "[AUTHOR_BIO_URL]": post_data.get("author_url", "https://www.linkedin.com/in/jorge-b-macias"),
+        "[PUBLICATION DATE]": post_data["date"],
+        "[PUBLICATION DATE in YYYY-MM-DD format]": post_data["date_iso"],
+        "[LAST MODIFIED DATE in YYYY-MM-DD format]": post_data["date_iso"],
+        "[X] min read": f"{post_data['reading_time']} min read",
+        "[WRITE A COMPELLING 150-160 CHARACTER DESCRIPTION OF THIS BLOG POST]": post_data["description"],
+        "[WRITE A COMPELLING DESCRIPTION FOR SOCIAL SHARING]": post_data["description"],
+        "[WRITE A COMPELLING DESCRIPTION FOR TWITTER SHARING]": post_data["description"],
+        "[WRITE A COMPELLING DESCRIPTION]": post_data["description"],
+        "[KEYWORD1], [KEYWORD2], [KEYWORD3]": post_data["keywords"],
+        "[KEYWORD1], [KEYWORD2], [KEYWORD3], GTM engineering, go-to-market": post_data["keywords"] + ", GTM engineering, go-to-market",
+        "[CATEGORY]": post_data["category"],
+        "[TAG]": post_data["tags"][1] if len(post_data["tags"]) > 1 else "GTM",
+        "[POST-FILENAME]": post_data["filename"],
+        "[POST-TITLE]": post_data["title"],
+        "Jorge Macias": post_data["author"],  # Update default author if different
+    }
+
+    # Apply replacements
+    post_content = template_content
+    for placeholder, replacement in replacements.items():
+        post_content = post_content.replace(placeholder, replacement)
+
+    # Create the new post file
+    posts_dir = project_root / "posts"
+    posts_dir.mkdir(exist_ok=True)  # Ensure posts directory exists
+    post_path = posts_dir / f"{post_data['filename']}.html"
+
+    if post_path.exists():
+        overwrite = input(f"⚠️  Post '{post_data['filename']}.html' already exists. Overwrite? (y/N): ").strip().lower()
+        if overwrite != "y":
+            print("❌ Cancelled.")
+            sys.exit(1)
+
+    # Write the post file
+    with open(post_path, "w", encoding="utf-8") as f:
+        f.write(post_content)
+
+    print(f"✅ Created new post: {post_path}")
+
+    # Generate post card HTML for manual addition to index.html
+    post_card_html = create_post_card_html(post_data)
+
+    # Save the post card HTML to a temporary file
+    card_path = project_root / f"new-post-card-{post_data['filename']}.html"
+    with open(card_path, "w", encoding="utf-8") as f:
+        f.write(post_card_html)
+
+    print(f"✅ Generated post card HTML: {card_path}")
+
+    # Instructions
+    print("\n🎉 Your new blog post is ready!")
+    print(f"📝 Edit the content in: posts/{post_data['filename']}.html")
+    print(f"🔧 Add the post card to index.html (HTML saved to: {card_path.name})")
+    print("\n📋 Next steps:")
+    print("1. Open the new post file and replace placeholder content with your article")
+    print("2. Copy the post card HTML from the generated file into index.html")
+    print("3. Test locally by opening index.html in your browser")
+    print("4. Commit and push to deploy!")
+    print("\n🔥 SEO Benefits:")
+    print("✓ All meta descriptions auto-populated consistently")
+    print("✓ Author E-E-A-T enhanced with bio URL")
+    print("✓ Schema.org structured data included")
+    print("✓ Social media tags optimized")
+    print("\n💡 Tip: All SEO fields are now centrally managed to prevent inconsistencies!")
+
+
+if __name__ == "__main__":
+    main()
