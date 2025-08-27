@@ -139,303 +139,174 @@
                 </div>
             </section>
 
-            <!-- Blog Posts Grid -->
-            <section class="section">
+            <!-- Category Filter Pills -->
+            <section class="section category-filters">
                 <div class="container">
+                    <nav class="filter-pills" role="navigation" aria-label="Category filters">
+                        <button class="filter-pill active" data-category="all">All posts</button>
+                        <button class="filter-pill" data-category="gtm-engineering">GTM Engineering</button>
+                        <button class="filter-pill" data-category="revops">RevOps</button>
+                        <button class="filter-pill" data-category="strategy">Strategy</button>
+                        <button class="filter-pill" data-category="go-to-market">Go-to-Market</button>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- Featured Post Section -->
+            <section class="section featured-section">
+                <div class="container">
+                    <div class="featured-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" stroke="currentColor" stroke-width="2" fill="currentColor"/>
+                        </svg>
+                        Featured
+                    </div>
+                    
+                    <article class="featured-post" data-tags="gtm-marketing,gtm-engineering,go-to-market-strategy,strategy">
+                        <div class="featured-post-content">
+                            <header class="featured-post-header">
+                                <h2 class="featured-post-title">
+                                    <a href="posts/what-is-gtm-marketing-engineering-approach.html">
+                                        What is GTM Marketing? An Engineering Approach to Growth
+                                    </a>
+                                </h2>
+                                <p class="featured-post-excerpt">
+                                    Discover what GTM marketing means for startups. Learn why a traditional gtm strategy fails and how an engineering approach to data and automation drives real growth.
+                                </p>
+                            </header>
+                            
+                            <div class="featured-post-meta">
+                                <span class="post-meta-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                                        <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    August 27, 2025
+                                </span>
+                                <span class="post-meta-author">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    Jorge Macias
+                                </span>
+                            </div>
+                            
+                            <div class="featured-post-tags">
+                                <a href="#" class="post-tag">GTM Marketing</a>
+                                <a href="#" class="post-tag">GTM Engineering</a>
+                                <a href="#" class="post-tag">Go-to-Market Strategy</a>
+                            </div>
+                            
+                            <a href="posts/what-is-gtm-marketing-engineering-approach.html" class="featured-post-cta">
+                                Read more
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <div class="featured-post-image">
+                            <a href="posts/what-is-gtm-marketing-engineering-approach.html" aria-label="Read What is GTM Marketing? An Engineering Approach to Growth">
+                                <img src="assets/gtm-engineering-vs-marketing-system.png" 
+                                     alt="What is GTM Marketing? An Engineering Approach to Growth illustration" 
+                                     loading="lazy"/>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Blog Posts Grid -->
+            <section class="section blog-posts">
+                <div class="container">
+                    <h2 class="section-title">Latest Posts</h2>
                     <div class="blog-grid">
-                        <!-- Featured Post -->
-                        <article class="featured-post">
-                            <div class="post-card">
-                <a href="posts/what-is-gtm-marketing-engineering-approach.html" class="post-card-image" role="img" aria-label="What is GTM Marketing? An Engineering Approach to Growth post thumbnail">
-                    <img
-                        src="assets/gtm-engineering-vs-marketing-system.png"
-                        alt="What is GTM Marketing? An Engineering Approach to Growth illustration"
-                        style="width: 100%; height: 100%; object-fit: cover;"
-                    />
-                </a>
-              <div class="post-card-content">
-                <h3 class="post-card-title">
-                  <a href="posts/what-is-gtm-marketing-engineering-approach.html"
-                    >What is GTM Marketing? An Engineering Approach to Growth</a
-                  >
-                </h3>
-                <p class="post-card-excerpt">
-                  Discover what GTM marketing means for startups. Learn why a traditional gtm strategy fails and how an engineering approach to data and automation drives real growth.
-                </p>
-                <div class="post-card-meta">
-                  <span class="post-card-date">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <rect
-                        x="3"
-                        y="4"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="16"
-                        y1="2"
-                        x2="16"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="8"
-                        y1="2"
-                        x2="8"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="3"
-                        y1="10"
-                        x2="21"
-                        y2="10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    August 27, 2025
-                  </span>
-                  <span class="post-card-author">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <circle
-                        cx="12"
-                        cy="7"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    Jorge Macias
-                  </span>
-                </div>
-                <div class="post-card-tags">
-                  <a href="#" class="post-tag">Gtm Marketing</a> <a href="#" class="post-tag">Gtm Engineering</a> <a href="#" class="post-tag">Go-To-Market Strategy</a>
-                </div>
-              </div>
-            </article>
-
-
-
-
                         <!-- Regular Blog Posts -->
+                        <article class="post-card" data-tags="gtm-engineering,revenue-operations,revops">
+                            <a href="posts/gtm-engineering-vs-revenue-operations-for-startups.html" class="post-card-image">
+                                <img src="assets/gtm-engineering-vs-revops.png" 
+                                     alt="Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials." 
+                                     loading="lazy"/>
+                            </a>
+                            <div class="post-card-content">
+                                <h3 class="post-card-title">
+                                    <a href="posts/gtm-engineering-vs-revenue-operations-for-startups.html">
+                                        GTM Engineering vs. Revenue Operations for Startups
+                                    </a>
+                                </h3>
+                                <p class="post-card-excerpt">
+                                    Understanding the key differences between GTM Engineering and Revenue Operations approaches for startup growth and scalability.
+                                </p>
+                                <div class="post-card-meta">
+                                    <span class="post-card-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        August 27, 2025
+                                    </span>
+                                    <span class="post-card-author">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        Jorge Macias
+                                    </span>
+                                </div>
+                                <div class="post-card-tags">
+                                    <a href="#" class="post-tag">GTM Engineering</a>
+                                    <a href="#" class="post-tag">Revenue Operations</a>
+                                    <a href="#" class="post-tag">RevOps</a>
+                                </div>
+                            </div>
+                        </article>
 
 
-            <article class="post-card">
-                                <a href="posts/gtm-engineering-vs-revenue-operations-for-startups.html" class="post-card-image" role="img" aria-label="Featured post thumbnail">
-                                    <img
-                                        src="assets/gtm-engineering-vs-revops.png"
-                                        alt="Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials."
-                                        style="width: 100%; height: 100%; object-fit: cover;"
-                                    />
-                                </a>
-              <div class="post-card-content">
-                <h3 class="post-card-title">
-                  <a href="posts/gtm-engineering-vs-revenue-operations-for-startups.html"
-                    >GTM Engineering vs. Revenue Operations for Startups</a
-                  >
-                </h3>
-                <p class="post-card-excerpt">
-                  What
-                </p>
-                <div class="post-card-meta">
-                  <span class="post-card-date">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <rect
-                        x="3"
-                        y="4"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="16"
-                        y1="2"
-                        x2="16"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="8"
-                        y1="2"
-                        x2="8"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="3"
-                        y1="10"
-                        x2="21"
-                        y2="10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    August 27, 2025
-                  </span>
-                  <span class="post-card-author">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <circle
-                        cx="12"
-                        cy="7"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    Jorge Macias
-                  </span>
-                </div>
-                <div class="post-card-tags">
-                  <a href="#" class="post-tag">Gtm Engineering</a> <a href="#" class="post-tag">Revenue Operations</a> <a href="#" class="post-tag">Revops</a>
-                </div>
-              </div>
-            </article>
-
-
-                        <article class="post-card">
-                                <a href="posts/what-is-a-go-to-market-strategy-founders-playbook.html" class="post-card-image" role="img" aria-label="Featured post thumbnail">
-                                    <img
-                                        src="assets/gtm-revenue-system-illustration.png"
-                                        alt="3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system"
-                                        style="width: 100%; height: 100%; object-fit: cover;"
-                                    />
-                                </a>
-              <div class="post-card-content">
-                <h3 class="post-card-title">
-                  <a href="posts/what-is-a-go-to-market-strategy-founders-playbook.html"
-                    >What is a Go-to-Market Strategy? A Founder's Playbook</a
-                  >
-                </h3>
-                <p class="post-card-excerpt">
-                  A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup.
-                </p>
-                <div class="post-card-meta">
-                  <span class="post-card-date">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <rect
-                        x="3"
-                        y="4"
-                        width="18"
-                        height="18"
-                        rx="2"
-                        ry="2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="16"
-                        y1="2"
-                        x2="16"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="8"
-                        y1="2"
-                        x2="8"
-                        y2="6"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <line
-                        x1="3"
-                        y1="10"
-                        x2="21"
-                        y2="10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    August 27, 2025
-                  </span>
-                  <span class="post-card-author">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                      <circle
-                        cx="12"
-                        cy="7"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      />
-                    </svg>
-                    Jorge Macias
-                  </span>
-                </div>
-                <div class="post-card-tags">
-                  <a href="#" class="post-tag">Go-to-Market</a> <a href="#" class="post-tag">Strategy</a> <a href="#" class="post-tag">Startups</a>
-                </div>
-              </div>
-            </article>
+                        <article class="post-card" data-tags="go-to-market,strategy,startups">
+                            <a href="posts/what-is-a-go-to-market-strategy-founders-playbook.html" class="post-card-image">
+                                <img src="assets/gtm-revenue-system-illustration.png" 
+                                     alt="3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system" 
+                                     loading="lazy"/>
+                            </a>
+                            <div class="post-card-content">
+                                <h3 class="post-card-title">
+                                    <a href="posts/what-is-a-go-to-market-strategy-founders-playbook.html">
+                                        What is a Go-to-Market Strategy? A Founder's Playbook
+                                    </a>
+                                </h3>
+                                <p class="post-card-excerpt">
+                                    A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup.
+                                </p>
+                                <div class="post-card-meta">
+                                    <span class="post-card-date">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        August 27, 2025
+                                    </span>
+                                    <span class="post-card-author">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        Jorge Macias
+                                    </span>
+                                </div>
+                                <div class="post-card-tags">
+                                    <a href="#" class="post-tag">Go-to-Market</a>
+                                    <a href="#" class="post-tag">Strategy</a>
+                                    <a href="#" class="post-tag">Startups</a>
+                                </div>
+                            </div>
+                        </article>
 
 
                     </div>
@@ -501,7 +372,7 @@
             </div>
         </footer>
 
-        <!-- JavaScript for Mobile Menu Toggle -->
+        <!-- JavaScript for Mobile Menu Toggle and Category Filters -->
         <script>
             // Mobile menu toggle functionality
             document.addEventListener('DOMContentLoaded', function () {
@@ -524,6 +395,31 @@
                         }
                     });
                 }
+
+                // Category filter functionality
+                const filterPills = document.querySelectorAll('.filter-pill');
+                const postCards = document.querySelectorAll('.post-card');
+
+                filterPills.forEach(pill => {
+                    pill.addEventListener('click', function () {
+                        const category = this.getAttribute('data-category');
+                        
+                        // Update active state
+                        filterPills.forEach(p => p.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        // Filter posts (placeholder logic - would need backend integration)
+                        postCards.forEach(card => {
+                            if (category === 'all') {
+                                card.style.display = 'block';
+                            } else {
+                                // This would need to match against actual post categories
+                                // For now, just show all posts
+                                card.style.display = 'block';
+                            }
+                        });
+                    });
+                });
             });
         </script>
     </body>
