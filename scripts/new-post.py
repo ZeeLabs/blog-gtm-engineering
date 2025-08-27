@@ -175,7 +175,114 @@ def get_author_info():
     return author, author_url
 
 
-def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time):
+def get_faq_data():
+    """Get FAQ data for rich snippets and improved SEO."""
+    print("\n🙋 FAQ Section (optional - improves SEO with rich snippets)")
+    print("=" * 60)
+    
+    add_faq = input("Add FAQ section? This helps with rich snippets (y/N): ").strip().lower()
+    
+    if add_faq != 'y':
+        return []
+    
+    print("\n📝 Enter 3 FAQs (questions should match likely search queries):")
+    print("⚠️  CRITICAL: FAQ content must be visible on the page (Google requirement)")
+    
+    faqs = []
+    for i in range(1, 4):
+        print(f"\n--- FAQ {i} ---")
+        question = input(f"❓ Question {i}: ").strip()
+        if not question:
+            print("Skipping remaining FAQs...")
+            break
+            
+        answer = input(f"✅ Answer {i}: ").strip()
+        if not answer:
+            print("⚠️  Empty answer, skipping this FAQ")
+            continue
+            
+        # Validate answer length
+        if len(answer) < 50:
+            print(f"⚠️  Answer is short ({len(answer)} chars). Consider more detail for better SEO.")
+        elif len(answer) > 500:
+            print(f"⚠️  Answer is long ({len(answer)} chars). Consider being more concise.")
+        
+        faqs.append({"question": question, "answer": answer})
+    
+    if faqs:
+        print(f"\n✅ Added {len(faqs)} FAQs for rich snippet optimization")
+        print("💡 Remember: FAQ content must appear visibly on your page!")
+    
+    return faqs
+
+
+def create_faq_html(faqs):
+    """Generate HTML for FAQ section that must be visible on page."""
+    if not faqs:
+        return ""
+    
+    html = '''
+        <!-- FAQ Section (Required for Schema.org compliance) -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+'''
+    
+    for i, faq in enumerate(faqs, 1):
+        html += f'''
+                <div class="faq-item">
+                    <h3 class="faq-question">{faq["question"]}</h3>
+                    <div class="faq-answer">
+                        <p>{faq["answer"]}</p>
+                    </div>
+                </div>
+'''
+    
+    html += '''
+            </div>
+        </section>
+        
+        <style>
+        .faq-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .faq-section h2 {
+            color: #2563eb;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            color: #1e40af;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .faq-answer p {
+            color: #374151;
+            line-height: 1.6;
+            margin: 0;
+        }
+        </style>
+'''
+    
+    return html
+
+
+def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs):
     """Create centralized post metadata to prevent inconsistency issues."""
     current_date = datetime.now().strftime("%B %d, %Y")
     current_date_iso = datetime.now().strftime("%Y-%m-%d")
@@ -207,6 +314,7 @@ def create_post_metadata(title, author, author_url, excerpt, keywords, tags, rea
         "color1": color1,
         "color2": color2,
         "card_label": card_label,
+        "faqs": faqs,
     }
 
 
@@ -269,8 +377,11 @@ def main():
 
         reading_time = input("⏱️  Reading time estimate (default: 5 min): ").strip() or "5"
 
+        # Get FAQ data for rich snippets
+        faqs = get_faq_data()
+
         # Create centralized post metadata
-        post_data = create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time)
+        post_data = create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs)
         
         print(f"🎨 Color scheme: {post_data['card_label']}")
         print_publishing_checklist(post_data)
@@ -303,6 +414,15 @@ def main():
         "[POST-FILENAME]": post_data["filename"],
         "[POST-TITLE]": post_data["title"],
         "Jorge Macias": post_data["author"],  # Update default author if different
+        # FAQ Schema placeholders
+        "[FAQ_QUESTION_1]": post_data["faqs"][0]["question"] if len(post_data["faqs"]) > 0 else "",
+        "[FAQ_ANSWER_1]": post_data["faqs"][0]["answer"] if len(post_data["faqs"]) > 0 else "",
+        "[FAQ_QUESTION_2]": post_data["faqs"][1]["question"] if len(post_data["faqs"]) > 1 else "",
+        "[FAQ_ANSWER_2]": post_data["faqs"][1]["answer"] if len(post_data["faqs"]) > 1 else "",
+        "[FAQ_QUESTION_3]": post_data["faqs"][2]["question"] if len(post_data["faqs"]) > 2 else "",
+        "[FAQ_ANSWER_3]": post_data["faqs"][2]["answer"] if len(post_data["faqs"]) > 2 else "",
+        # FAQ HTML section
+        "[FAQ_SECTION_HTML]": create_faq_html(post_data["faqs"]),
     }
 
     # Apply replacements
