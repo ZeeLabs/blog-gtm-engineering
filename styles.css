@@ -1771,3 +1771,82 @@ select:focus {
     page-break-after: avoid;
   }
 }
+
+/* ================================
+   CATEGORY FILTER ANIMATIONS
+   ================================ */
+
+/* Ensure smooth transitions for filtered posts */
+.featured-post,
+.post-card {
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+/* Hide posts smoothly when filtered */
+.featured-post.filtering-out,
+.post-card.filtering-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+/* Show posts smoothly when filtered in */
+.featured-post.filtering-in,
+.post-card.filtering-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Completely hide posts that don't match filter - IMPORTANT: Use display: none only after animation */
+.post-hidden {
+  display: none !important;
+}
+
+/* Ensure featured post maintains its grid layout even when filtering */
+.featured-post:not(.post-hidden) {
+  display: grid; /* Maintain grid layout */
+}
+
+/* Ensure regular post cards maintain their flex layout */
+.post-card:not(.post-hidden) {
+  display: flex; /* Maintain flex layout for card structure */
+}
+
+/* Focus styles for filter pills */
+.filter-pill:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-lg);
+}
+
+/* Enhanced hover state for filter pills */
+.filter-pill:hover:not(.active) {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Active filter pill enhanced styles */
+.filter-pill.active {
+  box-shadow: 0 4px 12px rgb(56 115 193 / 0.3);
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .featured-post,
+  .post-card,
+  .filter-pill {
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .featured-post.filtering-out,
+  .post-card.filtering-out {
+    transform: none;
+  }
+  
+  .featured-post.filtering-in,
+  .post-card.filtering-in {
+    transform: none;
+  }
+}

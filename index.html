@@ -143,11 +143,11 @@
             <section class="section category-filters">
                 <div class="container">
                     <nav class="filter-pills" role="navigation" aria-label="Category filters">
-                        <button class="filter-pill active" data-category="all">All posts</button>
-                        <button class="filter-pill" data-category="gtm-engineering">GTM Engineering</button>
-                        <button class="filter-pill" data-category="revops">RevOps</button>
-                        <button class="filter-pill" data-category="strategy">Strategy</button>
-                        <button class="filter-pill" data-category="go-to-market">Go-to-Market</button>
+                        <button class="filter-pill active" data-category="all" aria-pressed="true" role="button">All posts</button>
+                        <button class="filter-pill" data-category="gtm-engineering" aria-pressed="false" role="button">GTM Engineering</button>
+                        <button class="filter-pill" data-category="revops" aria-pressed="false" role="button">RevOps</button>
+                        <button class="filter-pill" data-category="strategy" aria-pressed="false" role="button">Strategy</button>
+                        <button class="filter-pill" data-category="go-to-market" aria-pressed="false" role="button">Go-to-Market</button>
                     </nav>
                 </div>
             </section>
@@ -399,25 +399,167 @@
                 // Category filter functionality
                 const filterPills = document.querySelectorAll('.filter-pill');
                 const postCards = document.querySelectorAll('.post-card');
+                const featuredPost = document.querySelector('.featured-post');
+                const featuredBadge = document.querySelector('.featured-badge');
+                
+                // Create an array of all filterable posts (including featured post)
+                const allPosts = [...postCards];
+                if (featuredPost) {
+                    allPosts.push(featuredPost);
+                }
 
+                // Filter mapping function
+                function getFilterTags(category) {
+                    const filterMap = {
+                        'all': [],
+                        'gtm-engineering': ['gtm-engineering'],
+                        'revops': ['revops', 'revenue-operations'],
+                        'strategy': ['strategy', 'go-to-market-strategy'],
+                        'go-to-market': ['go-to-market', 'go-to-market-strategy']
+                    };
+                    return filterMap[category] || [];
+                }
+
+                // Check if post matches filter
+                function postMatchesFilter(post, filterTags) {
+                    if (filterTags.length === 0) return true; // 'all' category
+                    
+                    const postTags = post.getAttribute('data-tags');
+                    if (!postTags) return false;
+                    
+                    const postTagsArray = postTags.split(',').map(tag => tag.trim().toLowerCase());
+                    
+                    return filterTags.some(filterTag => 
+                        postTagsArray.some(postTag => 
+                            postTag === filterTag.toLowerCase() || 
+                            postTag.includes(filterTag.toLowerCase()) ||
+                            filterTag.toLowerCase().includes(postTag)
+                        )
+                    );
+                }
+
+                // Apply filter with smooth animations
+                function applyFilter(category) {
+                    const filterTags = getFilterTags(category);
+                    let featuredPostVisible = false;
+                    
+                    allPosts.forEach(post => {
+                        const shouldShow = postMatchesFilter(post, filterTags);
+                        
+                        // Track if featured post will be visible
+                        if (post === featuredPost && shouldShow) {
+                            featuredPostVisible = true;
+                        }
+                        
+                        if (shouldShow) {
+                            // Show post with fade in animation - use CSS classes instead of inline styles
+                            post.classList.remove('filtering-out', 'post-hidden');
+                            post.classList.add('filtering-in');
+                            
+                            // Remove the filtering-in class after animation completes
+                            setTimeout(() => {
+                                post.classList.remove('filtering-in');
+                            }, 400);
+                        } else {
+                            // Hide post with fade out animation
+                            post.classList.remove('filtering-in');
+                            post.classList.add('filtering-out');
+                            
+                            // Add hidden class after animation completes
+                            setTimeout(() => {
+                                if (post.classList.contains('filtering-out')) {
+                                    post.classList.add('post-hidden');
+                                }
+                            }, 300);
+                        }
+                    });
+                    
+                    // Handle featured badge visibility
+                    if (featuredBadge) {
+                        if (featuredPostVisible) {
+                            // Show featured badge
+                            featuredBadge.classList.remove('filtering-out', 'post-hidden');
+                            featuredBadge.classList.add('filtering-in');
+                            
+                            setTimeout(() => {
+                                featuredBadge.classList.remove('filtering-in');
+                            }, 400);
+                        } else {
+                            // Hide featured badge
+                            featuredBadge.classList.remove('filtering-in');
+                            featuredBadge.classList.add('filtering-out');
+                            
+                            setTimeout(() => {
+                                if (featuredBadge.classList.contains('filtering-out')) {
+                                    featuredBadge.classList.add('post-hidden');
+                                }
+                            }, 300);
+                        }
+                    }
+                }
+
+                // Handle filter pill clicks
                 filterPills.forEach(pill => {
-                    pill.addEventListener('click', function () {
+                    pill.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        
                         const category = this.getAttribute('data-category');
                         
                         // Update active state
-                        filterPills.forEach(p => p.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        // Filter posts (placeholder logic - would need backend integration)
-                        postCards.forEach(card => {
-                            if (category === 'all') {
-                                card.style.display = 'block';
-                            } else {
-                                // This would need to match against actual post categories
-                                // For now, just show all posts
-                                card.style.display = 'block';
-                            }
+                        filterPills.forEach(p => {
+                            p.classList.remove('active');
+                            p.setAttribute('aria-pressed', 'false');
                         });
+                        this.classList.add('active');
+                        this.setAttribute('aria-pressed', 'true');
+                        
+                        // Apply filter
+                        applyFilter(category);
+                        
+                        // Update URL without page reload (optional)
+                        const url = new URL(window.location);
+                        if (category === 'all') {
+                            url.searchParams.delete('category');
+                        } else {
+                            url.searchParams.set('category', category);
+                        }
+                        window.history.replaceState({}, '', url);
+                    });
+                });
+
+                // Initialize with URL parameter if present
+                const urlParams = new URLSearchParams(window.location.search);
+                const initialCategory = urlParams.get('category') || 'all';
+                
+                // Set initial active state
+                const initialPill = document.querySelector(`[data-category="${initialCategory}"]`);
+                if (initialPill) {
+                    filterPills.forEach(p => {
+                        p.classList.remove('active');
+                        p.setAttribute('aria-pressed', 'false');
+                    });
+                    initialPill.classList.add('active');
+                    initialPill.setAttribute('aria-pressed', 'true');
+                    
+                    // Apply initial filter if not 'all'
+                    if (initialCategory !== 'all') {
+                        setTimeout(() => applyFilter(initialCategory), 100);
+                    }
+                } else {
+                    // Ensure 'all' is active by default
+                    const allPill = document.querySelector('[data-category="all"]');
+                    if (allPill) {
+                        allPill.setAttribute('aria-pressed', 'true');
+                    }
+                }
+
+                // Add keyboard navigation support
+                filterPills.forEach(pill => {
+                    pill.addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();
+                        }
                     });
                 });
             });
