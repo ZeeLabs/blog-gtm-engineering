@@ -31,7 +31,7 @@ def get_color_scheme():
         {"color1": "f97316", "color2": "ea580c", "label": "Automation"},
     ]
     import random
-    
+
     scheme = random.choice(schemes)
     return scheme["color1"], scheme["color2"], scheme["label"]
 
@@ -39,68 +39,76 @@ def get_color_scheme():
 def extract_meta_from_html(html_content):
     """Extract metadata from existing HTML post."""
     data = {}
-    
+
     # Extract title from <title> tag or h1
-    title_match = re.search(r'<title[^>]*>([^<]+)</title>', html_content, re.IGNORECASE)
+    title_match = re.search(r"<title[^>]*>([^<]+)</title>", html_content, re.IGNORECASE)
     if title_match:
         title = title_match.group(1).strip()
         # Remove " - GTM Engineering" suffix if present
-        title = re.sub(r'\s*-\s*GTM Engineering.*$', '', title)
-        data['title'] = title
+        title = re.sub(r"\s*-\s*GTM Engineering.*$", "", title)
+        data["title"] = title
     else:
         # Fallback to h1
-        h1_match = re.search(r'<h1[^>]*>([^<]+)</h1>', html_content, re.IGNORECASE)
+        h1_match = re.search(r"<h1[^>]*>([^<]+)</h1>", html_content, re.IGNORECASE)
         if h1_match:
-            data['title'] = h1_match.group(1).strip()
-    
+            data["title"] = h1_match.group(1).strip()
+
     # Extract meta description
-    desc_match = re.search(r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE)
+    desc_match = re.search(
+        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
+    )
     if desc_match:
-        data['description'] = desc_match.group(1).strip()
-    
+        data["description"] = desc_match.group(1).strip()
+
     # Extract author
-    author_match = re.search(r'<meta\s+name=["\']author["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE)
+    author_match = re.search(
+        r'<meta\s+name=["\']author["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
+    )
     if author_match:
-        data['author'] = author_match.group(1).strip()
+        data["author"] = author_match.group(1).strip()
     else:
-        data['author'] = "Jorge Macias"  # Default
-    
+        data["author"] = "Jorge Macias"  # Default
+
     # Extract Open Graph image for proper image display
-    og_image_match = re.search(r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE)
+    og_image_match = re.search(
+        r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
+    )
     if og_image_match:
         image_url = og_image_match.group(1).strip()
         # Convert full URL to relative path if it's from the same domain
-        if 'blog.gtm-engineering.io' in image_url:
-            image_url = image_url.split('blog.gtm-engineering.io')[-1]
-        data['image_url'] = image_url
-    
+        if "blog.gtm-engineering.io" in image_url:
+            image_url = image_url.split("blog.gtm-engineering.io")[-1]
+        data["image_url"] = image_url
+
     # Extract keywords for tags
-    keywords_match = re.search(r'<meta\s+name=["\']keywords["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE)
+    keywords_match = re.search(
+        r'<meta\s+name=["\']keywords["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
+    )
     if keywords_match:
         keywords = keywords_match.group(1).strip()
         # Convert keywords to tags (first 3)
-        tags = [tag.strip() for tag in keywords.split(',')[:3]]
-        data['tags'] = [tag.title() for tag in tags if tag.strip()]
-    
-    if not data.get('tags'):
-        data['tags'] = ['Strategy']
-    
+        tags = [tag.strip() for tag in keywords.split(",")[:3]]
+        data["tags"] = [tag.title() for tag in tags if tag.strip()]
+
+    if not data.get("tags"):
+        data["tags"] = ["Strategy"]
+
     return data
 
 
 def create_post_card_html(post_data, filename, is_featured=False):
     """Generate HTML for the blog post card to add to index.html."""
     color1, color2, card_label = get_color_scheme()
-    
+
     # Use actual image if available, otherwise use gradient background
-    if post_data.get('image_url'):
-        image_html = f'''<div class="post-card-image" role="img" aria-label="{post_data["title"]} post thumbnail">
+    if post_data.get("image_url"):
+        image_html = f'''<a href="posts/{filename}.html" class="post-card-image" role="img" aria-label="{post_data["title"]} post thumbnail">
                     <img
-                        src="{post_data['image_url']}"
-                        alt="{post_data['title']} illustration"
+                        src="{post_data["image_url"]}"
+                        alt="{post_data["title"]} illustration"
                         style="width: 100%; height: 100%; object-fit: cover;"
                     />
-                </div>'''
+                </a>'''
     else:
         image_html = f'''<div
                 class="post-card-image"
@@ -118,8 +126,8 @@ def create_post_card_html(post_data, filename, is_featured=False):
               >
                 {card_label}
               </div>'''
-    
-    card_content = f'''              <div class="post-card-content">
+
+    card_content = f"""              <div class="post-card-content">
                 <h3 class="post-card-title">
                   <a href="posts/{filename}.html"
                     >{post_data["title"]}</a
@@ -203,107 +211,110 @@ def create_post_card_html(post_data, filename, is_featured=False):
                 <div class="post-card-tags">
                   {" ".join([f'<a href="#" class="post-tag">{tag}</a>' for tag in post_data["tags"]])}
                 </div>
-              </div>'''
-    
+              </div>"""
+
     if is_featured:
-        return f'''<!-- Featured Post -->
+        return f"""<!-- Featured Post -->
                         <article class="featured-post">
                             <div class="post-card">
                 {image_html}
 {card_content}
-            </article>'''
+            </article>"""
     else:
-        return f'''            <article class="post-card">
+        return f"""            <article class="post-card">
               {image_html}
 {card_content}
-            </article>'''
+            </article>"""
 
 
 def extract_current_featured_post(content):
     """Extract the current featured post HTML to move it to regular posts."""
     # Find the featured post section
-    featured_start = content.find('<!-- Featured Post -->')
+    featured_start = content.find("<!-- Featured Post -->")
     if featured_start == -1:
         # Look for direct featured-post class
         featured_start = content.find('<article class="featured-post">')
-    
+
     if featured_start == -1:
         return None, content
-    
+
     # Find the end of the featured post article
     article_count = 0
     pos = featured_start
     while pos < len(content):
-        if content[pos:].startswith('<article'):
+        if content[pos:].startswith("<article"):
             article_count += 1
-        elif content[pos:].startswith('</article>'):
+        elif content[pos:].startswith("</article>"):
             article_count -= 1
             if article_count == 0:
-                featured_end = pos + len('</article>')
+                featured_end = pos + len("</article>")
                 break
         pos += 1
     else:
         return None, content
-    
+
     # Extract the featured post HTML
     featured_html = content[featured_start:featured_end]
-    
+
     # Convert featured post to regular post format
     # Remove the featured-post wrapper and convert to regular post-card
-    regular_post_html = re.sub(r'<!-- Featured Post -->\s*', '', featured_html)
-    regular_post_html = re.sub(r'<article class="featured-post">\s*<div class="post-card">', 
-                              '<article class="post-card">', regular_post_html)
-    regular_post_html = re.sub(r'</article>\s*$', '</article>', regular_post_html)
-    
+    regular_post_html = re.sub(r"<!-- Featured Post -->\s*", "", featured_html)
+    regular_post_html = re.sub(
+        r'<article class="featured-post">\s*<div class="post-card">', '<article class="post-card">', regular_post_html
+    )
+    regular_post_html = re.sub(r"</article>\s*$", "</article>", regular_post_html)
+
     # Remove the featured post from content
     remaining_content = content[:featured_start] + content[featured_end:]
-    
+
     return regular_post_html.strip(), remaining_content
 
 
 def promote_post_to_featured(new_featured_html, index_path):
     """Promote new post to featured and move current featured to regular posts."""
     try:
-        with open(index_path, 'r', encoding='utf-8') as f:
+        with open(index_path, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         # Extract current featured post
         current_featured_html, content_without_featured = extract_current_featured_post(content)
-        
+
         # Find where to insert the new featured post
         blog_grid_start = content_without_featured.find('<div class="blog-grid">')
         if blog_grid_start == -1:
             print("❌ Could not find blog-grid section")
             return False
-        
-        featured_insertion_point = content_without_featured.find('>', blog_grid_start) + 1
-        
+
+        featured_insertion_point = content_without_featured.find(">", blog_grid_start) + 1
+
         # Find where to insert regular posts (after comment)
-        regular_insertion_point = content_without_featured.find('<!-- Regular Blog Posts -->')
+        regular_insertion_point = content_without_featured.find("<!-- Regular Blog Posts -->")
         if regular_insertion_point == -1:
             print("❌ Could not find regular posts insertion point")
             return False
-        
-        regular_insertion_point += len('<!-- Regular Blog Posts -->')
-        
+
+        regular_insertion_point += len("<!-- Regular Blog Posts -->")
+
         # Build new content
         new_content = (
-            content_without_featured[:featured_insertion_point] + 
-            '\n                        ' + new_featured_html + '\n\n                        ' +
-            content_without_featured[featured_insertion_point:regular_insertion_point]
+            content_without_featured[:featured_insertion_point]
+            + "\n                        "
+            + new_featured_html
+            + "\n\n                        "
+            + content_without_featured[featured_insertion_point:regular_insertion_point]
         )
-        
+
         # Add current featured post as regular post (if it exists)
         if current_featured_html:
-            new_content += '\n                        ' + current_featured_html + '\n\n'
-        
+            new_content += "\n                        " + current_featured_html + "\n\n"
+
         new_content += content_without_featured[regular_insertion_point:]
-        
-        with open(index_path, 'w', encoding='utf-8') as f:
+
+        with open(index_path, "w", encoding="utf-8") as f:
             f.write(new_content)
-        
+
         return True
-        
+
     except Exception as e:
         print(f"❌ Error promoting post to featured: {e}")
         return False
@@ -312,31 +323,29 @@ def promote_post_to_featured(new_featured_html, index_path):
 def add_regular_post_to_index(card_html, index_path):
     """Add the post card to regular posts section in index.html."""
     try:
-        with open(index_path, 'r', encoding='utf-8') as f:
+        with open(index_path, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         # Find the insertion point for regular posts
-        insertion_point = content.find('<!-- Regular Blog Posts -->')
-        
+        insertion_point = content.find("<!-- Regular Blog Posts -->")
+
         if insertion_point == -1:
             print("❌ Could not find insertion point in index.html")
             print("💡 Look for '<!-- Regular Blog Posts -->' comment")
             return False
-        
-        insertion_point += len('<!-- Regular Blog Posts -->')
-        
+
+        insertion_point += len("<!-- Regular Blog Posts -->")
+
         # Insert the card HTML after the comment
         new_content = (
-            content[:insertion_point] + 
-            '\n                        ' + card_html + '\n\n' +
-            content[insertion_point:]
+            content[:insertion_point] + "\n                        " + card_html + "\n\n" + content[insertion_point:]
         )
-        
-        with open(index_path, 'w', encoding='utf-8') as f:
+
+        with open(index_path, "w", encoding="utf-8") as f:
             f.write(new_content)
-        
+
         return True
-        
+
     except Exception as e:
         print(f"❌ Error updating index.html: {e}")
         return False
@@ -346,20 +355,20 @@ def main():
     """Main function to generate post card and add to index."""
     print("🎯 GTM Engineering Blog - Post Card Generator")
     print("=" * 50)
-    
+
     # Get project root directory
     project_root = Path(__file__).parent.parent
     posts_dir = project_root / "posts"
     index_path = project_root / "index.html"
-    
+
     if not index_path.exists():
         print(f"❌ index.html not found at {index_path}")
         sys.exit(1)
-    
+
     # Get post filename
     if len(sys.argv) > 1:
         filename = sys.argv[1]
-        if filename.endswith('.html'):
+        if filename.endswith(".html"):
             filename = filename[:-5]  # Remove .html extension
     else:
         print("📝 Available posts:")
@@ -367,88 +376,88 @@ def main():
             print(f"  - {post_file.stem}")
         print()
         filename = input("📄 Enter post filename (without .html): ").strip()
-    
+
     if not filename:
         print("❌ Filename is required!")
         sys.exit(1)
-    
+
     post_path = posts_dir / f"{filename}.html"
-    
+
     if not post_path.exists():
         print(f"❌ Post not found at {post_path}")
         sys.exit(1)
-    
+
     try:
         # Read the HTML post
-        with open(post_path, 'r', encoding='utf-8') as f:
+        with open(post_path, "r", encoding="utf-8") as f:
             html_content = f.read()
-        
+
         # Extract metadata
         post_data = extract_meta_from_html(html_content)
-        
-        if not post_data.get('title'):
+
+        if not post_data.get("title"):
             print("❌ Could not extract title from HTML post")
             print("💡 Make sure the post has a <title> tag or <h1> tag")
             sys.exit(1)
-        
+
         print(f"📖 Title: {post_data['title']}")
         print(f"👤 Author: {post_data['author']}")
         print(f"📝 Description: {post_data.get('description', 'N/A')[:50]}...")
         print(f"🏷️  Tags: {', '.join(post_data['tags'])}")
-        if post_data.get('image_url'):
+        if post_data.get("image_url"):
             print(f"🖼️  Image: {post_data['image_url']}")
         else:
             print("🎨 Image: Will use gradient background")
-        
+
         # Ask user what to do
         print("\n🎯 Options:")
         print("1. Promote to FEATURED POST (moves current featured to regular)")
         print("2. Add as regular post")
         print("3. Save HTML to file for manual addition")
-        
+
         choice = input("\nChoose option (1/2/3): ").strip()
-        
+
         if choice == "1":
             # Generate featured post HTML
             card_html = create_post_card_html(post_data, filename, is_featured=True)
             if promote_post_to_featured(card_html, index_path):
-                print(f"✅ Post promoted to FEATURED on index.html")
+                print("✅ Post promoted to FEATURED on index.html")
                 print("🎉 Your blog post is now the featured article!")
             else:
                 print("❌ Failed to promote post to featured")
                 sys.exit(1)
-        
+
         elif choice == "2":
             # Generate regular post HTML
             card_html = create_post_card_html(post_data, filename, is_featured=False)
             if add_regular_post_to_index(card_html, index_path):
-                print(f"✅ Post card added as regular post to index.html")
+                print("✅ Post card added as regular post to index.html")
                 print("🎉 Your blog post card is now live!")
             else:
                 print("❌ Failed to add card to index.html")
                 sys.exit(1)
-        
+
         elif choice == "3":
             # Save to temporary files (both versions)
             featured_card = create_post_card_html(post_data, filename, is_featured=True)
             regular_card = create_post_card_html(post_data, filename, is_featured=False)
-            
+
             featured_path = project_root / f"featured-post-{filename}.html"
             regular_path = project_root / f"regular-post-{filename}.html"
-            
-            with open(featured_path, 'w', encoding='utf-8') as f:
+
+            with open(featured_path, "w", encoding="utf-8") as f:
                 f.write(featured_card)
-            with open(regular_path, 'w', encoding='utf-8') as f:
+            with open(regular_path, "w", encoding="utf-8") as f:
                 f.write(regular_card)
-            
+
             print(f"✅ Featured post HTML saved to: {featured_path}")
             print(f"✅ Regular post HTML saved to: {regular_path}")
             print("📋 Use the appropriate HTML for your needs")
-        
+
         else:
             print("❌ Invalid choice")
             sys.exit(1)
-        
+
     except Exception as e:
         print(f"❌ Error processing post: {e}")
         sys.exit(1)
