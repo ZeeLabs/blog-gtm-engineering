@@ -8,13 +8,14 @@
 :root {
     /* Colors - Based on GTM Engineering brand */
     --color-primary: #3873c1;
-    --color-primary-hover: #2c5aa0;
+    --color-primary-hover: #608fcd;
     --color-primary-light: #e8f0ff;
     --color-background: #ffffff;
     --color-background-secondary: #f4f4f4;
     --color-text-primary: #1a1a1a;
     --color-text-secondary: #666666;
     --color-text-tertiary: #999999;
+    --color-text-quaternary: #3f4643;
     --color-border: #e5e5e5;
     --color-border-light: #f0f0f0;
     --color-success: #10b981;
@@ -256,7 +257,10 @@ pre code {
 }
 
 .container-2xl {
+    width: 100%;
     max-width: var(--container-2xl);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
 }
 
 .section {
@@ -367,8 +371,8 @@ pre code {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-6) 0;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
     min-height: 80px;
     gap: var(--space-12);
 }
@@ -380,7 +384,7 @@ pre code {
 }
 
 .logo img {
-    height: 50px;
+    height: 40px;
     width: auto;
     transition: transform 0.2s ease;
 }
@@ -396,7 +400,9 @@ pre code {
 .nav {
     display: flex;
     align-items: center;
-    gap: var(--space-12);
+    flex: 1;
+    justify-content: center;
+    margin-left: var(--space-16);
 }
 
 .nav-links {
@@ -407,8 +413,8 @@ pre code {
 }
 
 .nav-link {
-    color: var(--color-text-primary);
-    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-quaternary);
+    font-weight: var(--font-weight-medium);
     font-size: var(--font-size-lg);
     transition: color 0.2s ease;
     text-decoration: none;
@@ -421,12 +427,6 @@ pre code {
 
 .nav-link.active {
     color: var(--color-primary);
-}
-
-.btn-primary {
-    font-size: var(--font-size-lg);
-    padding: var(--space-4) var(--space-8);
-    font-weight: var(--font-weight-semibold);
 }
 
 /* Mobile Navigation */
@@ -507,6 +507,9 @@ pre code {
 .btn-primary {
     background-color: var(--color-primary);
     color: white;
+    font-size: var(--font-size-base);
+    padding: var(--space-4) var(--space-6);
+    font-weight: var(--font-weight-medium);
 }
 
 .btn-primary:hover {
