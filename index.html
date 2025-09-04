@@ -13,6 +13,16 @@
         />
         <meta name="author" content="GTM Engineering" />
 
+        <!-- SEO Enhancements -->
+        <link rel="canonical" href="https://blog.gtm-engineering.io/" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="GTM Engineering Blog RSS Feed"
+            href="https://blog.gtm-engineering.io/feed.xml"
+        />
+
         <!-- Open Graph Meta Tags -->
         <meta property="og:title" content="GTME Blog - GTM Engineering Insights" />
         <meta
@@ -32,6 +42,51 @@
 
         <title>GTME Blog - GTM Engineering</title>
         <link rel="stylesheet" href="styles.css" />
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://blog.gtm-engineering.io/#website",
+                        "url": "https://blog.gtm-engineering.io/",
+                        "name": "GTM Engineering Blog",
+                        "description": "Expert insights on go-to-market strategies, RevOps, and scaling B2B growth.",
+                        "publisher": {
+                            "@id": "https://blog.gtm-engineering.io/#organization"
+                        },
+                        "inLanguage": "en-US"
+                    },
+                    {
+                        "@type": "Organization",
+                        "@id": "https://blog.gtm-engineering.io/#organization",
+                        "name": "GTM Engineering",
+                        "url": "https://www.gtm-engineering.io/",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w",
+                            "width": 1500,
+                            "height": 500
+                        },
+                        "description": "GTM Engineering specializes in building scalable go-to-market systems and revenue operations for B2B startups.",
+                        "sameAs": ["https://www.linkedin.com/company/gtm-engineering"]
+                    },
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://blog.gtm-engineering.io/#webpage",
+                        "url": "https://blog.gtm-engineering.io/",
+                        "name": "GTME Blog - GTM Engineering Insights",
+                        "description": "Expert insights on go-to-market strategies, RevOps, and scaling B2B growth.",
+                        "isPartOf": {
+                            "@id": "https://blog.gtm-engineering.io/#website"
+                        },
+                        "inLanguage": "en-US"
+                    }
+                ]
+            }
+        </script>
 
         <!-- Favicon (placeholder) -->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />

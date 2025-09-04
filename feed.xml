@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>GTME Blog - GTM Engineering</title>
+        <description>Expert insights on go-to-market strategies, RevOps, and scaling B2B growth</description>
+        <link>https://blog.gtm-engineering.io/</link>
+        <language>en-US</language>
+        <copyright>GTM Engineering</copyright>
+        <managingEditor>hello@gtm-engineering.io (Jorge Macias)</managingEditor>
+        <webMaster>hello@gtm-engineering.io (Jorge Macias)</webMaster>
+        <lastBuildDate>Wed, 04 Sep 2025 00:00:00 GMT</lastBuildDate>
+        <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
+        <generator>GTM Engineering Blog System</generator>
+        <docs>https://www.rssboard.org/rss-specification</docs>
+        <ttl>1440</ttl>
+        <atom:link href="https://blog.gtm-engineering.io/feed.xml" rel="self" type="application/rss+xml"/>
+
+        <image>
+            <url>https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w</url>
+            <title>GTME Blog - GTM Engineering</title>
+            <link>https://blog.gtm-engineering.io/</link>
+            <width>1500</width>
+            <height>500</height>
+            <description>GTM Engineering Logo</description>
+        </image>
+
+        <item>
+            <title>GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups</title>
+            <link>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</link>
+            <description><![CDATA[What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine. Learn when to hire and when to build systems first.]]></description>
+            <content:encoded><![CDATA[<p><strong>As a founder, you're constantly told to be "data-driven."</strong> You're also buried in acronyms. Two of the biggest floating around are RevOps (Revenue Operations) and GTM Engineering. They sound similar, and frankly, the consulting world loves to make them confusing. But for a startup, choosing the wrong one at the wrong time is the difference between scaling predictably and burning cash on a system that doesn't work.</p>
+
+<p>Let's cut through the noise. Here's the simple, direct answer: <strong>Revenue Operations is about <em>managing</em> your existing GTM systems. GTM Engineering is about <em>building</em> custom, automated systems from first principles to create a step-function change in your growth.</strong></p>
+
+<p>I've lived this firsthand. When scaling my last company through Y Combinator, we hit a wall where our early, scrappy processes couldn't keep up. We needed a system. The debate then, as it is now, was where to focus our limited resources. This guide is the answer I wish I had—a founder-to-founder breakdown of what these disciplines are and which one you actually need right now.</p>]]></content:encoded>
+            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>GTM Engineering</category>
+            <category>RevOps</category>
+            <category>Startups</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revops.webp" type="image/webp" length="0"/>
+        </item>
+
+        <item>
+            <title>What is a Go-to-Market (GTM) Strategy? A Founder's Playbook for 2026</title>
+            <link>https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</link>
+            <description><![CDATA[A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup. Forget the textbook definitions—this is the practical blueprint for your revenue machine.]]></description>
+            <content:encoded><![CDATA[<p><strong>If you search for "what is a go to market strategy," you'll find a dozen articles with the same MBA-style definition.</strong> They'll talk about product, price, place, and promotion. They'll give you a checklist that feels like it was written for a Fortune 500 company launching a new soda. As a founder, that's not just unhelpful—it's a distraction.</p>
+
+<p>A go-to-market (GTM) strategy for a startup isn't a 50-page document. It's the blueprint for your revenue machine. It's the engineered system that answers one question: How do we predictably and repeatedly acquire customers we can serve profitably? I learned this the hard way while scaling my YC-backed startup from $0 to $3M ARR. We didn't have time for theory; we needed systems that worked.</p>]]></content:encoded>
+            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Go-to-Market</category>
+            <category>Strategy</category>
+            <category>Startups</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-revenue-system-illustration.webp" type="image/webp" length="0"/>
+        </item>
+
+        <item>
+            <title>What is GTM Marketing? An Engineering Approach to Growth</title>
+            <link>https://blog.gtm-engineering.io/posts/what-is-gtm-marketing-engineering-approach.html</link>
+            <description><![CDATA[Discover what GTM marketing means for startups. Learn why a traditional GTM strategy fails and how an engineering approach to data and automation drives real growth. Stop marketing on hope, start building systems.]]></description>
+            <content:encoded><![CDATA[<p>Ask ten founders what "GTM marketing" is, and you'll get ten different answers. Most will talk about launch plans, content calendars, and ad campaigns. They're not wrong, but they're missing the most critical piece of the puzzle.</p>
+
+<p><strong>Here's the uncomfortable truth I learned scaling a Y Combinator company from 0 to $3M ARR: most GTM marketing plans are built on hope, not systems.</strong> They are a collection of tactics duct-taped together, doomed to fail because they lack a robust engineering backbone for data, automation, and measurement. True GTM marketing isn't just about making noise; it's about building a predictable engine for growth.</p>]]></content:encoded>
+            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/what-is-gtm-marketing-engineering-approach.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>GTM Strategy</category>
+            <category>GTM Engineering</category>
+            <category>Startups</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-marketing-system.webp" type="image/webp" length="0"/>
+        </item>
+
+    </channel>
+</rss>

@@ -20,6 +20,18 @@
         <!-- UPDATE: Author name -->
         <meta name="author" content="Jorge Macias" />
 
+        <!-- SEO Enhancements -->
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+        <!-- Article Meta Tags -->
+        <meta property="article:published_time" content="2025-09-04T00:00:00+00:00" />
+        <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00" />
+        <meta property="article:author" content="Jorge Macias" />
+        <meta property="article:section" content="GTM Engineering" />
+        <meta property="article:tag" content="GTM Engineering" />
+        <meta property="article:tag" content="RevOps" />
+        <meta property="article:tag" content="Startups" />
+
         <!-- ===================
          OPEN GRAPH TAGS FOR SOCIAL SHARING
          =================== -->
@@ -82,60 +94,82 @@
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "GTM Engineering vs. Revenue Operations for Startups",
-                "description": "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
-                "image": "https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revops.webp",
-                "author": {
-                    "@type": "Person",
-                    "name": "Jorge Macias",
-                    "url": "https://www.linkedin.com/in/jorge-b-macias"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "GTM Engineering",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.gtm-engineering.io/assets/logo.png"
+                "@graph": [
+                    {
+                        "@type": "Article",
+                        "@id": "https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html#article",
+                        "headline": "GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups",
+                        "description": "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
+                        "image": {
+                            "@type": "ImageObject",
+                            "url": "https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revops.webp",
+                            "width": 1200,
+                            "height": 630
+                        },
+                        "author": {
+                            "@type": "Person",
+                            "name": "Jorge Macias",
+                            "url": "https://www.gtm-engineering.io/about"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "GTM Engineering",
+                            "url": "https://www.gtm-engineering.io/",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w",
+                                "width": 1500,
+                                "height": 500
+                            }
+                        },
+                        "datePublished": "2025-09-04T00:00:00+00:00",
+                        "dateModified": "2025-09-04T00:00:00+00:00",
+                        "mainEntityOfPage": {
+                            "@type": "WebPage",
+                            "@id": "https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html"
+                        },
+                        "articleSection": "GTM Engineering",
+                        "keywords": [
+                            "GTM Engineering",
+                            "Revenue Operations",
+                            "RevOps",
+                            "startup scaling",
+                            "go-to-market"
+                        ],
+                        "wordCount": 1200,
+                        "inLanguage": "en-US"
+                    },
+                    {
+                        "@type": "FAQPage",
+                        "@id": "https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html#faq",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What is the main difference between RevOps and GTM Engineering?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Revenue Operations (RevOps) focuses on managing and optimizing your existing go-to-market systems. GTM Engineering is about designing and building new, custom, and automated growth systems from first principles to create a significant step-function change in growth."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Which function does an early-stage startup need first?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Most seed and Series A startups need GTM Engineering first. You need to build a scalable, automated revenue engine before you can optimize it. GTM Engineering is the architectural function that builds this foundation."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What are the key activities of a GTM Engineer?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "A GTM Engineer architects data and workflows for scale, builds custom automation for tasks like data enrichment and personalized outreach using modern tools (e.g., Clay, n8n), and proactively treats the GTM motion like a product to be iterated on and improved."
+                                }
+                            }
+                        ]
                     }
-                },
-                "datePublished": "2025-08-27",
-                "dateModified": "2025-08-27",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html"
-                },
-                "articleSection": "GTM Engineering",
-                "keywords": "GTM Engineering, Revenue Operations, RevOps, Startups, Go-to-Market",
-                "mainEntity": {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "What is the main difference between RevOps and GTM Engineering?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Revenue Operations (RevOps) focuses on managing and optimizing your existing go-to-market systems. GTM Engineering is about designing and building new, custom, and automated growth systems from first principles to create a significant step-function change in growth."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Which function does an early-stage startup need first?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Most seed and Series A startups need GTM Engineering first. You need to build a scalable, automated revenue engine before you can optimize it. GTM Engineering is the architectural function that builds this foundation."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "What are the key activities of a GTM Engineer?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "A GTM Engineer architects data and workflows for scale, builds custom automation for tasks like data enrichment and personalized outreach using modern tools (e.g., Clay, n8n), and proactively treats the GTM motion like a product to be iterated on and improved."
-                            }
-                        }
-                    ]
-                }
+                ]
             }
         </script>
 
@@ -289,7 +323,7 @@
                                     <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" />
                                 </svg>
                                 <!-- UPDATE: Publication date -->
-                                August 27, 2025
+                                September 04, 2025
                             </span>
 
                             <!-- Author -->
