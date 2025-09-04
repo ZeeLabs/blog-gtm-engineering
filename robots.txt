@@ -1,0 +1,11 @@
+# Robots.txt for GTM Engineering Blog
+# https://blog.gtm-engineering.io
+
+User-agent: *
+Allow: /
+
+# Crawl-delay to be respectful to server resources
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://blog.gtm-engineering.io/sitemap.xml
