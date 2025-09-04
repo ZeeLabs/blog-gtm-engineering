@@ -3,8 +3,23 @@
 GTM Engineering Blog - Post Card Generator
 Simple script to generate post cards for index.html from existing HTML posts.
 Supports promoting posts to featured status and proper image handling.
+
+Usage:
+    Interactive mode:
+        python scripts/add-post-card.py [filename]
+    
+    Automation mode (CI/CD):
+        python scripts/add-post-card.py post-name --auto
+        python scripts/add-post-card.py post-name --auto --mode featured
+        python scripts/add-post-card.py post-name --auto --mode regular
+
+Exit codes:
+    0: Success
+    1: Error occurred
+    2: Post already exists in index.html
 """
 
+import argparse
 import re
 import sys
 from datetime import datetime
@@ -270,6 +285,20 @@ def extract_current_featured_post(content):
     return regular_post_html.strip(), remaining_content
 
 
+def check_post_exists_in_index(filename, index_path):
+    """Check if a post is already in the index.html file."""
+    try:
+        with open(index_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        # Check for post link in the content
+        post_link_pattern = f'posts/{filename}.html'
+        return post_link_pattern in content
+    
+    except Exception:
+        return False
+
+
 def promote_post_to_featured(new_featured_html, index_path):
     """Promote new post to featured and move current featured to regular posts."""
     try:
@@ -351,10 +380,43 @@ def add_regular_post_to_index(card_html, index_path):
         return False
 
 
+def parse_arguments():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(
+        description="GTM Engineering Blog - Post Card Generator",
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    
+    parser.add_argument(
+        "filename",
+        nargs="?",
+        help="Post filename (without .html extension)"
+    )
+    
+    parser.add_argument(
+        "--auto",
+        action="store_true",
+        help="Run in non-interactive automation mode for CI/CD"
+    )
+    
+    parser.add_argument(
+        "--mode",
+        choices=["regular", "featured"],
+        default="regular",
+        help="Post mode when using --auto flag (default: regular)"
+    )
+    
+    return parser.parse_args()
+
+
 def main():
     """Main function to generate post card and add to index."""
-    print("🎯 GTM Engineering Blog - Post Card Generator")
-    print("=" * 50)
+    args = parse_arguments()
+    
+    # Interactive mode header
+    if not args.auto:
+        print("🎯 GTM Engineering Blog - Post Card Generator")
+        print("=" * 50)
 
     # Get project root directory
     project_root = Path(__file__).parent.parent
@@ -366,10 +428,13 @@ def main():
         sys.exit(1)
 
     # Get post filename
-    if len(sys.argv) > 1:
-        filename = sys.argv[1]
+    if args.filename:
+        filename = args.filename
         if filename.endswith(".html"):
             filename = filename[:-5]  # Remove .html extension
+    elif args.auto:
+        print("❌ Filename is required in automation mode!")
+        sys.exit(1)
     else:
         print("📝 Available posts:")
         for post_file in posts_dir.glob("*.html"):
@@ -387,6 +452,18 @@ def main():
         print(f"❌ Post not found at {post_path}")
         sys.exit(1)
 
+    # Check if post already exists in index
+    if check_post_exists_in_index(filename, index_path):
+        if args.auto:
+            print(f"Post '{filename}' already exists in index.html")
+            sys.exit(2)  # Exit code 2 for already exists
+        else:
+            print(f"⚠️  Post '{filename}' already exists in index.html")
+            overwrite = input("Do you want to continue anyway? (y/N): ").strip().lower()
+            if overwrite != "y":
+                print("Operation cancelled")
+                sys.exit(0)
+
     try:
         # Read the HTML post
         with open(post_path, "r", encoding="utf-8") as f:
@@ -400,16 +477,43 @@ def main():
             print("💡 Make sure the post has a <title> tag or <h1> tag")
             sys.exit(1)
 
-        print(f"📖 Title: {post_data['title']}")
-        print(f"👤 Author: {post_data['author']}")
-        print(f"📝 Description: {post_data.get('description', 'N/A')[:50]}...")
-        print(f"🏷️  Tags: {', '.join(post_data['tags'])}")
-        if post_data.get("image_url"):
-            print(f"🖼️  Image: {post_data['image_url']}")
+        # Show extracted data (always shown for transparency)
+        if args.auto:
+            print(f"Processing post: {post_data['title']}")
+            print(f"Author: {post_data['author']}")
+            print(f"Mode: {args.mode}")
         else:
-            print("🎨 Image: Will use gradient background")
+            print(f"📖 Title: {post_data['title']}")
+            print(f"👤 Author: {post_data['author']}")
+            print(f"📝 Description: {post_data.get('description', 'N/A')[:50]}...")
+            print(f"🏷️  Tags: {', '.join(post_data['tags'])}")
+            if post_data.get("image_url"):
+                print(f"🖼️  Image: {post_data['image_url']}")
+            else:
+                print("🎨 Image: Will use gradient background")
 
-        # Ask user what to do
+        # Handle automation mode
+        if args.auto:
+            if args.mode == "featured":
+                # Generate featured post HTML
+                card_html = create_post_card_html(post_data, filename, is_featured=True)
+                if promote_post_to_featured(card_html, index_path):
+                    print("✅ Post promoted to FEATURED on index.html")
+                else:
+                    print("❌ Failed to promote post to featured")
+                    sys.exit(1)
+            else:  # regular mode
+                # Generate regular post HTML
+                card_html = create_post_card_html(post_data, filename, is_featured=False)
+                if add_regular_post_to_index(card_html, index_path):
+                    print("✅ Post card added as regular post to index.html")
+                else:
+                    print("❌ Failed to add card to index.html")
+                    sys.exit(1)
+            
+            sys.exit(0)  # Success exit code
+
+        # Interactive mode - Ask user what to do
         print("\n🎯 Options:")
         print("1. Promote to FEATURED POST (moves current featured to regular)")
         print("2. Add as regular post")
