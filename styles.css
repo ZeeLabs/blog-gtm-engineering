@@ -1929,6 +1929,7 @@ select:focus {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    line-clamp: 3;
     overflow: hidden;
 }
 
@@ -1972,11 +1973,11 @@ select:focus {
         grid-template-columns: 1fr !important;
         gap: var(--space-4) !important;
     }
-    
+
     .related-post-content {
         padding: var(--space-4);
     }
-    
+
     .related-post-image {
         height: 160px;
     }
