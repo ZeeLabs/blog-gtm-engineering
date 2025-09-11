@@ -239,7 +239,7 @@
                             <li>
                                 <a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link">Proof</a>
                             </li>
-                            <li><a href="/" class="mobile-nav-link">GTME Blog</a></li>
+                            <li><a href="../index.html" class="mobile-nav-link">GTME Blog</a></li>
                             <li>
                                 <a
                                     href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
@@ -887,11 +887,9 @@
                 // Copy link functionality for sharing
                 const copyButton = document.querySelector('button[onclick*="clipboard"]');
                 if (copyButton) {
-                    const originalOnClick = copyButton.getAttribute('onclick');
                     copyButton.addEventListener('click', function () {
-                        const urlToCopy = originalOnClick.match(/'([^']+)'/)[1];
                         navigator.clipboard
-                            .writeText(urlToCopy)
+                            .writeText(window.location.href)
                             .then(function () {
                                 // Visual feedback for successful copy
                                 const originalText = copyButton.innerHTML;
@@ -909,8 +907,6 @@
                                 console.log('Copy failed');
                             });
                     });
-                    // prevent inline onclick from firing
-                    copyButton.setAttribute('onclick', 'event.preventDefault()');
                 }
             });
         </script>
