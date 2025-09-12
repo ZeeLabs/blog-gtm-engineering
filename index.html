@@ -147,7 +147,7 @@
 
                 <a
                     href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
-                    class="btn btn-primary"
+                    class="btn btn-primary desktop-cta"
                     target="_blank"
                     rel="noopener"
                     >Book Call</a
@@ -156,6 +156,7 @@
                 <!-- Mobile Menu Button -->
                 <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg
+                        class="hamburger-icon"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
@@ -171,33 +172,54 @@
                             stroke-linejoin="round"
                         />
                     </svg>
+                    <svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
                 </button>
 
-                <!-- Mobile Navigation -->
-                <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
-                    <ul class="mobile-nav-links">
-                        <li>
-                            <a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link">Services</a>
-                        </li>
-                        <li>
-                            <a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
-                                >Case Studies</a
-                            >
-                        </li>
-                        <li>
-                            <a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link">Proof</a>
-                        </li>
-                        <li><a href="/" class="mobile-nav-link">GTME Blog</a></li>
-                        <li>
-                            <a
-                                href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
-                                class="btn btn-primary"
-                                target="_blank"
-                                rel="noopener"
-                                >Book Call</a
-                            >
-                        </li>
-                    </ul>
+                <!-- Mobile Navigation Overlay -->
+                <div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation">
+                    <nav class="mobile-nav">
+                        <ul class="mobile-nav-links">
+                            <li>
+                                <a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    >Services</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    >Case Studies</a
+                                >
+                            </li>
+                            <li>
+                                <a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link">Proof</a>
+                            </li>
+                            <li>
+                                <a href="/" class="mobile-nav-link">GTME Blog</a>
+                            </li>
+                        </ul>
+                        <a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            >Book Call</a
+                        >
+                    </nav>
                 </div>
             </div>
         </header>
@@ -527,22 +549,43 @@
             // Mobile menu toggle functionality
             document.addEventListener('DOMContentLoaded', function () {
                 const mobileMenuButton = document.querySelector('.mobile-menu-button');
-                const mobileMenu = document.querySelector('.mobile-menu');
+                const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
 
-                if (mobileMenuButton && mobileMenu) {
+                if (mobileMenuButton && mobileMenuOverlay) {
                     mobileMenuButton.addEventListener('click', function () {
                         const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
 
                         mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                        mobileMenu.classList.toggle('open');
+                        mobileMenuButton.classList.toggle('open');
+                        mobileMenuOverlay.classList.toggle('open');
+
+                        // Prevent body scrolling when menu is open
+                        if (mobileMenuOverlay.classList.contains('open')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = '';
+                        }
                     });
 
-                    // Close mobile menu when clicking outside
-                    document.addEventListener('click', function (event) {
-                        if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    // Close mobile menu when clicking on the overlay (not the nav content)
+                    mobileMenuOverlay.addEventListener('click', function (event) {
+                        if (event.target === mobileMenuOverlay) {
                             mobileMenuButton.setAttribute('aria-expanded', 'false');
-                            mobileMenu.classList.remove('open');
+                            mobileMenuButton.classList.remove('open');
+                            mobileMenuOverlay.classList.remove('open');
+                            document.body.style.overflow = '';
                         }
+                    });
+
+                    // Close menu when clicking nav links (for better mobile UX)
+                    const mobileNavLinks = mobileMenuOverlay.querySelectorAll('.mobile-nav-link');
+                    mobileNavLinks.forEach((link) => {
+                        link.addEventListener('click', function () {
+                            mobileMenuButton.setAttribute('aria-expanded', 'false');
+                            mobileMenuButton.classList.remove('open');
+                            mobileMenuOverlay.classList.remove('open');
+                            document.body.style.overflow = '';
+                        });
                     });
                 }
 
