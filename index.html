@@ -43,6 +43,30 @@
         <title>GTME Blog - GTM Engineering</title>
         <link rel="stylesheet" href="styles.css" />
 
+        <!-- Header Scroll Behavior Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const header = document.querySelector('.header');
+                let lastScrollTop = 0;
+
+                window.addEventListener('scroll', function () {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                    if (scrollTop > 50) {
+                        header.style.backgroundColor = 'rgba(244, 244, 244, 0.95)';
+                        header.style.backdropFilter = 'blur(10px)';
+                        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+                    } else {
+                        header.style.backgroundColor = 'rgb(244, 244, 244)';
+                        header.style.backdropFilter = 'none';
+                        header.style.boxShadow = 'none';
+                    }
+
+                    lastScrollTop = scrollTop;
+                });
+            });
+        </script>
+
         <!-- JSON-LD Structured Data -->
         <script type="application/ld+json">
             {
@@ -94,90 +118,86 @@
     <body>
         <!-- Header Section -->
         <header class="header" role="banner">
-            <div class="container-2xl">
-                <div class="header-container">
-                    <!-- Logo -->
-                    <a href="https://www.gtm-engineering.io/" class="logo" aria-label="GTM Engineering Home">
-                        <img
-                            src="https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w"
-                            alt="GTM Engineering"
-                        />
-                    </a>
+            <div class="header-container">
+                <!-- Logo -->
+                <a href="https://www.gtm-engineering.io/" class="logo" aria-label="GTM Engineering Home">
+                    <img
+                        src="https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w"
+                        alt="GTM Engineering"
+                    />
+                </a>
 
-                    <!-- Desktop Navigation -->
-                    <nav class="nav" role="navigation" aria-label="Main navigation">
-                        <ul class="nav-links">
-                            <li>
-                                <a href="https://www.gtm-engineering.io/home2#services" class="nav-link">Services</a>
-                            </li>
-                            <li>
-                                <a href="https://www.gtm-engineering.io/home2#results" class="nav-link">Case Studies</a>
-                            </li>
-                            <li>
-                                <a href="https://www.gtm-engineering.io/testimonials" class="nav-link">Proof</a>
-                            </li>
-                            <li>
-                                <a href="/" class="nav-link active" aria-current="page">GTME Blog</a>
-                            </li>
-                        </ul>
-                    </nav>
+                <!-- Desktop Navigation -->
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav-links">
+                        <li>
+                            <a href="https://www.gtm-engineering.io/home2#services" class="nav-link">Services</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gtm-engineering.io/home2#results" class="nav-link">Case Studies</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gtm-engineering.io/testimonials" class="nav-link">Proof</a>
+                        </li>
+                        <li>
+                            <a href="/" class="nav-link active" aria-current="page">GTME Blog</a>
+                        </li>
+                    </ul>
+                </nav>
 
-                    <a
-                        href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
-                        class="btn btn-primary"
-                        target="_blank"
-                        rel="noopener"
-                        >Book Call</a
+                <a
+                    href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                    class="btn btn-primary"
+                    target="_blank"
+                    rel="noopener"
+                    >Book Call</a
+                >
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
                     >
+                        <path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
 
-                    <!-- Mobile Menu Button -->
-                    <button class="mobile-menu-button" aria-label="Toggle mobile menu" aria-expanded="false">
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M3 12H21M3 6H21M3 18H21"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    </button>
-
-                    <!-- Mobile Navigation -->
-                    <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
-                        <ul class="mobile-nav-links">
-                            <li>
-                                <a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
-                                    >Services</a
-                                >
-                            </li>
-                            <li>
-                                <a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
-                                    >Case Studies</a
-                                >
-                            </li>
-                            <li>
-                                <a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link">Proof</a>
-                            </li>
-                            <li><a href="/" class="mobile-nav-link">GTME Blog</a></li>
-                            <li>
-                                <a
-                                    href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
-                                    class="btn btn-primary"
-                                    target="_blank"
-                                    rel="noopener"
-                                    >Book Call</a
-                                >
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Mobile Navigation -->
+                <div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+                    <ul class="mobile-nav-links">
+                        <li>
+                            <a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link">Services</a>
+                        </li>
+                        <li>
+                            <a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                >Case Studies</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link">Proof</a>
+                        </li>
+                        <li><a href="/" class="mobile-nav-link">GTME Blog</a></li>
+                        <li>
+                            <a
+                                href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                                class="btn btn-primary"
+                                target="_blank"
+                                rel="noopener"
+                                >Book Call</a
+                            >
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>
