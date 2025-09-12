@@ -18,10 +18,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://blog.gtm-engineering.io/posts/what-is-gtm-marketing-engineering-approach.html</loc>
-    <lastmod>2025-09-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 </urlset>

@@ -24,18 +24,6 @@
 
 const blogPostsData = [
     {
-        title: 'What is GTM Marketing? An Engineering Approach to Growth',
-        url: 'what-is-gtm-marketing-engineering-approach.html',
-        excerpt:
-            'Discover what GTM marketing means for startups. Learn why a traditional gtm strategy fails and how an engineering approach to data and automation drives real growth.',
-        date: 'September 04, 2025',
-        image: '../assets/gtm-engineering-vs-marketing-system.webp',
-        imageAlt:
-            'Abstract illustration showing a chaotic tangle of lines transforming into a clean, orderly system of gears and data flows',
-        tags: ['GTM Strategy', 'GTM Engineering', 'Startups'],
-        category: 'GTM Strategy',
-    },
-    {
         title: 'GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups',
         url: 'gtm-engineering-vs-revenue-operations-for-startups.html',
         excerpt:

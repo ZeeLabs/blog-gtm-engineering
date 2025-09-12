@@ -58,21 +58,5 @@
             <enclosure url="https://blog.gtm-engineering.io/assets/gtm-revenue-system-illustration.webp" type="image/webp" length="0"/>
         </item>
 
-        <item>
-            <title>What is GTM Marketing? An Engineering Approach to Growth</title>
-            <link>https://blog.gtm-engineering.io/posts/what-is-gtm-marketing-engineering-approach.html</link>
-            <description><![CDATA[Discover what GTM marketing means for startups. Learn why a traditional GTM strategy fails and how an engineering approach to data and automation drives real growth. Stop marketing on hope, start building systems.]]></description>
-            <content:encoded><![CDATA[<p>Ask ten founders what "GTM marketing" is, and you'll get ten different answers. Most will talk about launch plans, content calendars, and ad campaigns. They're not wrong, but they're missing the most critical piece of the puzzle.</p>
-
-<p><strong>Here's the uncomfortable truth I learned scaling a Y Combinator company from 0 to $3M ARR: most GTM marketing plans are built on hope, not systems.</strong> They are a collection of tactics duct-taped together, doomed to fail because they lack a robust engineering backbone for data, automation, and measurement. True GTM marketing isn't just about making noise; it's about building a predictable engine for growth.</p>]]></content:encoded>
-            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
-            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/what-is-gtm-marketing-engineering-approach.html</guid>
-            <dc:creator>Jorge Macias</dc:creator>
-            <category>GTM Strategy</category>
-            <category>GTM Engineering</category>
-            <category>Startups</category>
-            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-marketing-system.webp" type="image/webp" length="0"/>
-        </item>
-
     </channel>
 </rss>
