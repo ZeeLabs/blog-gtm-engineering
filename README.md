@@ -84,10 +84,36 @@ The blog includes sample posts covering GTM engineering topics:
 
 ## Usage
 
-1. **Adding New Posts**: Create new HTML files in the `posts/` directory
-2. **Updating Styles**: Modify `styles.css` using the CSS custom properties
-3. **Adding Images**: Place assets in the `assets/` directory
-4. **Navigation**: Update navigation links in both desktop and mobile menus
+### Create a new post
+
+```bash
+python scripts/new-post.py            # publish-ready file into posts/
+python scripts/new-post.py --draft    # draft into drafts/ (noindex)
+```
+
+Drafts are available at `/drafts/` behind Basic Auth. Publish later:
+
+```bash
+python scripts/publish-draft.py <slug> [--featured]
+```
+
+If not using drafts, add the card to the homepage:
+
+```bash
+python scripts/add-post-card.py <slug> --auto --mode regular
+```
+
+### Updating styles
+
+- Edit `styles.css` (CSS variables and utilities provided)
+
+### Adding images
+
+- Place image assets in `assets/` and reference them relatively (e.g. `../assets/image.webp`)
+
+### Navigation
+
+- Update links in header/footer of `index.html` and the post template (`.templates/post-template.html`)
 
 ## Browser Support
 

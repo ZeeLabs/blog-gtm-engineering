@@ -7,6 +7,7 @@ Simple script to create new blog posts from template with interactive prompts.
 import json
 import re
 import sys
+import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -343,6 +344,11 @@ def create_post_metadata(title, author, author_url, excerpt, keywords, tags, rea
     current_date = datetime.now().strftime("%B %d, %Y")
     current_date_iso = datetime.now().strftime("%Y-%m-%d")
     filename = slugify(title)
+    default_image = "gtm-revenue-system-illustration.webp"
+    default_image_alt = (
+        "3D isometric illustration of GTM strategy components including ICP, Sales, "
+        "Marketing modules with a person optimizing the system"
+    )
 
     # Get and validate description
     description = input("🔍 Meta description (150-160 chars optimal): ").strip()
@@ -371,6 +377,13 @@ def create_post_metadata(title, author, author_url, excerpt, keywords, tags, rea
         "color2": color2,
         "card_label": card_label,
         "faqs": faqs,
+        # Images
+        "featured_image": default_image,
+        "featured_image_alt": default_image_alt,
+        "hero_image": default_image,
+        "hero_image_alt": default_image_alt,
+        # Social
+        "twitter_handle": "gtmengineering",
     }
 
 
@@ -475,6 +488,9 @@ def main():
         "[TAG]": post_data["tags"][1] if len(post_data["tags"]) > 1 else "GTM",
         "[POST-FILENAME]": post_data["filename"],
         "[POST-TITLE]": post_data["title"],
+        # Images
+        "[POST-FEATURED-IMAGE]": post_data.get("featured_image", "gtm-revenue-system-illustration.webp"),
+        "[HERO-IMAGE-FILENAME]": post_data.get("hero_image", "gtm-revenue-system-illustration.webp"),
         "Jorge Macias": post_data["author"],  # Update default author if different
         # FAQ Schema placeholders
         "[FAQ_QUESTION_1]": post_data["faqs"][0]["question"] if len(post_data["faqs"]) > 0 else "",
