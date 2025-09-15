@@ -1,0 +1,78 @@
+name: Blog automation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'drafts/**'
+      - 'posts/**'
+      - 'scripts/**'
+      - '.github/workflows/blog.yml'
+      - '.templates/**'
+
+permissions:
+  contents: write
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps (none)
+        run: python -V
+
+      - name: Ensure drafts have noindex and build manifest
+        run: |
+          python scripts/ensure-noindex.py || true
+          python scripts/build-draft-manifest.py || true
+
+      - name: Promote featured post if requested
+        if: contains(github.event.head_commit.message, '[featured:')
+        env:
+          MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          slug=$(echo "$MESSAGE" | sed -n "s/.*\[featured:\([^]\s]\+\)\].*/\1/p" | head -n1)
+          if [ -n "$slug" ]; then
+            echo "Promoting featured post: $slug"
+            python scripts/add-post-card.py "$slug" --auto --mode featured || exit 1
+          else
+            echo "No slug found in commit message tag [featured:<slug>]"
+          fi
+
+      - name: Add any missing posts to index
+        run: |
+          shopt -s nullglob
+          set +e
+          for f in posts/*.html; do
+            slug=$(basename "$f" .html)
+            python scripts/add-post-card.py "$slug" --auto --mode regular
+            code=$?
+            if [ $code -eq 2 ]; then
+              echo "Post $slug already present in index"
+            elif [ $code -ne 0 ]; then
+              echo "Failed to add $slug (exit $code)" >&2
+              exit $code
+            fi
+          done
+          set -e
+
+      - name: Commit changes (manifest/index updates)
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "ci: update drafts/index manifest and homepage cards [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
