@@ -4,6 +4,9 @@
 User-agent: *
 Allow: /
 
+# Prevent drafts from being indexed
+Disallow: /drafts/
+
 # Crawl-delay to be respectful to server resources
 Crawl-delay: 1
 

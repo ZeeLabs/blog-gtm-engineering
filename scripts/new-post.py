@@ -4,6 +4,7 @@ GTM Engineering Blog - New Post Creator
 Simple script to create new blog posts from template with interactive prompts.
 """
 
+import json
 import re
 import sys
 from datetime import datetime
@@ -163,15 +164,15 @@ def validate_description_length(description):
 def get_author_info():
     """Get author information including bio/social URL for E-E-A-T."""
     author = input("👤 Author name (default: Jorge Macias): ").strip() or "Jorge Macias"
-    
+
     if author == "Jorge Macias":
         author_url = "https://www.linkedin.com/in/jorge-b-macias"
         print(f"📝 Using default LinkedIn: {author_url}")
     else:
-        author_url = input(f"🔗 Author bio/LinkedIn URL (for E-E-A-T): ").strip()
+        author_url = input("🔗 Author bio/LinkedIn URL (for E-E-A-T): ").strip()
         if not author_url:
             print("⚠️  Warning: No author URL provided. This helps with E-E-A-T for SEO.")
-    
+
     return author, author_url
 
 
@@ -179,15 +180,15 @@ def get_faq_data():
     """Get FAQ data for rich snippets and improved SEO."""
     print("\n🙋 FAQ Section (optional - improves SEO with rich snippets)")
     print("=" * 60)
-    
+
     add_faq = input("Add FAQ section? This helps with rich snippets (y/N): ").strip().lower()
-    
-    if add_faq != 'y':
+
+    if add_faq != "y":
         return []
-    
+
     print("\n📝 Enter 3 FAQs (questions should match likely search queries):")
     print("⚠️  CRITICAL: FAQ content must be visible on the page (Google requirement)")
-    
+
     faqs = []
     for i in range(1, 4):
         print(f"\n--- FAQ {i} ---")
@@ -195,24 +196,24 @@ def get_faq_data():
         if not question:
             print("Skipping remaining FAQs...")
             break
-            
+
         answer = input(f"✅ Answer {i}: ").strip()
         if not answer:
             print("⚠️  Empty answer, skipping this FAQ")
             continue
-            
+
         # Validate answer length
         if len(answer) < 50:
             print(f"⚠️  Answer is short ({len(answer)} chars). Consider more detail for better SEO.")
         elif len(answer) > 500:
             print(f"⚠️  Answer is long ({len(answer)} chars). Consider being more concise.")
-        
+
         faqs.append({"question": question, "answer": answer})
-    
+
     if faqs:
         print(f"\n✅ Added {len(faqs)} FAQs for rich snippet optimization")
         print("💡 Remember: FAQ content must appear visibly on your page!")
-    
+
     return faqs
 
 
@@ -220,28 +221,28 @@ def create_faq_html(faqs):
     """Generate HTML for FAQ section that must be visible on page."""
     if not faqs:
         return ""
-    
-    html = '''
+
+    html = """
         <!-- FAQ Section (Required for Schema.org compliance) -->
         <section class="faq-section">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-container">
-'''
-    
+"""
+
     for i, faq in enumerate(faqs, 1):
-        html += f'''
+        html += f"""
                 <div class="faq-item">
                     <h3 class="faq-question">{faq["question"]}</h3>
                     <div class="faq-answer">
                         <p>{faq["answer"]}</p>
                     </div>
                 </div>
-'''
-    
-    html += '''
+"""
+
+    html += """
             </div>
         </section>
-        
+
         <style>
         .faq-section {
             margin: 3rem 0;
@@ -249,13 +250,13 @@ def create_faq_html(faqs):
             background-color: #f8f9fa;
             border-radius: 8px;
         }
-        
+
         .faq-section h2 {
             color: #2563eb;
             margin-bottom: 2rem;
             font-size: 1.75rem;
         }
-        
+
         .faq-item {
             margin-bottom: 2rem;
             padding: 1.5rem;
@@ -263,23 +264,78 @@ def create_faq_html(faqs):
             border-radius: 6px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         .faq-question {
             color: #1e40af;
             margin-bottom: 1rem;
             font-size: 1.2rem;
             font-weight: 600;
         }
-        
+
         .faq-answer p {
             color: #374151;
             line-height: 1.6;
             margin: 0;
         }
         </style>
-'''
-    
+"""
+
     return html
+
+
+def inject_noindex_meta(html_content):
+    """Insert a noindex/nofollow meta tag into <head> for draft posts."""
+    # Only add if not already present
+    if re.search(r'<meta\s+name="robots"', html_content, re.IGNORECASE):
+        return html_content
+    return re.sub(
+        r"(<head[^>]*>)",
+        r'\1\n        <meta name="robots" content="noindex,nofollow" />',
+        html_content,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+
+
+def update_drafts_manifest(project_root: Path, post_data: dict):
+    """Create/update drafts/drafts.json with this draft's metadata."""
+    drafts_dir = project_root / "drafts"
+    drafts_dir.mkdir(exist_ok=True)
+    manifest_path = drafts_dir / "drafts.json"
+
+    # Load existing manifest
+    manifest = []
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            if not isinstance(manifest, list):
+                manifest = []
+        except Exception:
+            manifest = []
+
+    # Remove existing entry with same slug
+    manifest = [item for item in manifest if item.get("slug") != post_data["filename"]]
+
+    # Add new entry
+    manifest.append(
+        {
+            "slug": post_data["filename"],
+            "title": post_data["title"],
+            "url": f"{post_data['filename']}.html",
+            "author": post_data["author"],
+            "excerpt": post_data["excerpt"],
+            "createdAt": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+    )
+
+    # Sort newest first
+    try:
+        manifest.sort(key=lambda x: x.get("createdAt", ""), reverse=True)
+    except Exception:
+        pass
+
+    # Write manifest
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 
 def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs):
@@ -287,17 +343,17 @@ def create_post_metadata(title, author, author_url, excerpt, keywords, tags, rea
     current_date = datetime.now().strftime("%B %d, %Y")
     current_date_iso = datetime.now().strftime("%Y-%m-%d")
     filename = slugify(title)
-    
+
     # Get and validate description
     description = input("🔍 Meta description (150-160 chars optimal): ").strip()
     if not description:
         description = excerpt[:150] + "..." if len(excerpt) > 150 else excerpt
-    
+
     validate_description_length(description)
-    
+
     # Generate color scheme
     color1, color2, card_label = get_color_scheme()
-    
+
     return {
         "title": title,
         "filename": filename,
@@ -325,7 +381,7 @@ def print_publishing_checklist(post_data):
     print(f"✓ Title: {post_data['title']}")
     print(f"✓ Description: {post_data['description']} ({len(post_data['description'])} chars)")
     print(f"✓ Author: {post_data['author']}")
-    if post_data.get('author_url'):
+    if post_data.get("author_url"):
         print(f"✓ Author URL: {post_data['author_url']}")
     else:
         print("⚠️  Author URL: Not provided (affects E-E-A-T)")
@@ -341,10 +397,15 @@ def main():
     print("🚀 GTM Engineering Blog - New Post Creator")
     print("=" * 50)
 
+    # Draft mode flag (keep simple, no argparse to avoid breaking interactive flow)
+    save_as_draft = ("--draft" in sys.argv) or ("-d" in sys.argv)
+    if save_as_draft:
+        print("📝 Draft mode enabled: post will be saved under drafts/ and marked noindex")
+
     # Get project root directory
     project_root = Path(__file__).parent.parent
     template_path = project_root / ".templates" / "post-template.html"
-    
+
     if not template_path.exists():
         print(f"❌ Post template not found at {template_path}")
         sys.exit(1)
@@ -355,7 +416,7 @@ def main():
         if not title:
             print("❌ Title is required!")
             sys.exit(1)
-        
+
         print(f"📄 Filename will be: {slugify(title)}.html")
 
         author, author_url = get_author_info()
@@ -382,7 +443,7 @@ def main():
 
         # Create centralized post metadata
         post_data = create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs)
-        
+
         print(f"🎨 Color scheme: {post_data['card_label']}")
         print_publishing_checklist(post_data)
 
@@ -408,7 +469,8 @@ def main():
         "[WRITE A COMPELLING DESCRIPTION FOR TWITTER SHARING]": post_data["description"],
         "[WRITE A COMPELLING DESCRIPTION]": post_data["description"],
         "[KEYWORD1], [KEYWORD2], [KEYWORD3]": post_data["keywords"],
-        "[KEYWORD1], [KEYWORD2], [KEYWORD3], GTM engineering, go-to-market": post_data["keywords"] + ", GTM engineering, go-to-market",
+        "[KEYWORD1], [KEYWORD2], [KEYWORD3], GTM engineering, go-to-market": post_data["keywords"]
+        + ", GTM engineering, go-to-market",
         "[CATEGORY]": post_data["category"],
         "[TAG]": post_data["tags"][1] if len(post_data["tags"]) > 1 else "GTM",
         "[POST-FILENAME]": post_data["filename"],
@@ -431,7 +493,7 @@ def main():
         post_content = post_content.replace(placeholder, replacement)
 
     # Create the new post file
-    posts_dir = project_root / "posts"
+    posts_dir = project_root / ("drafts" if save_as_draft else "posts")
     posts_dir.mkdir(exist_ok=True)  # Ensure posts directory exists
     post_path = posts_dir / f"{post_data['filename']}.html"
 
@@ -441,31 +503,47 @@ def main():
             print("❌ Cancelled.")
             sys.exit(1)
 
+    # If draft, inject noindex meta
+    if save_as_draft:
+        post_content = inject_noindex_meta(post_content)
+
     # Write the post file
     with open(post_path, "w", encoding="utf-8") as f:
         f.write(post_content)
 
     print(f"✅ Created new post: {post_path}")
 
-    # Generate post card HTML for manual addition to index.html
-    post_card_html = create_post_card_html(post_data)
+    # Update drafts manifest if draft
+    if save_as_draft:
+        update_drafts_manifest(project_root, post_data)
 
-    # Save the post card HTML to a temporary file
-    card_path = project_root / f"new-post-card-{post_data['filename']}.html"
-    with open(card_path, "w", encoding="utf-8") as f:
-        f.write(post_card_html)
+    if not save_as_draft:
+        # Generate post card HTML for manual addition to index.html
+        post_card_html = create_post_card_html(post_data)
 
-    print(f"✅ Generated post card HTML: {card_path}")
+        # Save the post card HTML to a temporary file
+        card_path = project_root / f"new-post-card-{post_data['filename']}.html"
+        with open(card_path, "w", encoding="utf-8") as f:
+            f.write(post_card_html)
+
+        print(f"✅ Generated post card HTML: {card_path}")
 
     # Instructions
     print("\n🎉 Your new blog post is ready!")
-    print(f"📝 Edit the content in: posts/{post_data['filename']}.html")
-    print(f"🔧 Add the post card to index.html (HTML saved to: {card_path.name})")
-    print("\n📋 Next steps:")
-    print("1. Open the new post file and replace placeholder content with your article")
-    print("2. Copy the post card HTML from the generated file into index.html")
-    print("3. Test locally by opening index.html in your browser")
-    print("4. Commit and push to deploy!")
+    if save_as_draft:
+        slug = post_data["filename"]
+        print(f"📝 Edit the content in: drafts/{slug}.html")
+        print("\n📋 Next steps:")
+        print(f"1. Share the private URL: /drafts/{slug}.html (password required)")
+        print(f"2. When approved, publish with: python scripts/publish-draft.py {slug}")
+    else:
+        print(f"📝 Edit the content in: posts/{post_data['filename']}.html")
+        print(f"🔧 Add the post card to index.html (HTML saved to: new-post-card-{post_data['filename']}.html)")
+        print("\n📋 Next steps:")
+        print("1. Open the new post file and replace placeholder content with your article")
+        print("2. Copy the post card HTML from the generated file into index.html")
+        print("3. Test locally by opening index.html in your browser")
+        print("4. Commit and push to deploy!")
     print("\n🔥 SEO Benefits:")
     print("✓ All meta descriptions auto-populated consistently")
     print("✓ Author E-E-A-T enhanced with bio URL")

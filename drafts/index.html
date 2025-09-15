@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex,nofollow" />
+        <title>Drafts</title>
+        <style>
+            body {
+                font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+                background: #0b1020;
+                color: #e5e7eb;
+                margin: 0;
+                padding: 2rem;
+            }
+            h1 {
+                margin-top: 0;
+            }
+            .container {
+                max-width: 860px;
+                margin: 0 auto;
+            }
+            .meta {
+                opacity: 0.8;
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+            }
+            .list {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .card {
+                background: #111827;
+                border: 1px solid #1f2937;
+                border-radius: 10px;
+                padding: 14px 16px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .card a {
+                color: #93c5fd;
+                text-decoration: none;
+            }
+            .card a:hover {
+                text-decoration: underline;
+            }
+            .right {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                color: #9ca3af;
+            }
+            .pill {
+                background: #0ea5a5;
+                color: #042;
+                padding: 2px 8px;
+                border-radius: 999px;
+                font-weight: 600;
+                font-size: 0.75rem;
+            }
+            .empty {
+                opacity: 0.75;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Draft posts</h1>
+            <div class="meta">Only visible to authenticated reviewers. Not indexed.</div>
+            <div id="drafts" class="list"></div>
+            <div id="empty" class="empty" style="display: none">No drafts found.</div>
+        </div>
+        <script>
+            async function loadDrafts() {
+                try {
+                    const res = await fetch('drafts.json', { cache: 'no-store' });
+                    if (!res.ok) throw new Error('Failed to fetch drafts.json');
+                    const drafts = await res.json();
+                    const container = document.getElementById('drafts');
+                    const empty = document.getElementById('empty');
+                    container.innerHTML = '';
+                    if (!Array.isArray(drafts) || drafts.length === 0) {
+                        empty.style.display = 'block';
+                        return;
+                    }
+                    drafts.forEach((d) => {
+                        const el = document.createElement('div');
+                        el.className = 'card';
+                        el.innerHTML = `
+            <div>
+              <div style="font-weight:700"><a href="${d.url}">${d.title || d.slug}</a></div>
+              <div style="color:#9ca3af;font-size:.9rem">${d.excerpt || ''}</div>
+            </div>
+            <div class="right">
+              <span class="pill">DRAFT</span>
+              <span title="Created at">${(d.createdAt || '').replace('T', ' ').replace('Z', ' UTC')}</span>
+            </div>
+          `;
+                        container.appendChild(el);
+                    });
+                } catch (e) {
+                    document.getElementById('empty').style.display = 'block';
+                }
+            }
+            loadDrafts();
+        </script>
+    </body>
+</html>
