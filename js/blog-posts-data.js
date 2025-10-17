@@ -29,7 +29,7 @@ const blogPostsData = [
         excerpt:
             "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
         date: 'September 04, 2025',
-        image: '../assets/gtm-engineering-vs-revops.webp',
+        image: '../assets/gtm-engineering-vs-revenue-operations-for-startups.webp',
         imageAlt:
             'Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials',
         tags: ['GTM Engineering', 'RevOps', 'Startups'],
