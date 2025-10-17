@@ -24,6 +24,51 @@
 
 const blogPostsData = [
     {
+        title: 'Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)',
+        url: 'data-driven-guide-ideal-customer-profile-icp.html',
+        excerpt:
+            'A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.',
+        date: 'October 17, 2025',
+        image: '../assets/data-driven-guide-ideal-customer-profile-icp.webp',
+        imageAlt: 'A futuristic circular target with a person icon at the center, representing an Ideal Customer Profile.',
+        tags: ['ICP', 'Marketing', 'Sales'],
+        category: 'Marketing',
+    },
+    {
+        title: "HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide",
+        url: 'hubspot-vs-salesforce-for-startups.html',
+        excerpt:
+            "A GTM engineer's guide to HubSpot vs Salesforce. Discover why AI-native CRMs are superior for early-stage startups and when to upgrade.",
+        date: 'October 17, 2025',
+        image: '../assets/hubspot-vs-salesforce-for-startups.webp',
+        imageAlt: 'Comparison of HubSpot and Salesforce logos with an AI-native CRM concept.',
+        tags: ['CRM', 'Salesforce', 'HubSpot'],
+        category: 'Tech Stack',
+    },
+    {
+        title: "GTM Engineering vs RevOps: The Technical Founder's Guide",
+        url: 'gtm-engineering-vs-revops.html',
+        excerpt:
+            'Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.',
+        date: 'October 17, 2025',
+        image: '../assets/gtm-engineering-vs-revops.webp',
+        imageAlt:
+            'A diagram showing the difference between RevOps, represented by a brain with gears, and GTM Engineering, represented by a robotic hand interacting with a growth chart.',
+        tags: ['GTM Engineering', 'RevOps', 'Strategy'],
+        category: 'GTM Engineering',
+    },
+    {
+        title: 'GTM Tech Stack: Building Your Revenue Engine From Zero To Scale',
+        url: 'build-scalable-gtm-tech-stack-guide.html',
+        excerpt:
+            'Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.',
+        date: 'October 16, 2025',
+        image: '../assets/build-scalable-gtm-tech-stack-guide.webp',
+        imageAlt: 'Conceptual image of an interconnected tech stack for a revenue engine.',
+        tags: ['GTM', 'Tech Stack', 'Automation'],
+        category: 'Tech Stack',
+    },
+    {
         title: 'GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups',
         url: 'gtm-engineering-vs-revenue-operations-for-startups.html',
         excerpt:

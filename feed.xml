@@ -8,8 +8,8 @@
         <copyright>GTM Engineering</copyright>
         <managingEditor>hello@gtm-engineering.io (Jorge Macias)</managingEditor>
         <webMaster>hello@gtm-engineering.io (Jorge Macias)</webMaster>
-        <lastBuildDate>Wed, 04 Sep 2025 00:00:00 GMT</lastBuildDate>
-        <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
+        <lastBuildDate>Fri, 17 Oct 2025 00:00:00 GMT</lastBuildDate>
+        <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
         <generator>GTM Engineering Blog System</generator>
         <docs>https://www.rssboard.org/rss-specification</docs>
         <ttl>1440</ttl>
@@ -23,6 +23,78 @@
             <height>500</height>
             <description>GTM Engineering Logo</description>
         </image>
+
+        <item>
+            <title>Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)</title>
+            <link>https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</link>
+            <description><![CDATA[A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.]]></description>
+            <content:encoded><![CDATA[<p>Ask most founders about their Ideal Customer Profile (ICP), and you'll get something like "small to medium businesses" or "companies with 50-500 employees." That's not an ICP. That's a demographic guess that will cost you thousands in wasted ad spend and countless hours chasing prospects who will never buy.</p>
+
+<p>I learned this the hard way while scaling different startups. We burned through six months of runway targeting "all SaaS companies" before we realized our actual ICP was Series A fintech companies with specific compliance needs. The difference between a gut-feeling ICP and a data-driven one? A 340% increase in conversion rates and a 60% reduction in customer acquisition cost.</p>
+
+<p>Your ICP isn't a marketing exercise. It's the foundation of your entire revenue machine. Get it wrong, and every dollar you spend on sales and marketing is a gamble. Get it right, and you've engineered a predictable path to growth.</p>]]></content:encoded>
+            <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>ICP</category>
+            <category>Marketing</category>
+            <category>Sales</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/data-driven-guide-ideal-customer-profile-icp.webp" type="image/webp" length="0"/>
+        </item>
+
+        <item>
+            <title>HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide</title>
+            <link>https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</link>
+            <description><![CDATA[A GTM engineer's guide to HubSpot vs Salesforce. Discover why AI-native CRMs are superior for early-stage startups and when to upgrade.]]></description>
+            <content:encoded><![CDATA[<p><strong>As a founder who has scaled revenue engines from zero, I can tell you that your choice of CRM is critical. But here's what most articles won't tell you: the "best" CRM depends entirely on your stage.</strong></p>
+
+<p>The wrong choice doesn't just burn cash. It kills velocity, creates unnecessary complexity, and distracts your team from what actually matters: talking to customers and closing deals.</p>
+
+<p>This is a GTM engineer's breakdown forged from building and scaling revenue systems across different startup stages. The critical insight: match your CRM to your current reality, not your future dreams.</p>]]></content:encoded>
+            <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>CRM</category>
+            <category>Salesforce</category>
+            <category>HubSpot</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/hubspot-vs-salesforce-for-startups.webp" type="image/webp" length="0"/>
+        </item>
+
+        <item>
+            <title>GTM Engineering vs RevOps: The Technical Founder's Guide</title>
+            <link>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</link>
+            <description><![CDATA[Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.]]></description>
+            <content:encoded><![CDATA[<h2>What Is RevOps and Why It Matters</h2>
+<p>Revenue Operations (RevOps) addresses the inefficiencies caused by siloed sales, marketing, and customer success teams, which lead to data inconsistencies and missed revenue opportunities. Companies with aligned RevOps see 19% faster revenue growth and 15% higher profitability.</p>
+
+<p>RevOps focuses on three core areas: unifying processes across teams, maintaining data governance and CRM hygiene, and optimizing tech stack integration. The impact is significant—companies implementing RevOps report 10-20% increases in sales productivity within a year and up to 28% improvement in forecast accuracy, critical for raising capital or scaling.</p>]]></content:encoded>
+            <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>GTM Engineering</category>
+            <category>RevOps</category>
+            <category>Strategy</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revops.webp" type="image/webp" length="0"/>
+        </item>
+
+        <item>
+            <title>GTM Tech Stack: Building Your Revenue Engine From Zero To Scale</title>
+            <link>https://blog.gtm-engineering.io/posts/build-scalable-gtm-tech-stack-guide.html</link>
+            <description><![CDATA[Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.]]></description>
+            <content:encoded><![CDATA[<p><strong>This guide is designed to give you the playbook I wish I had. We'll skip the vague consulting jargon and focus on building scalable GTM tech stack from the ground up, with an engineering-first mindset (i have a background in industrial/process engineering).</strong></p>
+
+<h2>What Is A GTM Tech Stack</h2>
+<p>A GTM tech stack is the integrated set of software that powers your company's entire revenue engine. It's not just a random collection of tools; it's an interconnected system designed to align your marketing, sales, and customer success teams around a single goal: predictable growth.</p>
+
+<p>Unlike a general company tech stack, which includes everything from finance to HR tools, the GTM stack is exclusively focused on revenue-driving functions. It's the engine that finds, engages, and retains your customers.</p>]]></content:encoded>
+            <pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/build-scalable-gtm-tech-stack-guide.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>GTM</category>
+            <category>Tech Stack</category>
+            <category>Automation</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/build-scalable-gtm-tech-stack-guide.webp" type="image/webp" length="0"/>
+        </item>
 
         <item>
             <title>GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups</title>

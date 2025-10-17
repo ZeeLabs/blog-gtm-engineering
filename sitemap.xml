@@ -2,9 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.gtm-engineering.io/</loc>
-    <lastmod>2025-09-04</lastmod>
+    <lastmod>2025-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</loc>
+    <lastmod>2025-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.gtm-engineering.io/posts/build-scalable-gtm-tech-stack-guide.html</loc>
+    <lastmod>2025-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</loc>
