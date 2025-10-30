@@ -7,7 +7,6 @@ Simple script to create new blog posts from template with interactive prompts.
 import json
 import re
 import sys
-import subprocess
 from datetime import datetime
 from pathlib import Path
 
@@ -339,11 +338,11 @@ def update_drafts_manifest(project_root: Path, post_data: dict):
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 
-def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs):
+def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs, custom_slug=None):
     """Create centralized post metadata to prevent inconsistency issues."""
     current_date = datetime.now().strftime("%B %d, %Y")
     current_date_iso = datetime.now().strftime("%Y-%m-%d")
-    filename = slugify(title)
+    filename = custom_slug if custom_slug else slugify(title)
     default_image = "gtm-revenue-system-illustration.webp"
     default_image_alt = (
         "3D isometric illustration of GTM strategy components including ICP, Sales, "
@@ -405,6 +404,70 @@ def print_publishing_checklist(post_data):
     print("\n⚡ All meta fields will be auto-populated consistently!")
 
 
+def validate_slug(slug):
+    """Validate slug format: lowercase, alphanumeric, hyphens only, no leading/trailing hyphens."""
+    if not slug:
+        return False, "Slug cannot be empty"
+
+    # Check for valid characters (lowercase, numbers, hyphens)
+    if not re.match(r"^[a-z0-9-]+$", slug):
+        return False, "Use lowercase letters, numbers, and hyphens only"
+
+    # Check for leading/trailing hyphens
+    if slug.startswith("-") or slug.endswith("-"):
+        return False, "Slug cannot start or end with hyphens"
+
+    # Check for consecutive hyphens
+    if "--" in slug:
+        return False, "Slug cannot contain consecutive hyphens"
+
+    return True, ""
+
+
+def check_slug_exists(project_root, slug, save_as_draft):
+    """Check if slug already exists in posts or drafts."""
+    posts_dir = project_root / "posts"
+    drafts_dir = project_root / "drafts"
+
+    # Check posts directory
+    if (posts_dir / f"{slug}.html").exists():
+        return True, "posts"
+
+    # Check drafts directory
+    if (drafts_dir / f"{slug}.html").exists():
+        return True, "drafts"
+
+    return False, None
+
+
+def get_custom_slug(project_root, auto_slug, save_as_draft):
+    """Prompt user for custom slug with validation."""
+    while True:
+        custom = input("\n✏️  Enter custom slug (lowercase, alphanumeric + hyphens only): ").strip()
+
+        if not custom:
+            print("❌ Slug cannot be empty. Try again or press Ctrl+C to cancel.")
+            continue
+
+        # Validate format
+        is_valid, error_msg = validate_slug(custom)
+        if not is_valid:
+            print(f"❌ Invalid slug format: {error_msg}")
+            continue
+
+        # Check for conflicts
+        exists, location = check_slug_exists(project_root, custom, save_as_draft)
+        if exists:
+            print(f"⚠️  Slug '{custom}' already exists in {location}/")
+            retry = input("Try a different slug? (y/N): ").strip().lower()
+            if retry != "y":
+                print("❌ Cancelled.")
+                sys.exit(1)
+            continue
+
+        return custom
+
+
 def main():
     """Main function to create new blog post."""
     print("🚀 GTM Engineering Blog - New Post Creator")
@@ -430,7 +493,23 @@ def main():
             print("❌ Title is required!")
             sys.exit(1)
 
-        print(f"📄 Filename will be: {slugify(title)}.html")
+        # Generate auto-slug and offer customization
+        auto_slug = slugify(title)
+        print(f"📄 Filename will be: {auto_slug}.html")
+
+        # Prompt for custom slug
+        slug_choice = input("Use this slug? (Y/n/custom): ").strip().lower()
+
+        if slug_choice == "n":
+            print("❌ Cancelled. Please restart with a different title.")
+            sys.exit(0)
+        elif slug_choice == "custom":
+            final_slug = get_custom_slug(project_root, auto_slug, save_as_draft)
+            print(f"✅ Using custom slug: {final_slug}")
+        else:
+            # Default: use auto-generated slug
+            final_slug = auto_slug
+            print(f"✅ Using slug: {final_slug}")
 
         author, author_url = get_author_info()
 
@@ -455,7 +534,9 @@ def main():
         faqs = get_faq_data()
 
         # Create centralized post metadata
-        post_data = create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs)
+        post_data = create_post_metadata(
+            title, author, author_url, excerpt, keywords, tags, reading_time, faqs, custom_slug=final_slug
+        )
 
         print(f"🎨 Color scheme: {post_data['card_label']}")
         print_publishing_checklist(post_data)
