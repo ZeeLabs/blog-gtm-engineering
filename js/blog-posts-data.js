@@ -27,7 +27,7 @@ const blogPostsData = [
     "title": "Best AI Cold Calling Software Tools (2026 Reviewed)",
     "url": "best-ai-cold-calling-software-tools.html",
     "excerpt": "Discover the best AI cold calling software tools to automate outreach. Compare features, pros, cons, and find the perfect fit for your needs.",
-    "date": "November 3, 2025",
+    "date": "November 03, 2025",
     "image": "/assets/best-ai-cold-calling-software-tools.webp",
     "imageAlt": "3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system",
     "tags": [
@@ -41,7 +41,7 @@ const blogPostsData = [
     "title": "How to Make Sales Without Cold Calling (7 Proven Methods)",
     "url": "how-to-make-sales-without-cold-calling.html",
     "excerpt": "Tired of cold calling? Learn how to make sales without it using 7 proven alternatives like social selling, content marketing, and warm outreach for B2B startups.",
-    "date": "November 3, 2025",
+    "date": "November 03, 2025",
     "image": "/assets/how-to-make-sales-without-cold-calling.webp",
     "imageAlt": "3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system",
     "tags": [
@@ -55,7 +55,7 @@ const blogPostsData = [
     "title": "GTM Engineering vs. Revenue Operations for Startups",
     "url": "gtm-engineering-vs-revenue-operations-for-startups.html",
     "excerpt": "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
-    "date": "September 4, 2025",
+    "date": "September 04, 2025",
     "image": "/assets/gtm-engineering-vs-revenue-operations-for-startups.webp",
     "imageAlt": "Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials.",
     "tags": [
@@ -69,7 +69,7 @@ const blogPostsData = [
     "title": "30-60-90 Day Plan For New Managers Guide (With Examples)",
     "url": "30-60-90-day-plan-new-managers.html",
     "excerpt": "Set yourself up for success. Our guide provides a 30-60-90 day plan for new managers with a template, examples, and key actions for your first 3 months.",
-    "date": "November 3, 2025",
+    "date": "November 03, 2025",
     "image": "/assets/30-60-90-day-plan-new-managers.webp",
     "imageAlt": "30-60-90 Day Plan For New Managers Guide (With Examples)",
     "tags": [
@@ -83,7 +83,7 @@ const blogPostsData = [
     "title": "What is a Go-to-Market Strategy? A Founder's Playbook",
     "url": "what-is-a-go-to-market-strategy-founders-playbook.html",
     "excerpt": "A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup.",
-    "date": "September 4, 2025",
+    "date": "September 04, 2025",
     "image": "/assets/gtm-revenue-system-illustration.webp",
     "imageAlt": "3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system",
     "tags": [
