@@ -84,7 +84,21 @@ The blog includes sample posts covering GTM engineering topics:
 
 ## Usage
 
-### Create a new post
+### Create a new post (Manual Workflow)
+
+**Quick workflow** - Create HTML file directly:
+
+1. Create `posts/my-post.html` using `.templates/post-template.html`
+2. Add `assets/my-post.webp` featured image
+3. Commit and push to `main` branch
+4. **Automatic CI/CD handles**:
+    - ✅ Sitemap.xml updated
+    - ✅ RSS feed.xml updated
+    - ✅ Blog metadata (related articles) updated
+    - ✅ Homepage post card added
+    - ✅ Most recent post auto-featured
+
+**Script-assisted workflow** - Using helper scripts:
 
 ```bash
 python scripts/new-post.py            # publish-ready file into posts/
@@ -97,23 +111,58 @@ Drafts are available at `/drafts/` behind Basic Auth. Publish later:
 python scripts/publish-draft.py <slug> [--featured]
 ```
 
-If not using drafts, add the card to the homepage:
+If not using drafts, manually add the card to the homepage:
 
 ```bash
 python scripts/add-post-card.py <slug> --auto --mode regular
 ```
 
+### Automated CI/CD Workflow
+
+The blog has a **unified GitHub Actions workflow** (`.github/workflows/blog-automation.yml`) that automatically:
+
+1. **Draft Protection**: Ensures all drafts have `noindex` meta tags
+2. **Sitemap Generation**: Creates `sitemap.xml` from all posts (sorted by publish date)
+3. **RSS Feed Generation**: Creates `feed.xml` with full post content
+4. **Metadata Updates**: Updates `js/blog-posts-data.js` for related articles
+5. **Homepage Updates**: Adds missing post cards to `index.html`
+6. **Featured Post**: Automatically promotes the most recent post to featured section
+
+**Triggers**: Any push to `main` branch affecting:
+
+-   `posts/**` - Blog post files
+-   `drafts/**` - Draft files
+-   `scripts/**` - Automation scripts
+-   `assets/**` - Images and resources
+-   `.templates/**` - Post templates
+
+**Manual triggers** (local testing):
+
+```bash
+# Generate sitemap.xml
+python scripts/generate-sitemap.py
+
+# Generate feed.xml (RSS)
+python scripts/generate-rss-feed.py
+
+# Update all post metadata
+python scripts/update-blog-metadata.py --all
+
+# Update specific post metadata
+python scripts/update-blog-metadata.py my-post
+```
+
 ### Updating styles
 
-- Edit `styles.css` (CSS variables and utilities provided)
+-   Edit `styles.css` (CSS variables and utilities provided)
 
 ### Adding images
 
-- Place image assets in `assets/` and reference them relatively (e.g. `../assets/image.webp`)
+-   Place image assets in `assets/` and reference them relatively (e.g. `../assets/image.webp`)
 
 ### Navigation
 
-- Update links in header/footer of `index.html` and the post template (`.templates/post-template.html`)
+-   Update links in header/footer of `index.html` and the post template (`.templates/post-template.html`)
 
 ## Browser Support
 
