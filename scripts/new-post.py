@@ -4,26 +4,22 @@ GTM Engineering Blog - New Post Creator
 Simple script to create new blog posts from template with interactive prompts.
 """
 
-import json
-import re
 import sys
 from datetime import datetime
 from pathlib import Path
 
-
-def slugify(text):
-    """Convert text to URL-friendly slug."""
-    text = text.lower()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
-    text = re.sub(r"[-\s]+", "-", text)
-    return text.strip("-")
-
-
-def estimate_reading_time(content):
-    """Estimate reading time based on word count (average 200 words per minute)."""
-    words = len(content.split())
-    minutes = max(1, round(words / 200))
-    return minutes
+# Import shared utilities
+sys.path.insert(0, str(Path(__file__).parent))
+from lib.manifest import DraftsManifest
+from lib.shared import (
+    get_color_scheme,
+    inject_noindex_meta,
+    parse_faq_json,
+    parse_schema_json,
+    slugify,
+    validate_description_length,
+    validate_slug,
+)
 
 
 def create_post_card_html(post_data):
@@ -134,33 +130,6 @@ def create_post_card_html(post_data):
             </article>'''
 
 
-def get_color_scheme():
-    """Return a random color scheme for the post card."""
-    schemes = [
-        {"color1": "10b981", "color2": "059669", "label": "GTM Strategy"},
-        {"color1": "f59e0b", "color2": "d97706", "label": "RevOps Stack"},
-        {"color1": "8b5cf6", "color2": "7c3aed", "label": "Data Stack"},
-        {"color1": "ef4444", "color2": "dc2626", "label": "Sales Velocity"},
-        {"color1": "06b6d4", "color2": "0891b2", "label": "Analytics"},
-        {"color1": "ec4899", "color2": "db2777", "label": "Growth"},
-        {"color1": "f97316", "color2": "ea580c", "label": "Automation"},
-    ]
-    import random
-
-    scheme = random.choice(schemes)
-    return scheme["color1"], scheme["color2"], scheme["label"]
-
-
-def validate_description_length(description):
-    """Validate meta description is within SEO best practice range (150-160 chars)."""
-    if len(description) < 120:
-        print(f"⚠️  Warning: Description is short ({len(description)} chars). Consider 150-160 for SEO.")
-    elif len(description) > 160:
-        print(f"⚠️  Warning: Description is long ({len(description)} chars). Consider trimming to 160.")
-        return False
-    return True
-
-
 def get_author_info():
     """Get author information including bio/social URL for E-E-A-T."""
     author = input("👤 Author name (default: Jorge Macias): ").strip() or "Jorge Macias"
@@ -181,12 +150,48 @@ def get_faq_data():
     print("\n🙋 FAQ Section (optional - improves SEO with rich snippets)")
     print("=" * 60)
 
-    add_faq = input("Add FAQ section? This helps with rich snippets (y/N): ").strip().lower()
+    add_faq = input("Add FAQ section? (y=interactive, json=paste JSON, N=skip): ").strip().lower()
 
-    if add_faq != "y":
+    if add_faq not in ["y", "json"]:
         return []
 
-    print("\n📝 Enter 3 FAQs (questions should match likely search queries):")
+    # JSON mode - multiline paste
+    if add_faq == "json":
+        print("\n📋 Paste your FAQ JSON (Schema.org FAQPage format)")
+        print("Press Ctrl+D (Unix/Mac) or Ctrl+Z+Enter (Windows) when done:")
+        print("-" * 60)
+
+        try:
+            json_lines = []
+            while True:
+                try:
+                    line = input()
+                    json_lines.append(line)
+                except EOFError:
+                    break
+
+            json_str = "\n".join(json_lines)
+
+            if not json_str.strip():
+                print("❌ No JSON provided, skipping FAQs")
+                return []
+
+            # Parse and validate JSON
+            faqs = parse_faq_json(json_str)
+            print(f"\n✅ Parsed {len(faqs)} FAQs from JSON")
+            print("💡 Remember: FAQ content must appear visibly on your page!")
+            return faqs
+
+        except ValueError as e:
+            print(f"\n❌ JSON validation error: {e}")
+            print("⚠️  Skipping FAQs due to invalid JSON")
+            return []
+        except Exception as e:
+            print(f"\n❌ Unexpected error parsing JSON: {e}")
+            return []
+
+    # Interactive mode - line-by-line (original behavior)
+    print("\n📝 Enter up to 3 FAQs (questions should match likely search queries):")
     print("⚠️  CRITICAL: FAQ content must be visible on the page (Google requirement)")
 
     faqs = []
@@ -215,6 +220,57 @@ def get_faq_data():
         print("💡 Remember: FAQ content must appear visibly on your page!")
 
     return faqs
+
+
+def get_schema_json_data(schema_type):
+    """
+    Get optional custom schema JSON input (BlogPosting or ItemList).
+
+    Args:
+        schema_type: 'BlogPosting' or 'ItemList'
+
+    Returns:
+        dict or None: Parsed schema dictionary or None if skipped
+    """
+    print(f"\n📋 Custom {schema_type} Schema (optional - for advanced customization)")
+    print("=" * 60)
+
+    add_schema = input(f"Provide custom {schema_type} JSON? (y/N): ").strip().lower()
+
+    if add_schema != "y":
+        return None
+
+    print(f"\n📋 Paste your {schema_type} JSON (Schema.org format)")
+    print("Press Ctrl+D (Unix/Mac) or Ctrl+Z+Enter (Windows) when done:")
+    print("-" * 60)
+
+    try:
+        json_lines = []
+        while True:
+            try:
+                line = input()
+                json_lines.append(line)
+            except EOFError:
+                break
+
+        json_str = "\n".join(json_lines)
+
+        if not json_str.strip():
+            print(f"❌ No JSON provided, skipping custom {schema_type}")
+            return None
+
+        # Parse and validate JSON
+        schema_data = parse_schema_json(json_str, schema_type)
+        print(f"\n✅ Parsed custom {schema_type} schema")
+        return schema_data
+
+    except ValueError as e:
+        print(f"\n❌ JSON validation error: {e}")
+        print(f"⚠️  Skipping custom {schema_type} schema")
+        return None
+    except Exception as e:
+        print(f"\n❌ Unexpected error parsing JSON: {e}")
+        return None
 
 
 def create_faq_html(faqs):
@@ -283,59 +339,117 @@ def create_faq_html(faqs):
     return html
 
 
-def inject_noindex_meta(html_content):
-    """Insert a noindex/nofollow meta tag into <head> for draft posts."""
-    # Only add if not already present
-    if re.search(r'<meta\s+name="robots"', html_content, re.IGNORECASE):
-        return html_content
-    return re.sub(
-        r"(<head[^>]*>)",
-        r'\1\n        <meta name="robots" content="noindex,nofollow" />',
-        html_content,
-        count=1,
-        flags=re.IGNORECASE,
-    )
+def generate_schema_org_json(post_data):
+    """
+    Generate complete Schema.org JSON-LD structure.
+
+    Handles:
+    - Default BlogPosting schema or custom provided
+    - FAQ schema if FAQs provided
+    - ItemList schema if provided
+    - Uses @graph for multiple schemas
+
+    Args:
+        post_data: Post metadata dictionary
+
+    Returns:
+        str: Formatted JSON-LD string for insertion into template
+    """
+    import json
+
+    schemas = []
+
+    # BlogPosting Schema (use custom if provided, otherwise generate default)
+    if "blog_posting_schema" in post_data:
+        schemas.append(post_data["blog_posting_schema"])
+    else:
+        blog_posting = {
+            "@type": "BlogPosting",
+            "headline": post_data["title"],
+            "description": post_data["description"],
+            "image": f"https://blog.gtm-engineering.io/assets/{post_data.get('featured_image', 'gtm-revenue-system-illustration.webp')}",
+            "author": {
+                "@type": "Person",
+                "name": post_data["author"],
+                "url": post_data.get("author_url", "https://www.linkedin.com/in/jorge-b-macias")
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "GTM Engineering",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.gtm-engineering.io/assets/logo.png"
+                }
+            },
+            "datePublished": post_data["date_iso"],
+            "dateModified": post_data["date_iso"],
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": f"https://blog.gtm-engineering.io/posts/{post_data['filename']}.html"
+            },
+            "articleSection": post_data["category"],
+            "keywords": post_data["keywords"]
+        }
+        schemas.append(blog_posting)
+
+    # FAQ Schema (if FAQs provided)
+    if post_data["faqs"]:
+        faq_schema = {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": faq["question"],
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq["answer"]
+                    }
+                }
+                for faq in post_data["faqs"]
+            ]
+        }
+        schemas.append(faq_schema)
+
+    # ItemList Schema (if provided)
+    if "item_list_schema" in post_data:
+        schemas.append(post_data["item_list_schema"])
+
+    # Generate final structure
+    if len(schemas) == 1:
+        # Single schema, no @graph needed
+        schema_structure = {
+            "@context": "https://schema.org",
+            **schemas[0]
+        }
+    else:
+        # Multiple schemas, use @graph
+        schema_structure = {
+            "@context": "https://schema.org",
+            "@graph": schemas
+        }
+
+    # Format with proper indentation (12 spaces to match template indentation)
+    json_str = json.dumps(schema_structure, indent=4, ensure_ascii=False)
+
+    # Adjust indentation to match template (add 12 spaces to each line)
+    lines = json_str.split("\n")
+    indented_lines = [(" " * 12 + line if line.strip() else line) for line in lines]
+
+    return "\n".join(indented_lines)
 
 
 def update_drafts_manifest(project_root: Path, post_data: dict):
-    """Create/update drafts/drafts.json with this draft's metadata."""
-    drafts_dir = project_root / "drafts"
-    drafts_dir.mkdir(exist_ok=True)
-    manifest_path = drafts_dir / "drafts.json"
-
-    # Load existing manifest
-    manifest = []
-    if manifest_path.exists():
-        try:
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            if not isinstance(manifest, list):
-                manifest = []
-        except Exception:
-            manifest = []
-
-    # Remove existing entry with same slug
-    manifest = [item for item in manifest if item.get("slug") != post_data["filename"]]
-
-    # Add new entry
-    manifest.append(
-        {
-            "slug": post_data["filename"],
-            "title": post_data["title"],
-            "url": f"{post_data['filename']}.html",
-            "author": post_data["author"],
-            "excerpt": post_data["excerpt"],
-            "createdAt": datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        }
+    """
+    Create/update drafts/drafts.json with this draft's metadata.
+    Uses centralized manifest management.
+    """
+    manifest = DraftsManifest(project_root)
+    manifest.add_entry(
+        slug=post_data["filename"],
+        title=post_data["title"],
+        author=post_data["author"],
+        excerpt=post_data["excerpt"],
     )
-
-    # Sort newest first
-    try:
-        manifest.sort(key=lambda x: x.get("createdAt", ""), reverse=True)
-    except Exception:
-        pass
-
-    # Write manifest
-    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
 
 def create_post_metadata(title, author, author_url, excerpt, keywords, tags, reading_time, faqs, custom_slug=None):
@@ -404,26 +518,6 @@ def print_publishing_checklist(post_data):
     print("\n⚡ All meta fields will be auto-populated consistently!")
 
 
-def validate_slug(slug):
-    """Validate slug format: lowercase, alphanumeric, hyphens only, no leading/trailing hyphens."""
-    if not slug:
-        return False, "Slug cannot be empty"
-
-    # Check for valid characters (lowercase, numbers, hyphens)
-    if not re.match(r"^[a-z0-9-]+$", slug):
-        return False, "Use lowercase letters, numbers, and hyphens only"
-
-    # Check for leading/trailing hyphens
-    if slug.startswith("-") or slug.endswith("-"):
-        return False, "Slug cannot start or end with hyphens"
-
-    # Check for consecutive hyphens
-    if "--" in slug:
-        return False, "Slug cannot contain consecutive hyphens"
-
-    return True, ""
-
-
 def check_slug_exists(project_root, slug, save_as_draft):
     """Check if slug already exists in posts or drafts."""
     posts_dir = project_root / "posts"
@@ -468,14 +562,60 @@ def get_custom_slug(project_root, auto_slug, save_as_draft):
         return custom
 
 
+def print_markdown_conversion_help(slug):
+    """Print instructions for markdown-to-HTML conversion."""
+    print("\n📋 MARKDOWN CONVERSION INSTRUCTIONS:")
+    print("=" * 60)
+    print("1. Copy your markdown content")
+    print("2. Use the AI prompt below to convert it to HTML")
+    print("3. Replace the content marker in your draft file")
+    print("4. Save and publish!")
+    print()
+
+    # Show AI prompt template
+    print("🤖 AI CONVERSION PROMPT (Copy this and use in ChatGPT/Claude/Gemini):")
+    print("=" * 60)
+    ai_prompt_template = """Convert this markdown content to clean HTML for a blog post:
+
+[YOUR MARKDOWN CONTENT HERE]
+
+Requirements:
+- Use proper HTML tags: <h2> for main sections, <h3> for subsections
+- Use <p> for paragraphs, <strong> for emphasis, <em> for italic
+- Use <ul> and <ol> for lists with proper <li> tags
+- Use <blockquote> for quotes or important statements
+- Keep formatting clean and readable
+- Don't add any extra commentary or explanations
+- Return ONLY the HTML content that goes between the content markers
+- Do NOT include DOCTYPE, html, head, or body tags"""
+
+    print(ai_prompt_template)
+    print("=" * 60)
+    print()
+
+    # Show file location and next steps
+    print("🎯 HOW TO EDIT:")
+    print(f"1. Open: drafts/{slug}.html")
+    print("2. Find: <!-- BLOG_POST_CONTENT_HERE -->")
+    print("3. Replace it with your AI-converted HTML content")
+    print("4. Save the file")
+    print(f"5. Publish with: python scripts/publish-draft.py {slug}")
+    print()
+
+
 def main():
     """Main function to create new blog post."""
     print("🚀 GTM Engineering Blog - New Post Creator")
     print("=" * 50)
 
-    # Draft mode flag (keep simple, no argparse to avoid breaking interactive flow)
+    # Mode flags (keep simple, no argparse to avoid breaking interactive flow)
     save_as_draft = ("--draft" in sys.argv) or ("-d" in sys.argv)
-    if save_as_draft:
+    markdown_mode = ("--markdown" in sys.argv) or ("-m" in sys.argv)
+
+    if markdown_mode:
+        save_as_draft = True  # Markdown mode always creates drafts
+        print("🎨 Markdown mode enabled: will create draft with AI conversion helper")
+    elif save_as_draft:
         print("📝 Draft mode enabled: post will be saved under drafts/ and marked noindex")
 
     # Get project root directory
@@ -533,10 +673,20 @@ def main():
         # Get FAQ data for rich snippets
         faqs = get_faq_data()
 
+        # Get optional custom schemas
+        blog_posting_schema = get_schema_json_data("BlogPosting")
+        item_list_schema = get_schema_json_data("ItemList")
+
         # Create centralized post metadata
         post_data = create_post_metadata(
             title, author, author_url, excerpt, keywords, tags, reading_time, faqs, custom_slug=final_slug
         )
+
+        # Add custom schemas to post_data if provided
+        if blog_posting_schema:
+            post_data["blog_posting_schema"] = blog_posting_schema
+        if item_list_schema:
+            post_data["item_list_schema"] = item_list_schema
 
         print(f"🎨 Color scheme: {post_data['card_label']}")
         print_publishing_checklist(post_data)
@@ -573,15 +723,10 @@ def main():
         "[POST-FEATURED-IMAGE]": post_data.get("featured_image", "gtm-revenue-system-illustration.webp"),
         "[HERO-IMAGE-FILENAME]": post_data.get("hero_image", "gtm-revenue-system-illustration.webp"),
         "Jorge Macias": post_data["author"],  # Update default author if different
-        # FAQ Schema placeholders
-        "[FAQ_QUESTION_1]": post_data["faqs"][0]["question"] if len(post_data["faqs"]) > 0 else "",
-        "[FAQ_ANSWER_1]": post_data["faqs"][0]["answer"] if len(post_data["faqs"]) > 0 else "",
-        "[FAQ_QUESTION_2]": post_data["faqs"][1]["question"] if len(post_data["faqs"]) > 1 else "",
-        "[FAQ_ANSWER_2]": post_data["faqs"][1]["answer"] if len(post_data["faqs"]) > 1 else "",
-        "[FAQ_QUESTION_3]": post_data["faqs"][2]["question"] if len(post_data["faqs"]) > 2 else "",
-        "[FAQ_ANSWER_3]": post_data["faqs"][2]["answer"] if len(post_data["faqs"]) > 2 else "",
         # FAQ HTML section
         "[FAQ_SECTION_HTML]": create_faq_html(post_data["faqs"]),
+        # Complete Schema.org JSON-LD (replaces all individual schema placeholders)
+        "[SCHEMA_ORG_JSON]": generate_schema_org_json(post_data),
     }
 
     # Apply replacements
@@ -627,7 +772,11 @@ def main():
 
     # Instructions
     print("\n🎉 Your new blog post is ready!")
-    if save_as_draft:
+    if markdown_mode:
+        # Show markdown conversion instructions
+        slug = post_data["filename"]
+        print_markdown_conversion_help(slug)
+    elif save_as_draft:
         slug = post_data["filename"]
         print(f"📝 Edit the content in: drafts/{slug}.html")
         print("\n📋 Next steps:")
