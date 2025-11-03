@@ -126,7 +126,8 @@ The blog has a **unified GitHub Actions workflow** (`.github/workflows/blog-auto
 3. **RSS Feed Generation**: Creates `feed.xml` with full post content
 4. **Metadata Updates**: Updates `js/blog-posts-data.js` for related articles
 5. **Homepage Updates**: Adds missing post cards to `index.html`
-6. **Featured Post**: Automatically promotes the most recent post to featured section
+6. **Post Card Sorting**: Automatically sorts post cards by publish date (newest first)
+7. **Featured Post**: Automatically promotes the most recent post to featured section
 
 **Triggers**: Any push to `main` branch affecting:
 

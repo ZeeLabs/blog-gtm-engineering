@@ -21,7 +21,7 @@ python scripts/publish-draft.py my-post --featured  # Featured post
 
 ---
 
-## Active Scripts (6 Total)
+## Active Scripts (7 Total)
 
 ### 🎯 User-Facing Commands
 
@@ -144,6 +144,34 @@ python scripts/publish-draft.py <slug> [--featured]
 
 ---
 
+#### `sort-post-cards.py`
+
+**Purpose:** Automatically sort post cards in homepage by publish date (newest first)
+
+**Called by:** `.github/workflows/blog-automation.yml` (Step 7 - runs after adding cards)
+
+**What it does:**
+
+-   Scans `posts/` directory to extract post slugs and publish dates
+-   Reads `index.html` to find all post card HTML blocks
+-   Extracts post slugs from `<a href="posts/SLUG.html">` links in cards
+-   Sorts cards chronologically by `article:published_time` meta tag (newest first)
+-   Orphaned cards (cards without matching post file) are moved to end of list
+-   Writes reordered HTML back to `index.html`
+
+**Exit codes:**
+
+-   `0` = Success (cards sorted)
+-   `1` = Error (CRITICAL - fails workflow)
+
+**Depends on:** `lib/html_parser.py` (`get_all_posts()` function)
+
+**Status:** Active CI/CD automation (critical for homepage order)
+
+**Note:** Must run AFTER `add-post-card.py` to ensure all cards are present before sorting
+
+---
+
 #### `update-blog-metadata.py`
 
 **Purpose:** Update `js/blog-posts-data.js` for related posts functionality
@@ -194,6 +222,7 @@ python scripts/publish-draft.py <slug> [--featured]
 **Key Function:** `parse_post_metadata(file_path)` - Extract all metadata from blog post HTML
 
 **Returns:**
+
 ```python
 {
     "title": str,              # From <title> or <h1>
@@ -211,13 +240,15 @@ python scripts/publish-draft.py <slug> [--featured]
 ```
 
 **Features:**
-- Handles reversed attribute order in meta tags
-- Multiple date format support (ISO 8601)
-- JSON-LD schema parsing for publish dates
-- File modification time fallback
-- Robust error handling and fallbacks
 
-**Used by:** `add-post-card.py`, `update-blog-metadata.py`, `generate-sitemap.py`, `generate-rss-feed.py`
+-   Handles reversed attribute order in meta tags
+-   Multiple date format support (ISO 8601)
+-   **Enhanced date parsing** - Uses `datetime.fromisoformat()` with fallback to format string parsing
+-   JSON-LD schema parsing for publish dates
+-   File modification time fallback
+-   Robust error handling and fallbacks
+
+**Used by:** `add-post-card.py`, `sort-post-cards.py`, `update-blog-metadata.py`, `generate-sitemap.py`, `generate-rss-feed.py`
 
 ---
 
