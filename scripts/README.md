@@ -183,7 +183,41 @@ python scripts/publish-draft.py <slug> [--featured]
 -   `inject_noindex_meta()` - Add noindex tags to HTML
 -   `get_current_date()` - Standardized date formatting
 
-**Used by:** `new-post.py`, `publish-draft.py`
+**Used by:** `new-post.py`, `publish-draft.py`, `add-post-card.py`
+
+---
+
+### `lib/html_parser.py`
+
+**Purpose:** Unified HTML metadata extraction (single source of truth for parsing)
+
+**Key Function:** `parse_post_metadata(file_path)` - Extract all metadata from blog post HTML
+
+**Returns:**
+```python
+{
+    "title": str,              # From <title> or <h1>
+    "description": str,        # From meta description
+    "author": str,             # From meta author
+    "tags": list[str],         # From keywords (first 3, title-cased)
+    "image": str,              # From og:image (converted to relative)
+    "image_alt": str,          # From og:image:alt or twitter:image:alt
+    "publish_date": datetime,  # From article:published_time or JSON-LD
+    "excerpt": str,            # First 3 paragraphs of content
+    "filename": str,           # Stem without extension
+    "url": str,                # Relative: filename.html
+    "full_url": str,           # Absolute with domain
+}
+```
+
+**Features:**
+- Handles reversed attribute order in meta tags
+- Multiple date format support (ISO 8601)
+- JSON-LD schema parsing for publish dates
+- File modification time fallback
+- Robust error handling and fallbacks
+
+**Used by:** `add-post-card.py`, `update-blog-metadata.py`, `generate-sitemap.py`, `generate-rss-feed.py`
 
 ---
 
@@ -402,6 +436,39 @@ python scripts/publish-draft.py my-post
 ---
 
 ## Version History
+
+### v2.2.0 (2025-11-03) - Metadata Extraction Consolidation
+
+**What Changed:**
+
+-   ✅ **Unified metadata extraction** - All scripts now use `lib/html_parser.py` as single source of truth
+-   ✅ **Removed duplicate code** - Eliminated ~153 lines of redundant regex parsing
+-   ✅ **Improved robustness** - Better handling of edge cases (reversed attributes, multiple date formats)
+-   ✅ **Consistent behavior** - All scripts extract metadata the same way
+-   ✅ **Added publish date** - Now available in add-post-card.py and update-blog-metadata.py
+-   ✅ **Added image alt text** - Extracted from og:image:alt and twitter:image:alt
+
+**Why These Changes:**
+
+1. **Code duplication** - `add-post-card.py` and `update-blog-metadata.py` had nearly identical extraction logic
+2. **Maintenance burden** - Bug fixes needed in 3 places, inconsistent implementations
+3. **Missing features** - Some scripts had robust parsing, others didn't
+4. **Technical debt** - Violated DRY (Don't Repeat Yourself) principle
+
+**Files Modified:**
+
+-   `scripts/add-post-card.py` - Removed 88 lines (local utilities + extraction logic)
+-   `scripts/update-blog-metadata.py` - Removed 65 lines (duplicate extraction function)
+-   `scripts/README.md` - Updated documentation for unified approach
+
+**Breaking Changes:** None - all scripts maintain backward compatibility
+
+**Benefits:**
+
+-   Future metadata changes only need updating in one place
+-   Bug fixes benefit all scripts automatically
+-   New fields available everywhere (publish date, image alt)
+-   Easier to maintain and debug
 
 ### v2.1.0 (2025-10-31) - Schema & Reading Time Improvements
 

@@ -7,7 +7,7 @@ Supports promoting posts to featured status and proper image handling.
 Usage:
     Interactive mode:
         python scripts/add-post-card.py [filename]
-    
+
     Automation mode (CI/CD):
         python scripts/add-post-card.py post-name --auto
         python scripts/add-post-card.py post-name --auto --mode featured
@@ -25,90 +25,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-
-def slugify(text):
-    """Convert text to URL-friendly slug."""
-    text = text.lower()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
-    text = re.sub(r"[-\s]+", "-", text)
-    return text.strip("-")
-
-
-def get_color_scheme():
-    """Return a random color scheme for the post card."""
-    schemes = [
-        {"color1": "10b981", "color2": "059669", "label": "GTM Strategy"},
-        {"color1": "f59e0b", "color2": "d97706", "label": "RevOps Stack"},
-        {"color1": "8b5cf6", "color2": "7c3aed", "label": "Data Stack"},
-        {"color1": "ef4444", "color2": "dc2626", "label": "Sales Velocity"},
-        {"color1": "06b6d4", "color2": "0891b2", "label": "Analytics"},
-        {"color1": "ec4899", "color2": "db2777", "label": "Growth"},
-        {"color1": "f97316", "color2": "ea580c", "label": "Automation"},
-    ]
-    import random
-
-    scheme = random.choice(schemes)
-    return scheme["color1"], scheme["color2"], scheme["label"]
-
-
-def extract_meta_from_html(html_content):
-    """Extract metadata from existing HTML post."""
-    data = {}
-
-    # Extract title from <title> tag or h1
-    title_match = re.search(r"<title[^>]*>([^<]+)</title>", html_content, re.IGNORECASE)
-    if title_match:
-        title = title_match.group(1).strip()
-        # Remove " - GTM Engineering" suffix if present
-        title = re.sub(r"\s*-\s*GTM Engineering.*$", "", title)
-        data["title"] = title
-    else:
-        # Fallback to h1
-        h1_match = re.search(r"<h1[^>]*>([^<]+)</h1>", html_content, re.IGNORECASE)
-        if h1_match:
-            data["title"] = h1_match.group(1).strip()
-
-    # Extract meta description
-    desc_match = re.search(
-        r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
-    )
-    if desc_match:
-        data["description"] = desc_match.group(1).strip()
-
-    # Extract author
-    author_match = re.search(
-        r'<meta\s+name=["\']author["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
-    )
-    if author_match:
-        data["author"] = author_match.group(1).strip()
-    else:
-        data["author"] = "Jorge Macias"  # Default
-
-    # Extract Open Graph image for proper image display
-    og_image_match = re.search(
-        r'<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
-    )
-    if og_image_match:
-        image_url = og_image_match.group(1).strip()
-        # Convert full URL to relative path if it's from the same domain
-        if "blog.gtm-engineering.io" in image_url:
-            image_url = image_url.split("blog.gtm-engineering.io")[-1]
-        data["image_url"] = image_url
-
-    # Extract keywords for tags
-    keywords_match = re.search(
-        r'<meta\s+name=["\']keywords["\']\s+content=["\']([^"\']+)["\']', html_content, re.IGNORECASE
-    )
-    if keywords_match:
-        keywords = keywords_match.group(1).strip()
-        # Convert keywords to tags (first 3)
-        tags = [tag.strip() for tag in keywords.split(",")[:3]]
-        data["tags"] = [tag.title() for tag in tags if tag.strip()]
-
-    if not data.get("tags"):
-        data["tags"] = ["Strategy"]
-
-    return data
+# Import shared utilities
+from lib.html_parser import parse_post_metadata
+from lib.shared import get_color_scheme
 
 
 def create_post_card_html(post_data, filename, is_featured=False):
@@ -116,10 +35,10 @@ def create_post_card_html(post_data, filename, is_featured=False):
     color1, color2, card_label = get_color_scheme()
 
     # Use actual image if available, otherwise use gradient background
-    if post_data.get("image_url"):
+    if post_data.get("image"):
         image_html = f'''<a href="posts/{filename}.html" class="post-card-image" role="img" aria-label="{post_data["title"]} post thumbnail">
                     <img
-                        src="{post_data["image_url"]}"
+                        src="{post_data["image"]}"
                         alt="{post_data["title"]} illustration"
                         style="width: 100%; height: 100%; object-fit: cover;"
                     />
@@ -290,11 +209,11 @@ def check_post_exists_in_index(filename, index_path):
     try:
         with open(index_path, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         # Check for post link in the content
-        post_link_pattern = f'posts/{filename}.html'
+        post_link_pattern = f"posts/{filename}.html"
         return post_link_pattern in content
-    
+
     except Exception:
         return False
 
@@ -383,36 +302,27 @@ def add_regular_post_to_index(card_html, index_path):
 def parse_arguments():
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="GTM Engineering Blog - Post Card Generator",
-        formatter_class=argparse.RawDescriptionHelpFormatter
+        description="GTM Engineering Blog - Post Card Generator", formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    
-    parser.add_argument(
-        "filename",
-        nargs="?",
-        help="Post filename (without .html extension)"
-    )
-    
-    parser.add_argument(
-        "--auto",
-        action="store_true",
-        help="Run in non-interactive automation mode for CI/CD"
-    )
-    
+
+    parser.add_argument("filename", nargs="?", help="Post filename (without .html extension)")
+
+    parser.add_argument("--auto", action="store_true", help="Run in non-interactive automation mode for CI/CD")
+
     parser.add_argument(
         "--mode",
         choices=["regular", "featured"],
         default="regular",
-        help="Post mode when using --auto flag (default: regular)"
+        help="Post mode when using --auto flag (default: regular)",
     )
-    
+
     return parser.parse_args()
 
 
 def main():
     """Main function to generate post card and add to index."""
     args = parse_arguments()
-    
+
     # Interactive mode header
     if not args.auto:
         print("🎯 GTM Engineering Blog - Post Card Generator")
@@ -465,12 +375,8 @@ def main():
                 sys.exit(0)
 
     try:
-        # Read the HTML post
-        with open(post_path, "r", encoding="utf-8") as f:
-            html_content = f.read()
-
-        # Extract metadata
-        post_data = extract_meta_from_html(html_content)
+        # Extract metadata using html_parser
+        post_data = parse_post_metadata(post_path)
 
         if not post_data.get("title"):
             print("❌ Could not extract title from HTML post")
@@ -487,8 +393,8 @@ def main():
             print(f"👤 Author: {post_data['author']}")
             print(f"📝 Description: {post_data.get('description', 'N/A')[:50]}...")
             print(f"🏷️  Tags: {', '.join(post_data['tags'])}")
-            if post_data.get("image_url"):
-                print(f"🖼️  Image: {post_data['image_url']}")
+            if post_data.get("image"):
+                print(f"🖼️  Image: {post_data['image']}")
             else:
                 print("🎨 Image: Will use gradient background")
 
@@ -510,7 +416,7 @@ def main():
                 else:
                     print("❌ Failed to add card to index.html")
                     sys.exit(1)
-            
+
             sys.exit(0)  # Success exit code
 
         # Interactive mode - Ask user what to do
