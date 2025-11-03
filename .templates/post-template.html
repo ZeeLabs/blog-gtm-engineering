@@ -367,8 +367,54 @@
                         </ul>
 
                         <!-- ===================
-                         FAQ SECTION (OPTIONAL - FOR RICH SNIPPETS)
+                         FAQ SECTION (OPTIONAL - FOR SEO RICH SNIPPETS)
+
+                         IMPORTANT STYLING RULES:
+                         - Use semantic HTML ONLY (h2, h3, p, ul, li tags)
+                         - NO custom CSS classes (no .faq-section, .faq-item, etc.)
+                         - NO inline <style> blocks
+                         - Relies on global CSS variables (var(--space-12))
+                         - Simple section wrapper with id="faq"
+
+                         SEO BENEFITS:
+                         - FAQ schema markup in <head> enables Google rich snippets
+                         - Improves search visibility with FAQ cards in results
+                         - Increases click-through rates from search
+
+                         WHEN TO USE:
+                         - Include 3-5 common questions users ask about the topic
+                         - Answer concisely (1-2 paragraphs per question)
+                         - Questions should address search intent and add value
+
+                         EXAMPLE STRUCTURE (copy and customize):
                          =================== -->
+                        <!-- <section id="faq" style="margin-top: var(--space-12);">
+                            <h2>Frequently Asked Questions</h2>
+
+                            <h3>What is [topic-related question]?</h3>
+                            <p>[Clear, concise answer in 1-2 paragraphs. Focus on providing value and addressing user intent.]</p>
+
+                            <h3>How do I [action-related question]?</h3>
+                            <p>[Step-by-step or explanatory answer. Can include bullet lists if needed:]</p>
+                            <ul>
+                                <li><strong>Step 1:</strong> Description</li>
+                                <li><strong>Step 2:</strong> Description</li>
+                                <li><strong>Step 3:</strong> Description</li>
+                            </ul>
+
+                            <h3>When should I [timing-related question]?</h3>
+                            <p>[Practical guidance with specific timeframes or conditions.]</p>
+
+                            <h3>Why is [reason-related question]?</h3>
+                            <p>[Explain the reasoning with supporting details or statistics.]</p>
+
+                            <h3>Can I [capability-related question]?</h3>
+                            <p>[Yes/no answer with explanation and any conditions or considerations.]</p>
+                        </section> -->
+
+                        <!-- NOTE: Also add corresponding FAQPage schema to [SCHEMA_ORG_JSON] in <head> for SEO.
+                             See existing posts for FAQPage schema examples. -->
+
                         [FAQ_SECTION_HTML]
 
                         <h2>[CONCLUSION HEADING]</h2>
