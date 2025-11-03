@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- ===================
-         META TAGS - UPDATE THESE FOR EACH POST
-         =================== -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,9 +14,6 @@
         <!-- UPDATE: Author name -->
         <meta name="author" content="[AUTHOR NAME]" />
 
-        <!-- ===================
-         OPEN GRAPH TAGS FOR SOCIAL SHARING
-         =================== -->
         <!-- UPDATE: Post title for social sharing -->
         <meta property="og:title" content="[BLOG POST TITLE] - GTM Engineering" />
 
@@ -39,9 +33,6 @@
 
         <meta property="og:site_name" content="GTM Engineering" />
 
-        <!-- ===================
-         TWITTER CARD TAGS
-         =================== -->
         <meta name="twitter:card" content="summary_large_image" />
 
         <!-- UPDATE: Post title for Twitter -->
@@ -56,73 +47,18 @@
 
         <!-- ===================
          STRUCTURED DATA (Schema.org)
+
+         This placeholder is replaced by the actual BlogPosting schema, optional FAQPage schema, and optional ItemList schema.
+         The schemas use @graph for multiple types or single schema without @graph.
          =================== -->
         <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "Article",
-                "headline": "[BLOG POST TITLE]",
-                "description": "[WRITE A COMPELLING DESCRIPTION]",
-                "image": "https://blog.gtm-engineering.io/assets/[POST-FEATURED-IMAGE]",
-                "author": {
-                    "@type": "Person",
-                    "name": "[AUTHOR NAME]",
-                    "url": "[AUTHOR_BIO_URL]"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "GTM Engineering",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://www.gtm-engineering.io/assets/logo.png"
-                    }
-                },
-                "datePublished": "[PUBLICATION DATE in YYYY-MM-DD format]",
-                "dateModified": "[LAST MODIFIED DATE in YYYY-MM-DD format]",
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": "https://blog.gtm-engineering.io/posts/[POST-FILENAME].html"
-                },
-                "articleSection": "[CATEGORY]",
-                "keywords": "[KEYWORD1], [KEYWORD2], [KEYWORD3]",
-                "mainEntity": {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "[FAQ_QUESTION_1]",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "[FAQ_ANSWER_1]"
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "[FAQ_QUESTION_2]",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "[FAQ_ANSWER_2]"
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "[FAQ_QUESTION_3]",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "[FAQ_ANSWER_3]"
-                            }
-                        }
-                    ]
-                }
-            }
+            [SCHEMA_ORG_JSON]
         </script>
 
-        <!-- ===================
-         PAGE TITLE & RESOURCES
-         =================== -->
         <!-- UPDATE: Page title (appears in browser tab) -->
         <title>[BLOG POST TITLE] - GTM Engineering</title>
 
+        <!-- Cache-busting version: Update manually when CSS/JS changes (format: YYYYMMDD-revision) -->
         <link rel="stylesheet" href="../styles.css?v=20250912-1" />
         <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 
@@ -135,9 +71,6 @@
         <link rel="canonical" href="https://blog.gtm-engineering.io/posts/[POST-FILENAME].html" />
     </head>
     <body>
-        <!-- ===================
-         HEADER SECTION (IDENTICAL TO BLOG LISTING)
-         =================== -->
         <header class="header" role="banner">
             <div class="header-container">
                 <!-- Logo -->
@@ -245,15 +178,9 @@
             </div>
         </header>
 
-        <!-- ===================
-         MAIN CONTENT
-         =================== -->
         <main role="main">
             <article class="section">
                 <div class="container">
-                    <!-- ===================
-                     ARTICLE HEADER
-                     =================== -->
                     <div class="post-header">
                         <!-- UPDATE: Blog post title -->
                         <h1 class="post-title">[BLOG POST TITLE]</h1>
@@ -335,10 +262,6 @@
                             <span class="post-tag">[TAG]</span>
                         </div>
                     </div>
-
-                    <!-- ===================
-                     HERO IMAGE SECTION
-                     =================== -->
 
                     <div style="margin-bottom: var(--space-12)">
                         <img
@@ -454,9 +377,6 @@
 
                         <p>[TRANSITION TO THE CTA AND CONNECT IT TO THE CONTENT]</p>
 
-                        <!-- ===================
-                         CALL-TO-ACTION SECTION
-                         =================== -->
                         <div
                             style="
                                 background-color: var(--color-primary-light);
@@ -484,9 +404,6 @@
                         </div>
                     </div>
 
-                    <!-- ===================
-                     SOCIAL SHARING SECTION
-                     =================== -->
                     <div
                         style="
                             margin-top: var(--space-12);
@@ -562,18 +479,11 @@
                         </div>
                     </div>
 
-                    <!-- ===================
-                     NAVIGATION ELEMENTS
-                     =================== -->
-
                     <!-- Back to Blog -->
                     <div style="text-align: center; margin-top: var(--space-12)">
                         <a href="../" class="btn btn-ghost">← Back to Blog</a>
                     </div>
 
-                    <!-- ===================
-                     COMMENTS SECTION
-                     =================== -->
                     <section
                         style="
                             margin-top: var(--space-16);
@@ -631,9 +541,6 @@
                         </div>
                     </section>
 
-                    <!-- ===================
-                     RELATED POSTS SECTION
-                     =================== -->
                     <section
                         id="related-posts"
                         style="
@@ -664,9 +571,6 @@
             </article>
         </main>
 
-        <!-- ===================
-         CALL TO ACTION FOOTER SECTION
-         =================== -->
         <section class="footer-cta" role="contentinfo">
             <div class="container">
                 <h2>Get in touch today to level-up your processes</h2>
@@ -684,9 +588,6 @@
             </div>
         </section>
 
-        <!-- ===================
-         FOOTER LINKS SECTION
-         =================== -->
         <footer class="footer" role="contentinfo">
             <div class="container">
                 <div class="footer-content">
