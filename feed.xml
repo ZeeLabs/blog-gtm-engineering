@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" ?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>GTME Blog - GTM Engineering</title>
         <description>Expert insights on go-to-market strategies, RevOps, and scaling B2B growth</description>
@@ -8,13 +8,12 @@
         <copyright>GTM Engineering</copyright>
         <managingEditor>hello@gtm-engineering.io (Jorge Macias)</managingEditor>
         <webMaster>hello@gtm-engineering.io (Jorge Macias)</webMaster>
-        <lastBuildDate>Fri, 17 Oct 2025 00:00:00 GMT</lastBuildDate>
-        <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
+        <lastBuildDate>Thu, 23 Oct 2025 00:00:00 GMT</lastBuildDate>
+        <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
         <generator>GTM Engineering Blog System</generator>
         <docs>https://www.rssboard.org/rss-specification</docs>
         <ttl>1440</ttl>
         <atom:link href="https://blog.gtm-engineering.io/feed.xml" rel="self" type="application/rss+xml"/>
-
         <image>
             <url>https://images.squarespace-cdn.com/content/v1/67f6a2abaec6f26633e3ec6b/b7425771-777b-4948-9af1-4b28287183a8/GTM+Logo+Horizontal+Sharp.png?format=1500w</url>
             <title>GTME Blog - GTM Engineering</title>
@@ -23,112 +22,1582 @@
             <height>500</height>
             <description>GTM Engineering Logo</description>
         </image>
-
+        <item>
+            <title>Best AI Cold Calling Software Tools (2026 Reviewed)</title>
+            <link>https://blog.gtm-engineering.io/posts/best-ai-cold-calling-software-tools.html</link>
+            <description>Discover the best AI cold calling software tools to automate outreach. Compare features, pros, cons, and find the perfect fit for your needs.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;h1 class="post-title"&gt;Best AI Cold Calling Software Tools (2026 Reviewed)&lt;/h1&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                October 23, 2025
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                5 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;span class="post-tag"&gt;Strategy&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/best-ai-cold-calling-software-tools.webp"
+                            alt="3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;h1&gt;Best AI Cold Calling Software Tools to Automate Outreach (2026 Reviewed)&lt;/h1&gt;
+                        &lt;p&gt;&lt;strong&gt;Last Modified:&lt;/strong&gt; October 23, 2025&lt;/p&gt;
+&lt;p&gt;Finding the &lt;strong&gt;best AI cold calling software&lt;/strong&gt; is crucial for modern sales teams aiming to boost efficiency and close more deals. These tools move beyond simple autodialers by using AI to handle entire conversations, quality leads, and book meetings.&lt;/p&gt;
+&lt;p&gt;AI-powered dialers can contact up to 10 times more leads per hour than a human agent dialing manually. This frees up your human reps to focus on high-value, closing activities.&lt;/p&gt;</content:encoded>
+            <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/best-ai-cold-calling-software-tools.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Gtm Engineering</category>
+            <category>Go-To-Market</category>
+            <category>Revops</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/best-ai-cold-calling-software-tools.webp" type="image/webp" length="0"/>
+        </item>
+        <item>
+            <title>How to Make Sales Without Cold Calling (7 Proven Methods)</title>
+            <link>https://blog.gtm-engineering.io/posts/how-to-make-sales-without-cold-calling.html</link>
+            <description>Tired of cold calling? Learn how to make sales without it using 7 proven alternatives like social selling, content marketing, and warm outreach for B2B startups.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;h1 class="post-title"&gt;How to Make Sales Without Cold Calling (7 Proven Methods)&lt;/h1&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                October 23, 2025
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                5 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;span class="post-tag"&gt;Strategy&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/how-to-make-sales-without-cold-calling.webp"
+                            alt="3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;h1&gt;How to Make Sales Without Cold Calling: 7 Proven Alternatives&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Last Modified:&lt;/strong&gt; October 23, 2025&lt;/p&gt;
+&lt;p&gt;Let's be honest: cold calling is an outdated, low-ROI strategy.&lt;/p&gt;
+&lt;p&gt;According to Klenty, it takes an average of 8 cold calls to reach a prospect and book a meeting, with a typical conversion rate of just 2%. It fits certain GTM motions but not all of them. Understanding when to include cold calls as part of your sales team strategy is key. This blog post is for all the others...&lt;/p&gt;</content:encoded>
+            <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/how-to-make-sales-without-cold-calling.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Gtm Engineering</category>
+            <category>Go-To-Market</category>
+            <category>Revops</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/how-to-make-sales-without-cold-calling.webp" type="image/webp" length="0"/>
+        </item>
+        <item>
+            <title>30-60-90 Day Plan For New Managers Guide (With Examples)</title>
+            <link>https://blog.gtm-engineering.io/posts/30-60-90-day-plan-new-managers.html</link>
+            <description>Set yourself up for success. Our guide provides a 30-60-90 day plan for new managers with a template, examples, and key actions for your first 3 months.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;h1 class="post-title"&gt;30-60-90 Day Plan For New Managers Guide (With Examples)&lt;/h1&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                October 23, 2025
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                5 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;span class="post-tag"&gt;Strategy&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;RevOps&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/30-60-90-day-plan-new-managers.webp"
+                            alt="30-60-90 Day Plan For New Managers Guide (With Examples)"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;h1&gt;30-60-90 Day Plan For New Managers: The Ultimate Guide (With Examples)&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Last Modified:&lt;/strong&gt; October 23, 2025&lt;/p&gt;
+&lt;p&gt;Stepping into a new management role is a critical moment. Your first three months often set the tone for your entire tenure. A well-structured &lt;strong&gt;30 60 90 day plan for new managers&lt;/strong&gt; is not just a document; it's a strategic roadmap that transforms a potentially chaotic transition into a period of focused learning, contribution, and long-term impact.&lt;/p&gt;
+&lt;p&gt;This plan is your blueprint for aligning with company goals, earning your team's trust, and delivering tangible results quickly. Without it, you risk appearing directionless, missing key opportunities, and failing to establish the authority needed to lead effectively.&lt;/p&gt;</content:encoded>
+            <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/30-60-90-day-plan-new-managers.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Gtm Engineering</category>
+            <category>Go-To-Market</category>
+            <category>Revops</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/30-60-90-day-plan-new-managers.webp" type="image/webp" length="0"/>
+        </item>
+        <item>
+            <title>What is a Go-to-Market Strategy? A Founder's Playbook</title>
+            <link>https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</link>
+            <description>A founder</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+        MAIN CONTENT
+        =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                    ARTICLE HEADER
+                    =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;h1 class="post-title"&gt;What is a Go-to-Market (GTM) Strategy? A Founder's Playbook for 2026&lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                September 04, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                5 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;span class="post-tag"&gt;Go-to-Market&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Strategy&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Startups&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                    HERO IMAGE SECTION
+                    =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/gtm-revenue-system-illustration.webp"
+                            alt="3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                    ARTICLE CONTENT
+                    =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;!-- Lead Paragraph / Introduction --&gt;
+                        &lt;p&gt;
+                            &lt;strong
+                                &gt;If you search for "what is a go to market strategy," you'll find a dozen articles with
+                                the same MBA-style definition.&lt;/strong
+                            &gt;
+                            They’ll talk about product, price, place, and promotion. They’ll give you a checklist that
+                            feels like it was written for a Fortune 500 company launching a new soda. As a founder,
+                            that’s not just unhelpful—it’s a distraction.
+                        &lt;/p&gt;
+&lt;p&gt;
+                            A go-to-market (GTM) strategy for a startup isn't a 50-page document. It's the blueprint for
+                            your revenue machine. It's the engineered system that answers one question: How do we
+                            predictably and repeatedly acquire customers we can serve profitably? I learned this the
+                            hard way while scaling my YC-backed startup from $0 to $3M ARR. We didn't have time for
+                            theory; we needed systems that worked.
+                        &lt;/p&gt;
+&lt;p&gt;
+                            Most founders I talk to, especially technical ones, think of GTM as a "sales and marketing
+                            thing." That’s a mistake. You should think about your GTM strategy the same way you think
+                            about your product: it’s a system with inputs, processes, and outputs that you constantly
+                            iterate on.
+                        &lt;/p&gt;</content:encoded>
+            <pubDate>Wed, 22 Oct 2025 01:33:05 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Go-To-Market Strategy</category>
+            <category>Startup Gtm</category>
+            <category>Revenue System</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-revenue-system-illustration.webp" type="image/webp" length="0"/>
+        </item>
+        <item>
+            <title>GTM Engineering vs. Revenue Operations for Startups</title>
+            <link>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</link>
+            <description>What</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+        MAIN CONTENT
+        =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                    ARTICLE HEADER
+                    =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;h1 class="post-title"&gt;
+                            GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups
+                        &lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                September 04, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                3 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;span class="post-tag"&gt;GTM Engineering&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;RevOps&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Startups&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                    HERO IMAGE SECTION
+                    =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/gtm-engineering-vs-revenue-operations-for-startups.webp"
+                            alt="Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials."
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                    ARTICLE CONTENT
+                    =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;p&gt;
+                            &lt;strong&gt;As a founder, you're constantly told to be "data-driven."&lt;/strong&gt; You're also
+                            buried in acronyms. Two of the biggest floating around are RevOps (Revenue Operations) and
+                            GTM Engineering. They sound similar, and frankly, the consulting world loves to make them
+                            confusing. But for a startup, choosing the wrong one at the wrong time is the difference
+                            between scaling predictably and burning cash on a system that doesn't work.
+                        &lt;/p&gt;
+&lt;p&gt;
+                            Let's cut through the noise. Here’s the simple, direct answer:
+                            &lt;strong
+                                &gt;Revenue Operations is about &lt;em&gt;managing&lt;/em&gt; your existing GTM systems. GTM
+                                Engineering is about &lt;em&gt;building&lt;/em&gt; custom, automated systems from first principles
+                                to create a step-function change in your growth.&lt;/strong
+                            &gt;
+                        &lt;/p&gt;
+&lt;p&gt;
+                            I’ve lived this firsthand. When scaling my last company through Y Combinator, we hit a wall
+                            where our early, scrappy processes couldn't keep up. We needed a system. The debate then, as
+                            it is now, was where to focus our limited resources. This guide is the answer I wish I had—a
+                            founder-to-founder breakdown of what these disciplines are and which one you actually need
+                            right now.
+                        &lt;/p&gt;</content:encoded>
+            <pubDate>Wed, 22 Oct 2025 01:33:05 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Gtm Engineering</category>
+            <category>Revenue Operations</category>
+            <category>Revops</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revenue-operations-for-startups.webp" type="image/webp" length="0"/>
+        </item>
         <item>
             <title>Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)</title>
             <link>https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</link>
-            <description><![CDATA[A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.]]></description>
-            <content:encoded><![CDATA[<p>Ask most founders about their Ideal Customer Profile (ICP), and you'll get something like "small to medium businesses" or "companies with 50-500 employees." That's not an ICP. That's a demographic guess that will cost you thousands in wasted ad spend and countless hours chasing prospects who will never buy.</p>
-
-<p>I learned this the hard way while scaling different startups. We burned through six months of runway targeting "all SaaS companies" before we realized our actual ICP was Series A fintech companies with specific compliance needs. The difference between a gut-feeling ICP and a data-driven one? A 340% increase in conversion rates and a 60% reduction in customer acquisition cost.</p>
-
-<p>Your ICP isn't a marketing exercise. It's the foundation of your entire revenue machine. Get it wrong, and every dollar you spend on sales and marketing is a gamble. Get it right, and you've engineered a predictable path to growth.</p>]]></content:encoded>
+            <description>A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+         MAIN CONTENT
+         =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                     ARTICLE HEADER
+                     =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;!-- UPDATE: Blog post title --&gt;
+                        &lt;h1 class="post-title"&gt;Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)&lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Publication date --&gt;
+                                October 17, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Author name (default: Jorge Macias) --&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Reading time estimate --&gt;
+                                9 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;!-- UPDATE: Add relevant category tags --&gt;
+                            &lt;span class="post-tag"&gt;ICP&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Marketing&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Sales&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     HERO IMAGE SECTION
+                     =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/data-driven-guide-ideal-customer-profile-icp.webp"
+                            alt="A futuristic circular target with a person icon at the center, representing an Ideal Customer Profile."
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     ARTICLE CONTENT - UPDATE ALL CONTENT BELOW
+                     =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;p&gt;Ask most founders about their Ideal Customer Profile (ICP), and you'll get something like "small to medium businesses" or "companies with 50-500 employees." That's not an ICP. That's a demographic guess that will cost you thousands in wasted ad spend and countless hours chasing prospects who will never buy.&lt;/p&gt;
+&lt;p&gt;I learned this the hard way while scaling different startups. We burned through six months of runway targeting "all SaaS companies" before we realized our actual ICP was Series A fintech companies with specific compliance needs. The difference between a gut-feeling ICP and a data-driven one? A 340% increase in conversion rates and a 60% reduction in customer acquisition cost.&lt;/p&gt;
+&lt;p&gt;Your ICP isn't a marketing exercise. It's the foundation of your entire revenue machine. Get it wrong, and every dollar you spend on sales and marketing is a gamble. Get it right, and you've engineered a predictable path to growth.&lt;/p&gt;</content:encoded>
             <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
             <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</guid>
             <dc:creator>Jorge Macias</dc:creator>
-            <category>ICP</category>
-            <category>Marketing</category>
-            <category>Sales</category>
+            <category>Icp</category>
+            <category>Ideal Customer Profile</category>
+            <category>Data-Driven Marketing</category>
             <enclosure url="https://blog.gtm-engineering.io/assets/data-driven-guide-ideal-customer-profile-icp.webp" type="image/webp" length="0"/>
         </item>
-
-        <item>
-            <title>HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide</title>
-            <link>https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</link>
-            <description><![CDATA[A GTM engineer's guide to HubSpot vs Salesforce. Discover why AI-native CRMs are superior for early-stage startups and when to upgrade.]]></description>
-            <content:encoded><![CDATA[<p><strong>As a founder who has scaled revenue engines from zero, I can tell you that your choice of CRM is critical. But here's what most articles won't tell you: the "best" CRM depends entirely on your stage.</strong></p>
-
-<p>The wrong choice doesn't just burn cash. It kills velocity, creates unnecessary complexity, and distracts your team from what actually matters: talking to customers and closing deals.</p>
-
-<p>This is a GTM engineer's breakdown forged from building and scaling revenue systems across different startup stages. The critical insight: match your CRM to your current reality, not your future dreams.</p>]]></content:encoded>
-            <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
-            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</guid>
-            <dc:creator>Jorge Macias</dc:creator>
-            <category>CRM</category>
-            <category>Salesforce</category>
-            <category>HubSpot</category>
-            <enclosure url="https://blog.gtm-engineering.io/assets/hubspot-vs-salesforce-for-startups.webp" type="image/webp" length="0"/>
-        </item>
-
         <item>
             <title>GTM Engineering vs RevOps: The Technical Founder's Guide</title>
             <link>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</link>
-            <description><![CDATA[Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.]]></description>
-            <content:encoded><![CDATA[<h2>What Is RevOps and Why It Matters</h2>
-<p>Revenue Operations (RevOps) addresses the inefficiencies caused by siloed sales, marketing, and customer success teams, which lead to data inconsistencies and missed revenue opportunities. Companies with aligned RevOps see 19% faster revenue growth and 15% higher profitability.</p>
-
-<p>RevOps focuses on three core areas: unifying processes across teams, maintaining data governance and CRM hygiene, and optimizing tech stack integration. The impact is significant—companies implementing RevOps report 10-20% increases in sales productivity within a year and up to 28% improvement in forecast accuracy, critical for raising capital or scaling.</p>]]></content:encoded>
+            <description>Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+         MAIN CONTENT
+         =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                     ARTICLE HEADER
+                     =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;!-- UPDATE: Blog post title --&gt;
+                        &lt;h1 class="post-title"&gt;GTM Engineering vs. RevOps: The Technical Founder’s Guide&lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Publication date --&gt;
+                                October 17, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Author name (default: Jorge Macias) --&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Reading time estimate --&gt;
+                                8 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;!-- UPDATE: Add relevant category tags --&gt;
+                            &lt;span class="post-tag"&gt;GTM Engineering&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;RevOps&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Strategy&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     HERO IMAGE SECTION
+                     =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/gtm-engineering-vs-revops.webp"
+                            alt="A diagram showing the difference between RevOps, represented by a brain with gears, and GTM Engineering, represented by a robotic hand interacting with a growth chart."
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     ARTICLE CONTENT - UPDATE ALL CONTENT BELOW
+                     =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;h2&gt;What Is RevOps and Why It Matters&lt;/h2&gt;
+                        &lt;p&gt;Revenue Operations (RevOps) addresses the inefficiencies caused by siloed sales, marketing, and customer success teams, which lead to data inconsistencies and missed revenue opportunities. Companies with aligned RevOps see 19% faster revenue growth and 15% higher profitability.&lt;/p&gt;
+&lt;p&gt;RevOps focuses on three core areas: unifying processes across teams, maintaining data governance and CRM hygiene, and optimizing tech stack integration. The impact is significant—companies implementing RevOps report 10-20% increases in sales productivity within a year and up to 28% improvement in forecast accuracy, critical for raising capital or scaling.&lt;/p&gt;
+&lt;p&gt;RevOps professionals manage CRM configuration, sales process optimization, analytics, and cross-functional reporting, ensuring sales teams focus on selling rather than fixing workflows or handling inconsistent data.&lt;/p&gt;</content:encoded>
             <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
             <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</guid>
             <dc:creator>Jorge Macias</dc:creator>
-            <category>GTM Engineering</category>
-            <category>RevOps</category>
-            <category>Strategy</category>
+            <category>Gtm Engineering</category>
+            <category>Revops</category>
+            <category>Revenue Operations</category>
             <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revops.webp" type="image/webp" length="0"/>
         </item>
-
+        <item>
+            <title>HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide</title>
+            <link>https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</link>
+            <description>A GTM engineer</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+         MAIN CONTENT
+         =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                     ARTICLE HEADER
+                     =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;!-- UPDATE: Blog post title --&gt;
+                        &lt;h1 class="post-title"&gt;HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide&lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Publication date --&gt;
+                                October 17, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Author name (default: Jorge Macias) --&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Reading time estimate --&gt;
+                                8 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;!-- UPDATE: Add relevant category tags --&gt;
+                            &lt;span class="post-tag"&gt;CRM&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Salesforce&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;HubSpot&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     HERO IMAGE SECTION
+                     =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/hubspot-vs-salesforce-for-startups.webp"
+                            alt="HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     ARTICLE CONTENT - UPDATE ALL CONTENT BELOW
+                     =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;p&gt;&lt;strong&gt;As a founder who has scaled revenue engines from zero, I can tell you that your choice of CRM is critical. But here’s what most articles won’t tell you: the “best” CRM depends entirely on your stage.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The wrong choice doesn’t just burn cash. It kills velocity, creates unnecessary complexity, and distracts your team from what actually matters: talking to customers and closing deals.&lt;/p&gt;
+&lt;p&gt;This is a GTM engineer’s breakdown forged from building and scaling revenue systems across different startup stages. The critical insight: match your CRM to your current reality, not your future dreams.&lt;/p&gt;</content:encoded>
+            <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
+            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/hubspot-vs-salesforce-for-startups.html</guid>
+            <dc:creator>Jorge Macias</dc:creator>
+            <category>Hubspot</category>
+            <category>Salesforce</category>
+            <category>Crm</category>
+            <enclosure url="https://blog.gtm-engineering.io/assets/hubspot-vs-salesforce-for-startups.webp" type="image/webp" length="0"/>
+        </item>
         <item>
             <title>GTM Tech Stack: Building Your Revenue Engine From Zero To Scale</title>
             <link>https://blog.gtm-engineering.io/posts/build-scalable-gtm-tech-stack-guide.html</link>
-            <description><![CDATA[Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.]]></description>
-            <content:encoded><![CDATA[<p><strong>This guide is designed to give you the playbook I wish I had. We'll skip the vague consulting jargon and focus on building scalable GTM tech stack from the ground up, with an engineering-first mindset (i have a background in industrial/process engineering).</strong></p>
-
-<h2>What Is A GTM Tech Stack</h2>
-<p>A GTM tech stack is the integrated set of software that powers your company's entire revenue engine. It's not just a random collection of tools; it's an interconnected system designed to align your marketing, sales, and customer success teams around a single goal: predictable growth.</p>
-
-<p>Unlike a general company tech stack, which includes everything from finance to HR tools, the GTM stack is exclusively focused on revenue-driving functions. It's the engine that finds, engages, and retains your customers.</p>]]></content:encoded>
+            <description>Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.</description>
+            <content:encoded>&lt;path
+                            d="M3 12H21M3 6H21M3 18H21"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                    &lt;svg
+                        class="close-icon"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    &gt;
+                        &lt;path
+                            d="M18 6L6 18M6 6L18 18"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        /&gt;
+                    &lt;/svg&gt;
+                &lt;/button&gt;
+                &lt;!-- Mobile Navigation Overlay --&gt;
+                &lt;div class="mobile-menu-overlay" role="navigation" aria-label="Mobile navigation"&gt;
+                    &lt;nav class="mobile-nav"&gt;
+                        &lt;ul class="mobile-nav-links"&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#services" class="mobile-nav-link"
+                                    &gt;Services&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/home2#results" class="mobile-nav-link"
+                                    &gt;Case Studies&lt;/a
+                                &gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="https://www.gtm-engineering.io/testimonials" class="mobile-nav-link"&gt;Proof&lt;/a&gt;
+                            &lt;/li&gt;
+                            &lt;li&gt;
+                                &lt;a href="../" class="mobile-nav-link"&gt;GTME Blog&lt;/a&gt;
+                            &lt;/li&gt;
+                        &lt;/ul&gt;
+                        &lt;a
+                            href="https://calendly.com/jorge-gtm-engineering/30-minute-meeting-gtme-clone?back=1"
+                            class="btn btn-primary mobile-cta"
+                            target="_blank"
+                            rel="noopener"
+                            &gt;Book Call&lt;/a
+                        &gt;
+                    &lt;/nav&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;!-- ===================
+         MAIN CONTENT
+         =================== --&gt;
+        &lt;main role="main"&gt;
+            &lt;article class="section"&gt;
+                &lt;div class="container"&gt;
+                    &lt;!-- ===================
+                     ARTICLE HEADER
+                     =================== --&gt;
+                    &lt;div class="post-header"&gt;
+                        &lt;!-- UPDATE: Blog post title --&gt;
+                        &lt;h1 class="post-title"&gt;GTM Tech Stack: Building Your Revenue Engine From Zero To Scale&lt;/h1&gt;
+                        &lt;!-- Article Meta Information --&gt;
+                        &lt;div class="post-meta"&gt;
+                            &lt;!-- Publication Date --&gt;
+                            &lt;span class="post-card-date"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;rect
+                                        x="3"
+                                        y="4"
+                                        width="18"
+                                        height="18"
+                                        rx="2"
+                                        ry="2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Publication date --&gt;
+                                October 16, 2025
+                            &lt;/span&gt;
+                            &lt;!-- Author --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;path
+                                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                    /&gt;
+                                    &lt;circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Author name --&gt;
+                                Jorge Macias
+                            &lt;/span&gt;
+                            &lt;!-- Reading Time Estimate --&gt;
+                            &lt;span class="post-card-author"&gt;
+                                &lt;svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                &gt;
+                                    &lt;circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" /&gt;
+                                    &lt;polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" /&gt;
+                                &lt;/svg&gt;
+                                &lt;!-- UPDATE: Reading time estimate --&gt;
+                                8 min read
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Category Tags --&gt;
+                        &lt;div class="post-card-tags"&gt;
+                            &lt;!-- UPDATE: Add relevant category tags --&gt;
+                            &lt;span class="post-tag"&gt;GTM&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Tech Stack&lt;/span&gt;
+                            &lt;span class="post-tag"&gt;Automation&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     HERO IMAGE SECTION
+                     =================== --&gt;
+                    &lt;div style="margin-bottom: var(--space-12)"&gt;
+                        &lt;img
+                            src="../assets/build-scalable-gtm-tech-stack-guide.webp"
+                            alt="GTM Tech Stack: Building Your Revenue Engine From Zero To Scale"
+                            style="
+                                width: 100%;
+                                aspect-ratio: 16/9;
+                                object-fit: contain;
+                                border-radius: var(--border-radius-xl);
+                                background-color: var(--color-background-secondary);
+                            "
+                        /&gt;
+                    &lt;/div&gt;
+                    &lt;!-- ===================
+                     ARTICLE CONTENT - UPDATE ALL CONTENT BELOW
+                     =================== --&gt;
+                    &lt;div class="post-content"&gt;
+                        &lt;p&gt;&lt;strong&gt;This guide is designed to give you the playbook I wish I had. We'll skip the vague consulting jargon and focus on building scalable GTM tech stack from the ground up, with an engineering-first mindset (i have a background in industrial/process engineering).&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;A GTM tech stack is the integrated set of software that powers your company's entire revenue engine. It's not just a random collection of tools; it's an interconnected system designed to align your marketing, sales, and customer success teams around a single goal: predictable growth.&lt;/p&gt;
+&lt;p&gt;Unlike a general company tech stack, which includes everything from finance to HR tools, the GTM stack is exclusively focused on revenue-driving functions. It's the engine that finds, engages, and retains your customers. I've seen startups make the mistake of thinking this is something to worry about later or to treat it with less importance than other parts of the company, but building a solid foundation from day one is what separates companies that scale smoothly from those that stall.&lt;/p&gt;</content:encoded>
             <pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
             <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/build-scalable-gtm-tech-stack-guide.html</guid>
             <dc:creator>Jorge Macias</dc:creator>
-            <category>GTM</category>
+            <category>Gtm</category>
             <category>Tech Stack</category>
-            <category>Automation</category>
+            <category>Revenue Engine</category>
             <enclosure url="https://blog.gtm-engineering.io/assets/build-scalable-gtm-tech-stack-guide.webp" type="image/webp" length="0"/>
         </item>
-
-        <item>
-            <title>GTM Engineering vs. Revenue Operations: The Definitive Guide for Startups</title>
-            <link>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</link>
-            <description><![CDATA[What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine. Learn when to hire and when to build systems first.]]></description>
-            <content:encoded><![CDATA[<p><strong>As a founder, you're constantly told to be "data-driven."</strong> You're also buried in acronyms. Two of the biggest floating around are RevOps (Revenue Operations) and GTM Engineering. They sound similar, and frankly, the consulting world loves to make them confusing. But for a startup, choosing the wrong one at the wrong time is the difference between scaling predictably and burning cash on a system that doesn't work.</p>
-
-<p>Let's cut through the noise. Here's the simple, direct answer: <strong>Revenue Operations is about <em>managing</em> your existing GTM systems. GTM Engineering is about <em>building</em> custom, automated systems from first principles to create a step-function change in your growth.</strong></p>
-
-<p>I've lived this firsthand. When scaling my last company through Y Combinator, we hit a wall where our early, scrappy processes couldn't keep up. We needed a system. The debate then, as it is now, was where to focus our limited resources. This guide is the answer I wish I had—a founder-to-founder breakdown of what these disciplines are and which one you actually need right now.</p>]]></content:encoded>
-            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
-            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</guid>
-            <dc:creator>Jorge Macias</dc:creator>
-            <category>GTM Engineering</category>
-            <category>RevOps</category>
-            <category>Startups</category>
-            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-engineering-vs-revenue-operations-for-startups.webp" type="image/webp" length="0"/>
-        </item>
-
-        <item>
-            <title>What is a Go-to-Market (GTM) Strategy? A Founder's Playbook for 2026</title>
-            <link>https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</link>
-            <description><![CDATA[A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup. Forget the textbook definitions—this is the practical blueprint for your revenue machine.]]></description>
-            <content:encoded><![CDATA[<p><strong>If you search for "what is a go to market strategy," you'll find a dozen articles with the same MBA-style definition.</strong> They'll talk about product, price, place, and promotion. They'll give you a checklist that feels like it was written for a Fortune 500 company launching a new soda. As a founder, that's not just unhelpful—it's a distraction.</p>
-
-<p>A go-to-market (GTM) strategy for a startup isn't a 50-page document. It's the blueprint for your revenue machine. It's the engineered system that answers one question: How do we predictably and repeatedly acquire customers we can serve profitably? I learned this the hard way while scaling my YC-backed startup from $0 to $3M ARR. We didn't have time for theory; we needed systems that worked.</p>]]></content:encoded>
-            <pubDate>Wed, 04 Sep 2025 00:00:00 GMT</pubDate>
-            <guid isPermaLink="true">https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</guid>
-            <dc:creator>Jorge Macias</dc:creator>
-            <category>Go-to-Market</category>
-            <category>Strategy</category>
-            <category>Startups</category>
-            <enclosure url="https://blog.gtm-engineering.io/assets/gtm-revenue-system-illustration.webp" type="image/webp" length="0"/>
-        </item>
-
     </channel>
 </rss>
