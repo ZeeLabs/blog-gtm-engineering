@@ -1,0 +1,186 @@
+name: Blog Automation (Unified)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/**"
+      - "posts/**"
+      - "scripts/**"
+      - ".github/workflows/blog-automation.yml"
+      - ".templates/**"
+      - "assets/**"
+
+permissions:
+  contents: write
+
+jobs:
+  automate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify Python installation
+        run: python --version
+
+      # ============================================================
+      # STEP 1: Draft Protection & Manifest
+      # ============================================================
+      - name: Ensure drafts have noindex meta tag
+        run: |
+          python scripts/ensure-noindex.py || {
+            echo "⚠️  Draft noindex script failed (non-critical)"
+            true
+          }
+
+      - name: Build drafts manifest
+        run: |
+          python scripts/build-draft-manifest.py || {
+            echo "⚠️  Draft manifest build failed (non-critical)"
+            true
+          }
+
+      # ============================================================
+      # STEP 2: Generate Sitemap & RSS Feed
+      # ============================================================
+      - name: Generate sitemap.xml
+        run: |
+          python scripts/generate-sitemap.py --output sitemap.xml || {
+            echo "❌ Sitemap generation failed"
+            exit 1
+          }
+
+      - name: Generate RSS feed (feed.xml)
+        run: |
+          python scripts/generate-rss-feed.py --output feed.xml || {
+            echo "❌ RSS feed generation failed"
+            exit 1
+          }
+
+      # ============================================================
+      # STEP 3: Update Blog Metadata (Related Articles)
+      # ============================================================
+      - name: Update blog metadata for all posts
+        run: |
+          python scripts/update-blog-metadata.py --all --silent || {
+            echo "⚠️  Metadata update failed (non-critical)"
+            true
+          }
+
+      # ============================================================
+      # STEP 4: Update Homepage with Post Cards
+      # ============================================================
+      - name: Detect and add new posts to homepage
+        run: |
+          shopt -s nullglob
+          set +e
+
+          # Add all posts as regular cards first
+          for f in posts/*.html; do
+            slug=$(basename "$f" .html)
+            python scripts/add-post-card.py "$slug" --auto --mode regular
+            code=$?
+
+            if [ $code -eq 2 ]; then
+              echo "✓ Post '$slug' already in homepage"
+            elif [ $code -eq 0 ]; then
+              echo "✓ Added post '$slug' to homepage"
+            else
+              echo "❌ Failed to add post '$slug' (exit code: $code)" >&2
+              exit $code
+            fi
+          done
+
+          set -e
+
+      # ============================================================
+      # STEP 5: Auto-Feature Most Recent Post
+      # ============================================================
+      - name: Promote most recent post to featured
+        run: |
+          # Find most recent post by parsing publish date from HTML
+          python << 'PYTHON_SCRIPT'
+          from pathlib import Path
+          import sys
+
+          # Import HTML parser
+          sys.path.insert(0, str(Path("scripts")))
+          from lib.html_parser import get_all_posts
+
+          # Get all posts sorted by date (newest first)
+          posts_dir = Path("posts")
+          posts = get_all_posts(posts_dir, sort_by_date=True)
+
+          if not posts:
+              print("No posts found")
+              sys.exit(0)
+
+          # Most recent post is first in list
+          most_recent = posts[0]
+          print(f"MOST_RECENT_SLUG={most_recent['filename']}")
+          PYTHON_SCRIPT
+
+          # Capture the slug
+          most_recent_slug=$(python << 'PYTHON_SCRIPT'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, str(Path("scripts")))
+          from lib.html_parser import get_all_posts
+          posts = get_all_posts(Path("posts"), sort_by_date=True)
+          if posts:
+              print(posts[0]['filename'])
+          PYTHON_SCRIPT
+          )
+
+          if [ -n "$most_recent_slug" ]; then
+            echo "📌 Promoting most recent post to featured: $most_recent_slug"
+            python scripts/add-post-card.py "$most_recent_slug" --auto --mode featured || {
+              echo "⚠️  Failed to promote featured post (non-critical)"
+              true
+            }
+          else
+            echo "⚠️  No posts found to feature"
+          fi
+
+      # ============================================================
+      # STEP 6: Commit All Changes
+      # ============================================================
+      - name: Commit and push changes
+        run: |
+          # Check for changes
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "✓ No changes to commit"
+            exit 0
+          fi
+
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Stage all changes
+          git add -A
+
+          # Create commit message
+          cat > /tmp/commit-message.txt << 'EOF'
+          ci: automated blog updates [skip ci]
+
+          - Updated sitemap.xml
+          - Updated feed.xml (RSS)
+          - Updated blog metadata (related articles)
+          - Updated homepage post cards
+          - Featured most recent post
+          EOF
+
+          # Commit and push
+          git commit -F /tmp/commit-message.txt
+          git push origin main
+
+          echo "✅ Changes committed and pushed successfully"
