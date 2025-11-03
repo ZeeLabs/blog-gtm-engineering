@@ -102,7 +102,17 @@ jobs:
           set -e
 
       # ============================================================
-      # STEP 5: Auto-Feature Most Recent Post
+      # STEP 5: Sort Post Cards by Date
+      # ============================================================
+      - name: Sort post cards by publish date
+        run: |
+          python scripts/sort-post-cards.py || {
+            echo "❌ Post card sorting failed"
+            exit 1
+          }
+
+      # ============================================================
+      # STEP 6: Auto-Feature Most Recent Post
       # ============================================================
       - name: Promote most recent post to featured
         run: |
@@ -151,7 +161,7 @@ jobs:
           fi
 
       # ============================================================
-      # STEP 6: Commit All Changes
+      # STEP 7: Commit All Changes
       # ============================================================
       - name: Commit and push changes
         run: |
@@ -176,6 +186,7 @@ jobs:
           - Updated feed.xml (RSS)
           - Updated blog metadata (related articles)
           - Updated homepage post cards
+          - Sorted post cards by publish date
           - Featured most recent post
           EOF
 

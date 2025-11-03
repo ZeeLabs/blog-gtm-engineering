@@ -218,6 +218,10 @@ def extract_publish_date(content: str, file_path: Optional[Path] = None) -> date
         # Parse ISO 8601 date
         try:
             # Handle various formats: 2025-10-17T00:00:00Z, 2025-10-17, etc.
+            try:
+                return datetime.fromisoformat(pub_date)
+            except ValueError:
+                pass
             for fmt in ["%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"]:
                 try:
                     return datetime.strptime(pub_date, fmt)
