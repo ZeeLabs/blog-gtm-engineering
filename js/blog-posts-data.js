@@ -24,90 +24,6 @@
 
 const blogPostsData = [
   {
-    "title": "GTM Tech Stack: Building Your Revenue Engine From Zero To Scale",
-    "url": "build-scalable-gtm-tech-stack-guide.html",
-    "excerpt": "Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.",
-    "date": "October 16, 2025",
-    "image": "/assets/build-scalable-gtm-tech-stack-guide.webp",
-    "imageAlt": "Conceptual image of an interconnected tech stack for a revenue engine.",
-    "tags": [
-      "Gtm",
-      "Tech Stack",
-      "Revenue Engine"
-    ],
-    "category": "Gtm"
-  },
-  {
-    "title": "Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)",
-    "url": "data-driven-guide-ideal-customer-profile-icp.html",
-    "excerpt": "A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.",
-    "date": "October 17, 2025",
-    "image": "/assets/data-driven-guide-ideal-customer-profile-icp.webp",
-    "imageAlt": "A futuristic circular target with a person icon at the center, representing an Ideal Customer Profile.",
-    "tags": [
-      "Icp",
-      "Ideal Customer Profile",
-      "Data-Driven Marketing"
-    ],
-    "category": "Icp"
-  },
-  {
-    "title": "GTM Engineering vs. Revenue Operations for Startups",
-    "url": "gtm-engineering-vs-revenue-operations-for-startups.html",
-    "excerpt": "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
-    "date": "October 22, 2025",
-    "image": "/assets/gtm-engineering-vs-revenue-operations-for-startups.webp",
-    "imageAlt": "Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials.",
-    "tags": [
-      "Gtm Engineering",
-      "Revenue Operations",
-      "Revops"
-    ],
-    "category": "Gtm Engineering"
-  },
-  {
-    "title": "GTM Engineering vs RevOps: The Technical Founder's Guide",
-    "url": "gtm-engineering-vs-revops.html",
-    "excerpt": "Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.",
-    "date": "October 17, 2025",
-    "image": "/assets/gtm-engineering-vs-revops.webp",
-    "imageAlt": "A diagram showing the difference between RevOps, represented by a brain with gears, and GTM Engineering, represented by a robotic hand interacting with a growth chart.",
-    "tags": [
-      "Gtm Engineering",
-      "Revops",
-      "Revenue Operations"
-    ],
-    "category": "Gtm Engineering"
-  },
-  {
-    "title": "HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide",
-    "url": "hubspot-vs-salesforce-for-startups.html",
-    "excerpt": "A GTM engineer's guide to HubSpot vs Salesforce. Discover why AI-native CRMs are superior for early-stage startups and when to upgrade.",
-    "date": "October 17, 2025",
-    "image": "/assets/hubspot-vs-salesforce-for-startups.webp",
-    "imageAlt": "Comparison of HubSpot and Salesforce logos with an AI-native CRM concept.",
-    "tags": [
-      "Hubspot",
-      "Salesforce",
-      "Crm"
-    ],
-    "category": "Hubspot"
-  },
-  {
-    "title": "What is a Go-to-Market Strategy? A Founder's Playbook",
-    "url": "what-is-a-go-to-market-strategy-founders-playbook.html",
-    "excerpt": "A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup.",
-    "date": "October 22, 2025",
-    "image": "/assets/gtm-revenue-system-illustration.webp",
-    "imageAlt": "3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system",
-    "tags": [
-      "Go-To-Market Strategy",
-      "Startup Gtm",
-      "Revenue System"
-    ],
-    "category": "Go-To-Market Strategy"
-  },
-  {
     "title": "Best AI Cold Calling Software Tools (2026 Reviewed)",
     "url": "best-ai-cold-calling-software-tools.html",
     "excerpt": "Discover the best AI cold calling software tools to automate outreach. Compare features, pros, cons, and find the perfect fit for your needs.",
@@ -136,6 +52,20 @@ const blogPostsData = [
     "category": "Gtm Engineering"
   },
   {
+    "title": "GTM Engineering vs. Revenue Operations for Startups",
+    "url": "gtm-engineering-vs-revenue-operations-for-startups.html",
+    "excerpt": "What's the difference between GTM Engineering and Revenue Operations? A YC founder breaks down which discipline your startup needs to build a scalable revenue machine.",
+    "date": "November 03, 2025",
+    "image": "/assets/gtm-engineering-vs-revenue-operations-for-startups.webp",
+    "imageAlt": "Abstract 3D illustration showing GTM Engineering as clean, scalable building blocks and RevOps as a complex dashboard of dials.",
+    "tags": [
+      "Gtm Engineering",
+      "Revenue Operations",
+      "Revops"
+    ],
+    "category": "Gtm Engineering"
+  },
+  {
     "title": "30-60-90 Day Plan For New Managers Guide (With Examples)",
     "url": "30-60-90-day-plan-new-managers.html",
     "excerpt": "Set yourself up for success. Our guide provides a 30-60-90 day plan for new managers with a template, examples, and key actions for your first 3 months.",
@@ -148,6 +78,76 @@ const blogPostsData = [
       "Revops"
     ],
     "category": "Gtm Engineering"
+  },
+  {
+    "title": "What is a Go-to-Market Strategy? A Founder's Playbook",
+    "url": "what-is-a-go-to-market-strategy-founders-playbook.html",
+    "excerpt": "A founder's guide to building a go-to-market strategy that actually works. Learn the YC-tested principles to build a scalable revenue system for your startup.",
+    "date": "November 03, 2025",
+    "image": "/assets/gtm-revenue-system-illustration.webp",
+    "imageAlt": "3D isometric illustration of GTM strategy components including ICP, Sales, Marketing modules with a person optimizing the system",
+    "tags": [
+      "Go-To-Market Strategy",
+      "Startup Gtm",
+      "Revenue System"
+    ],
+    "category": "Go-To-Market Strategy"
+  },
+  {
+    "title": "GTM Tech Stack: Building Your Revenue Engine From Zero To Scale",
+    "url": "build-scalable-gtm-tech-stack-guide.html",
+    "excerpt": "Build a scalable Go-to-Market (GTM) tech stack from scratch. Our guide covers essential tools (CRM, automation), integrations, and common pitfalls to drive predictable revenue growth.",
+    "date": "October 16, 2025",
+    "image": "/assets/build-scalable-gtm-tech-stack-guide.webp",
+    "imageAlt": "Conceptual image of an interconnected tech stack for a revenue engine.",
+    "tags": [
+      "Gtm",
+      "Tech Stack",
+      "Revenue Engine"
+    ],
+    "category": "Gtm"
+  },
+  {
+    "title": "GTM Engineering vs RevOps: The Technical Founder's Guide",
+    "url": "gtm-engineering-vs-revops.html",
+    "excerpt": "Explore the difference between GTM Engineering and RevOps. Our guide helps founders decide when to hire for process alignment vs. technical innovation.",
+    "date": "October 17, 2025",
+    "image": "/assets/gtm-engineering-vs-revops.webp",
+    "imageAlt": "A diagram showing the difference between RevOps, represented by a brain with gears, and GTM Engineering, represented by a robotic hand interacting with a growth chart.",
+    "tags": [
+      "Gtm Engineering",
+      "Revops",
+      "Revenue Operations"
+    ],
+    "category": "Gtm Engineering"
+  },
+  {
+    "title": "Data-Driven Guide To Finding Your Ideal Customer Profile (ICP)",
+    "url": "data-driven-guide-ideal-customer-profile-icp.html",
+    "excerpt": "A complete guide to creating a data-driven Ideal Customer Profile (ICP). Learn to analyze customer data, avoid common mistakes, and build a foundation for predictable growth.",
+    "date": "October 17, 2025",
+    "image": "/assets/data-driven-guide-ideal-customer-profile-icp.webp",
+    "imageAlt": "A futuristic circular target with a person icon at the center, representing an Ideal Customer Profile.",
+    "tags": [
+      "Icp",
+      "Ideal Customer Profile",
+      "Data-Driven Marketing"
+    ],
+    "category": "Icp"
+  },
+  {
+    "title": "HubSpot vs Salesforce for Startups: A GTM Engineer's 2025 Guide",
+    "url": "hubspot-vs-salesforce-for-startups.html",
+    "excerpt": "A GTM engineer's guide to HubSpot vs Salesforce. Discover why AI-native CRMs are superior for early-stage startups and when to upgrade.",
+    "date": "October 17, 2025",
+    "image": "/assets/hubspot-vs-salesforce-for-startups.webp",
+    "imageAlt": "Comparison of HubSpot and Salesforce logos with an AI-native CRM concept.",
+    "tags": [
+      "Hubspot",
+      "Salesforce",
+      "Crm"
+    ],
+    "category": "Hubspot"
   }
 ];
 

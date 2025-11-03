@@ -7,6 +7,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://blog.gtm-engineering.io/posts/best-ai-cold-calling-software-tools.html</loc>
     <lastmod>2025-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -25,25 +37,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.gtm-engineering.io/posts/what-is-a-go-to-market-strategy-founders-playbook.html</loc>
-    <lastmod>2025-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revenue-operations-for-startups.html</loc>
-    <lastmod>2025-10-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</loc>
+    <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</loc>
     <lastmod>2025-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.gtm-engineering.io/posts/gtm-engineering-vs-revops.html</loc>
+    <loc>https://blog.gtm-engineering.io/posts/data-driven-guide-ideal-customer-profile-icp.html</loc>
     <lastmod>2025-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
